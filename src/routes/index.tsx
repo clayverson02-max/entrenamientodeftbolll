@@ -97,7 +97,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "+250 sesiones y +2.000 ejercicios en PDF, organizados por posición, categoría y objetivo. Un solo pago de $3,90 USD, acceso de por vida.",
+          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       { property: "og:type", content: "product" },
       { property: "og:url", content: "/" },

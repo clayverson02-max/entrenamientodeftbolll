@@ -93,10 +93,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Entrena con Método" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Entrena con Método — Biblioteca Completa de Entrenamientos de Fútbol" },
+      { name: "twitter:title", content: "Entrena con Método — Biblioteca Completa de Entrenamientos de Fútbol" },
+      { property: "og:description", content: "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días." },
+      { name: "twitter:description", content: "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4b96af51-3670-4f85-9529-7e8d2c5c7123/id-preview-227da7eb--130a7114-d0f1-4289-bfcd-3b150356d36e.lovable.app-1785375946670.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4b96af51-3670-4f85-9529-7e8d2c5c7123/id-preview-227da7eb--130a7114-d0f1-4289-bfcd-3b150356d36e.lovable.app-1785375946670.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
