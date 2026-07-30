@@ -616,6 +616,54 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* VIDEOS EXPLICATIVOS */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>También incluye videos</Kicker>
+          <H2>
+            No solo PDFs: cada ejercicio tiene su{" "}
+            <span className="ecm-highlight">video explicativo</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
+            coach muestra la técnica correcta, la organización del campo y los errores más
+            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
+          </p>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {videos.map((v) => (
+              <div key={v.title} className="ecm-card overflow-hidden">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={v.src}
+                    alt={v.alt}
+                    loading="lazy"
+                    width={1024}
+                    height={576}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 pl-0.5">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-extrabold">{v.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
+            ✅ Acceso a todos los videos incluido en el mismo pago único
+          </p>
+        </div>
+      </section>
+
       {/* PERFILES */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
