@@ -52,7 +52,7 @@ const feedbacks = [
     name: "Diego Santana",
     role: "Jugador amateur, 21 años",
     img: testi2.url,
-    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $3,90 fue lo mejor que compré.",
+    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $7,90 fue lo mejor que compré.",
   },
   {
     name: "Rafael Nunes",
