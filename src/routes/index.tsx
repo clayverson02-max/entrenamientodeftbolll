@@ -52,7 +52,7 @@ const feedbacks = [
   {
     name: "Bruno Alves",
     role: "Coordinador de academia",
-    img: (testi4 as { url: string }).url,
+    img: testi4.url,
     text: "Organizamos toda la academia con la biblioteca: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
   },
   {
