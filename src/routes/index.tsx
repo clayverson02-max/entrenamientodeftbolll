@@ -29,6 +29,14 @@ import testi1 from "@/assets/testi-1.jpg.asset.json";
 import testi2 from "@/assets/testi-2.jpg.asset.json";
 import testi3 from "@/assets/testi-3.jpg.asset.json";
 import testi4 from "@/assets/testi-4.jpg.asset.json";
+import modLaterales from "@/assets/mod-laterales.jpg";
+import modPorteros from "@/assets/mod-porteros.jpg";
+import modDefensas from "@/assets/mod-defensas.jpg";
+import modDelanteros from "@/assets/mod-delanteros.jpg";
+import modFisico from "@/assets/mod-fisico.jpg";
+import modFemenino from "@/assets/mod-femenino.jpg";
+import modInfantil from "@/assets/mod-infantil.jpg";
+import modTecnica from "@/assets/mod-tecnica.jpg";
 
 const feedbacks = [
   {
