@@ -37,6 +37,9 @@ import modFisico from "@/assets/mod-fisico.jpg";
 import modFemenino from "@/assets/mod-femenino.jpg";
 import modInfantil from "@/assets/mod-infantil.jpg";
 import modTecnica from "@/assets/mod-tecnica.jpg";
+import video1 from "@/assets/video-entrenamiento-1.jpg";
+import video2 from "@/assets/video-entrenamiento-2.jpg";
+import video3 from "@/assets/video-entrenamiento-3.jpg";
 
 const feedbacks = [
   {
@@ -49,7 +52,7 @@ const feedbacks = [
     name: "Diego Santana",
     role: "Jugador amateur, 21 años",
     img: testi2.url,
-    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $3,90 fue lo mejor que compré.",
+    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $7,90 fue lo mejor que compré.",
   },
   {
     name: "Rafael Nunes",
@@ -184,6 +187,27 @@ const modulos = [
     d: "Sub-6 a Sub-12, con juego, progresión y diversión",
     img: modInfantil,
     n: "+190 ejercicios",
+  },
+];
+
+const videos = [
+  {
+    src: video1,
+    alt: "Video explicativo de entrenamiento de pase en el móvil",
+    title: "Demostraciones en video",
+    desc: "Cada ejercicio incluye su video explicativo para que copies la técnica exacta.",
+  },
+  {
+    src: video2,
+    alt: "Video de finalización en tablet con miniaturas de sesiones",
+    title: "Biblioteca de videos",
+    desc: "Más de 120 videos cortos organizados por posición, nivel y objetivo.",
+  },
+  {
+    src: video3,
+    alt: "Catálogo de videos en laptop porteros defensas y delanteros",
+    title: "Acceso desde cualquier dispositivo",
+    desc: "Mira desde el móvil en el campo o desde la laptop cuando planifiques.",
   },
 ];
 
@@ -592,6 +616,54 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* VIDEOS EXPLICATIVOS */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>También incluye videos</Kicker>
+          <H2>
+            No solo PDFs: cada ejercicio tiene su{" "}
+            <span className="ecm-highlight">video explicativo</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
+            coach muestra la técnica correcta, la organización del campo y los errores más
+            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
+          </p>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {videos.map((v) => (
+              <div key={v.title} className="ecm-card overflow-hidden">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={v.src}
+                    alt={v.alt}
+                    loading="lazy"
+                    width={1024}
+                    height={576}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 pl-0.5">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-extrabold">{v.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
+            ✅ Acceso a todos los videos incluido en el mismo pago único
+          </p>
+        </div>
+      </section>
+
       {/* PERFILES */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
@@ -791,7 +863,7 @@ function LandingPage() {
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Acceso completo a la Biblioteca de Entrenamiento por un solo pago de{" "}
-            <strong className="text-foreground">$3,90 USD</strong>, sin mensualidades: el
+            <strong className="text-foreground">$7,90 USD</strong>, sin mensualidades: el
             acceso llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
@@ -818,13 +890,13 @@ function LandingPage() {
 
               <div className="mt-6 text-center">
                 <p className="text-sm text-muted-foreground">
-                  De <s>$19,50</s> sólo por hoy
+                  De <s>$39,50</s> sólo por hoy
                 </p>
                 <p className="mt-1 font-display text-6xl text-primary">
-                  $3,90 <span className="text-2xl text-foreground">USD</span>
+                  $7,90 <span className="text-2xl text-foreground">USD</span>
                 </p>
                 <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                  80% DESCUENTO · Ahorras $15,60
+                  80% DESCUENTO · Ahorras $31,60
                 </p>
                 <p className="mt-3 text-sm font-bold text-primary">
                   ✅ Pago único · Acceso vitalicio
@@ -873,7 +945,7 @@ function LandingPage() {
                   }
                   className="ecm-cta"
                 >
-                  Quiero Mi Biblioteca Completa — $3,90
+                  Quiero Mi Biblioteca Completa — $7,90
                   <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </a>
                 <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
@@ -958,7 +1030,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti — por cualquier motivo y
             sin dar explicaciones — nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $3,90 es perder otros 6 meses entrenando a ciegas.
+            gastar $7,90 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
           </div>
