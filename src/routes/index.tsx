@@ -190,6 +190,27 @@ const modulos = [
   },
 ];
 
+const videos = [
+  {
+    src: video1,
+    alt: "Video explicativo de entrenamiento de pase en el móvil",
+    title: "Demostraciones en video",
+    desc: "Cada ejercicio incluye su video explicativo para que copies la técnica exacta.",
+  },
+  {
+    src: video2,
+    alt: "Video de finalización en tablet con miniaturas de sesiones",
+    title: "Biblioteca de videos",
+    desc: "Más de 120 videos cortos organizados por posición, nivel y objetivo.",
+  },
+  {
+    src: video3,
+    alt: "Catálogo de videos en laptop porteros defensas y delanteros",
+    title: "Acceso desde cualquier dispositivo",
+    desc: "Mira desde el móvil en el campo o desde la laptop cuando planifiques.",
+  },
+];
+
 const jugador = [
   ["Sabes qué entrenar hoy, mañana y el lunes", "Progresión real, semana a semana, en tu propia guía."],
   ["Llegas al partido con otra pierna", "Circuitos de acondicionamiento físico explicados paso a paso."],
