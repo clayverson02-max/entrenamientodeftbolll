@@ -897,7 +897,7 @@ function LandingPage() {
                   }
                   className="ecm-cta"
                 >
-                  Quiero Mi Biblioteca Completa — $3,90
+                  Quiero Mi Biblioteca Completa — $7,90
                   <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </a>
                 <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
