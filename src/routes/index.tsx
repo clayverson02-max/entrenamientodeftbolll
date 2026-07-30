@@ -541,31 +541,51 @@ function LandingPage() {
           <Kicker>Esto es lo que vas a tener</Kicker>
           <H2>Nunca más vuelvas a preguntarte "¿qué entreno hoy?"</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Cada sesión es una guía completa, explicada con imágenes y probada en el
-            campo — filtrada por posición, edad y objetivo. Abres el PDF, miras el
-            diagrama, aplicas. Así de simple.
+            Dentro de la biblioteca encuentras todo esto organizado por posición, edad
+            y objetivo. Eliges el área que quieres trabajar hoy, abres la sesión y
+            aplicas. Así de simple.
           </p>
 
-          <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
-            {ebooks.map((e) => (
-              <div
-                key={e.t}
-                className="ecm-card w-56 flex-shrink-0 snap-center overflow-hidden"
-              >
-                <div className="grid h-32 place-items-center bg-gradient-to-br from-primary to-primary-dark px-4 text-center">
-                  <span className="font-display text-xl uppercase text-primary-foreground">
-                    {e.t}
-                  </span>
+          <div className="ecm-marquee mt-10">
+            <div className="ecm-marquee-track" style={{ animationDuration: "40s" }}>
+              {[...modulos, ...modulos].map((m, i) => (
+                <div
+                  key={`${m.t}-${i}`}
+                  className="ecm-card w-64 flex-shrink-0 overflow-hidden"
+                  aria-hidden={i >= modulos.length}
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={m.img}
+                      alt={`Entrenamiento de ${m.t} en la biblioteca`}
+                      loading="lazy"
+                      width={640}
+                      height={640}
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
+                      {m.n}
+                    </span>
+                    <span className="absolute bottom-3 left-3 right-3 font-display text-lg uppercase leading-tight text-white">
+                      {m.t}
+                    </span>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                      Incluido en la biblioteca
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{m.d}</p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary">
-                    Ebook PDF
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground">{e.d}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          <p className="mt-6 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Y muchas áreas más dentro de la biblioteca
+          </p>
+
 
           <div className="mt-8">
           </div>
