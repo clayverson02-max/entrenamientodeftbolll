@@ -668,6 +668,53 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* FEEDBACKS DINÁMICOS */}
+      <section
+        data-reveal
+        className="overflow-hidden border-t border-border bg-card px-0 py-16"
+      >
+        <div className="px-4 sm:px-6">
+          <Kicker>⚡ Lo que dicen quienes ya entrenan con método</Kicker>
+          <H2>
+            Ellos Dejaron de Improvisar.{" "}
+            <span className="ecm-highlight">Ahora Entrenan con un Plan.</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
+            Más de <strong className="text-foreground">2.146 jugadores y entrenadores</strong>{" "}
+            ya usan la biblioteca cada semana. Estos son algunos de sus mensajes.
+          </p>
+        </div>
+
+        <div className="ecm-marquee mt-10">
+          <div className="ecm-marquee-track">
+            {[...testimonios, ...testimonios].map((t, i) => (
+              <TestimonialCard key={`a-${i}`} t={t} />
+            ))}
+          </div>
+        </div>
+
+        <div className="ecm-marquee ecm-marquee-reverse mt-4">
+          <div className="ecm-marquee-track">
+            {[...testimonios.slice().reverse(), ...testimonios.slice().reverse()].map(
+              (t, i) => (
+                <TestimonialCard key={`b-${i}`} t={t} />
+              ),
+            )}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-4 text-xs font-extrabold uppercase tracking-widest text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <Star className="h-4 w-4 fill-gold text-gold" /> 4,9 / 5 de valoración media
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <BadgeCheck className="h-4 w-4 text-primary" /> Compras verificadas
+          </span>
+        </div>
+      </section>
+
+
+
       {/* OFERTA */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
