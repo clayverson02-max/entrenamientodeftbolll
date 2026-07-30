@@ -85,7 +85,7 @@
   --secondary-foreground: #0f172a;
 
   --muted: #f1f5f9;
-  --muted-foreground: #475569;
+  --muted-foreground: #33415a;
 
   --accent: #ecfdf5;
   --accent-foreground: #14532d;
@@ -146,17 +146,25 @@
   h1, h2, h3 {
     font-family: var(--font-display);
     text-transform: uppercase;
-    letter-spacing: 0.005em;
-    line-height: 1.05;
+    letter-spacing: 0.015em;
+    line-height: 1.22;
+    text-wrap: balance;
+  }
+
+  p, li {
+    line-height: 1.65;
   }
 }
 
 /* Utilities */
 @utility ecm-highlight {
+  /* Resaltado sin padding vertical: usa box-shadow para no solaparse
+     con la línea de arriba/abajo en títulos multilínea. */
   background-color: var(--highlight);
   color: var(--highlight-foreground);
-  padding: 0.05em 0.28em;
-  border-radius: 0.25rem;
+  border-radius: 0.2rem;
+  padding: 0 0.22em;
+  box-shadow: 0 0 0 0.06em var(--highlight);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }

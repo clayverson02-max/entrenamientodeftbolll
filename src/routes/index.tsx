@@ -40,6 +40,7 @@ import modTecnica from "@/assets/mod-tecnica.jpg";
 import video1 from "@/assets/video-entrenamiento-1.jpg";
 import video2 from "@/assets/video-entrenamiento-2.jpg";
 import video3 from "@/assets/video-entrenamiento-3.jpg";
+import demoVideo from "@/assets/video-biblioteca-demo.mp4.asset.json";
 
 const feedbacks = [
   {
@@ -352,7 +353,7 @@ function Cta({
 
 function Badges() {
   return (
-    <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs font-semibold text-muted-foreground">
+    <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold text-muted-foreground">
       <span className="inline-flex items-center gap-1">
         <Shield className="h-3.5 w-3.5 text-primary" /> Garantía de 7 días
       </span>
@@ -366,7 +367,7 @@ function Badges() {
 
 function Kicker({ children }: { children: string }) {
   return (
-    <p className="text-center text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
+    <p className="text-center text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
       {children}
     </p>
   );
@@ -374,7 +375,7 @@ function Kicker({ children }: { children: string }) {
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mx-auto mt-3 max-w-4xl text-center text-3xl leading-[1.05] sm:text-5xl">
+    <h2 className="mx-auto mt-3 max-w-4xl text-center text-3xl leading-[1.2] sm:text-5xl">
       {children}
     </h2>
   );
@@ -414,7 +415,7 @@ function TestimonialCard({
         />
         <div>
           <p className="text-sm font-extrabold">{t.name}</p>
-          <p className="text-xs text-muted-foreground">{t.role}</p>
+          <p className="text-sm text-muted-foreground">{t.role}</p>
         </div>
         <BadgeCheck className="ml-auto h-5 w-5 text-primary" />
       </div>
@@ -443,12 +444,12 @@ function LandingPage() {
       {/* HERO */}
       <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-xs font-bold text-accent-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
             +2146 jugadores y entrenadores ya evolucionando
           </span>
 
-          <h1 className="mt-6 text-[2rem] leading-[1.04] sm:text-6xl">
+          <h1 className="mt-6 text-[2.1rem] leading-[1.18] sm:text-[3.4rem]">
             Descubre el <span className="ecm-highlight">Método Profesional</span>{" "}
             para Dejar de Improvisar Tus Entrenamientos y Evolucionar Más Rápido
           </h1>
@@ -591,7 +592,7 @@ function LandingPage() {
                     <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground">
                       {m.n}
                     </span>
-                    <span className="absolute bottom-3 left-3 right-3 font-display text-lg uppercase leading-tight text-white">
+                    <span className="absolute bottom-3 left-3 right-3 font-display text-lg uppercase leading-snug text-white">
                       {m.t}
                     </span>
                   </div>
@@ -629,6 +630,29 @@ function LandingPage() {
             coach muestra la técnica correcta, la organización del campo y los errores más
             comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
           </p>
+
+          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
+            <video
+              src={demoVideo.url}
+              poster={video1}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              className="aspect-video h-full w-full bg-ink object-cover"
+            />
+            <div className="p-5 text-center">
+              <p className="text-base font-bold text-foreground">
+                Así se ven las sesiones en acción
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
+                biblioteca.
+              </p>
+            </div>
+          </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {videos.map((v) => (
@@ -797,7 +821,7 @@ function LandingPage() {
                   </div>
                   <div>
                     <p className="text-sm font-bold">{t.n}</p>
-                    <p className="text-xs text-muted-foreground">{t.r}</p>
+                    <p className="text-sm text-muted-foreground">{t.r}</p>
                   </div>
                 </figcaption>
               </figure>
@@ -948,14 +972,14 @@ function LandingPage() {
                   Quiero Mi Biblioteca Completa — $7,90
                   <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </a>
-                <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+                <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
                   <Lock className="h-3.5 w-3.5" /> Pago 100% seguro vía tarjeta o
                   transferencia
                 </p>
-                <p className="mt-2 text-xs font-semibold text-primary">
+                <p className="mt-2 text-sm font-semibold text-primary">
                   ✅ Acceso inmediato después de la compra
                 </p>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-sm text-muted-foreground">
                   ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
                 </p>
               </div>
@@ -976,7 +1000,7 @@ function LandingPage() {
             className="w-full rounded-2xl object-cover"
           />
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-primary">
+            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
               Quién soy · +15 años en el campo
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl">
@@ -999,13 +1023,13 @@ function LandingPage() {
             <div className="mt-6 grid grid-cols-2 gap-4">
               <div className="rounded-xl bg-secondary p-4 text-center">
                 <p className="font-display text-3xl text-primary">+2.000</p>
-                <p className="text-xs font-semibold text-muted-foreground">
+                <p className="text-sm font-semibold text-muted-foreground">
                   Jugadores formados
                 </p>
               </div>
               <div className="rounded-xl bg-secondary p-4 text-center">
                 <p className="font-display text-3xl text-primary">15</p>
-                <p className="text-xs font-semibold text-muted-foreground">
+                <p className="text-sm font-semibold text-muted-foreground">
                   Años en el campo
                 </p>
               </div>
@@ -1101,7 +1125,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-card px-4 py-8 text-center text-xs text-muted-foreground">
+      <footer className="border-t border-border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} Entrena con Método · Biblioteca de Entrenamientos de
         Fútbol en PDF
       </footer>
