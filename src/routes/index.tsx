@@ -30,7 +30,7 @@ import testi2 from "@/assets/testi-2.jpg.asset.json";
 import testi3 from "@/assets/testi-3.jpg.asset.json";
 import testi4 from "@/assets/testi-4.jpg.asset.json";
 
-const testimonios = [
+const feedbacks = [
   {
     name: "Lucas Ferreira",
     role: "Entrenador Sub-15",
@@ -687,7 +687,7 @@ function LandingPage() {
 
         <div className="ecm-marquee mt-10">
           <div className="ecm-marquee-track">
-            {[...testimonios, ...testimonios].map((t, i) => (
+            {[...feedbacks, ...feedbacks].map((t, i) => (
               <TestimonialCard key={`a-${i}`} t={t} />
             ))}
           </div>
@@ -695,7 +695,7 @@ function LandingPage() {
 
         <div className="ecm-marquee ecm-marquee-reverse mt-4">
           <div className="ecm-marquee-track">
-            {[...testimonios.slice().reverse(), ...testimonios.slice().reverse()].map(
+            {[...feedbacks.slice().reverse(), ...feedbacks.slice().reverse()].map(
               (t, i) => (
                 <TestimonialCard key={`b-${i}`} t={t} />
               ),
