@@ -253,7 +253,7 @@ function LandingPage() {
       </div>
 
       {/* HERO */}
-      <section className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
+      <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
@@ -295,7 +295,7 @@ function LandingPage() {
       </section>
 
       {/* DOLOR */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Seamos honestos</Kicker>
           <H2>¿Te Identificas con Alguna de Estas Situaciones?</H2>
@@ -327,7 +327,7 @@ function LandingPage() {
       </section>
 
       {/* CÓMO FUNCIONA */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira la biblioteca por dentro</Kicker>
           <H2>
@@ -374,7 +374,7 @@ function LandingPage() {
       </section>
 
       {/* GALERÍA CONTENIDO */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Esto es lo que vas a tener</Kicker>
           <H2>Nunca más vuelvas a preguntarte "¿qué entreno hoy?"</H2>
@@ -412,7 +412,7 @@ function LandingPage() {
       </section>
 
       {/* PERFILES */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Antes y después de la biblioteca</Kicker>
           <H2>Elige tu Perfil y Mira lo que Cambia en Ti</H2>
@@ -461,7 +461,7 @@ function LandingPage() {
       </section>
 
       {/* ANTES VS DESPUÉS */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Antes vs Después</Kicker>
           <H2>Dentro de 30 Días Vas a Estar en Uno de los Dos</H2>
@@ -502,7 +502,7 @@ function LandingPage() {
       </section>
 
       {/* PARA QUIÉN */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>Para quién es</Kicker>
           <H2>Hecho para Alguien Como Tú</H2>
@@ -526,7 +526,7 @@ function LandingPage() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Resultados reales</Kicker>
           <H2>Lo que Pasa Cuando Dejas de Improvisar</H2>
@@ -560,7 +560,7 @@ function LandingPage() {
       </section>
 
       {/* OFERTA */}
-      <section id="oferta" className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
+      <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
@@ -657,7 +657,7 @@ function LandingPage() {
       </section>
 
       {/* QUIÉN SOY */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
           <img
             src={coachImg}
@@ -710,7 +710,7 @@ function LandingPage() {
       </section>
 
       {/* GARANTÍA */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto grid h-24 w-24 place-items-center rounded-full border-4 border-primary bg-accent">
             <Shield className="h-11 w-11 text-primary" />
@@ -732,7 +732,7 @@ function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <H2>Preguntas Frecuentes</H2>
           <Accordion type="single" collapsible className="mt-8">
@@ -755,7 +755,7 @@ function LandingPage() {
       </section>
 
       {/* CIERRE */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <Kicker>Última palabra</Kicker>
           <H2>Solo Queda Una Pregunta: ¿Sigues Improvisando o Empiezas Hoy?</H2>
