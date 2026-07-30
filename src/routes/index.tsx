@@ -342,7 +342,6 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
-            <Cta>Quiero Entrenar con Método Desde Hoy</Cta>
           </div>
         </div>
       </section>
@@ -389,7 +388,6 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Empezar a Entrenar Así Hoy</Cta>
           </div>
         </div>
       </section>
@@ -427,7 +425,6 @@ function LandingPage() {
           </div>
 
           <div className="mt-8">
-            <Cta>Quiero Todo Esto en Mi Móvil Hoy</Cta>
           </div>
         </div>
       </section>
@@ -476,7 +473,6 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Ese Cambio en Mi Semana</Cta>
           </div>
         </div>
       </section>
@@ -517,7 +513,6 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Estar del Lado Verde en 30 Días</Cta>
           </div>
         </div>
       </section>
@@ -575,7 +570,6 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero el Mismo Resultado</Cta>
           </div>
         </div>
       </section>
@@ -657,8 +651,19 @@ function LandingPage() {
               </div>
 
               <div className="mt-8 flex flex-col items-center">
-                <a href="#oferta" className="ecm-cta">
-                  Quiero Mi Biblioteca Completa
+                <a
+                  href={CHECKOUT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+                      "track",
+                      "InitiateCheckout",
+                    )
+                  }
+                  className="ecm-cta"
+                >
+                  Quiero Mi Biblioteca Completa — $3,90
                   <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </a>
                 <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
@@ -724,7 +729,6 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-8">
-              <Cta>Quiero Entrenar con el Método del Coach</Cta>
             </div>
           </div>
         </div>
@@ -747,7 +751,6 @@ function LandingPage() {
             gastar $3,90 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
-            <Cta>Probar 7 Días Sin Riesgo</Cta>
           </div>
         </div>
       </section>
@@ -770,7 +773,6 @@ function LandingPage() {
           </Accordion>
 
           <div className="mt-10">
-            <Cta>Quiero Mi Acceso Ahora</Cta>
           </div>
         </div>
       </section>
@@ -813,7 +815,6 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
-            <Cta>Quiero Mi Biblioteca Hoy Mismo</Cta>
           </div>
         </div>
       </section>
