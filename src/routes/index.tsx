@@ -264,7 +264,7 @@ const testimonios = [
 
 const incluye = [
   "Biblioteca completa en PDF: +250 sesiones y +2.000 ejercicios",
-  "Ebooks organizados por posición: Laterales, Porteros, Defensas Centrales, Delanteros",
+  "Módulos organizados por posición: Laterales, Porteros, Defensas Centrales, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
   "Diagramas de campo con pasos numerados y flechas de movimiento",
   "Acceso vitalicio e inmediato",
@@ -441,7 +441,7 @@ function LandingPage() {
 
           <img
             src={heroImg}
-            alt="Biblioteca descargable en PDF: ebooks por posición — Laterales, Porteros, Defensas y Delanteros"
+            alt="Biblioteca de entrenamientos por posición — Laterales, Porteros, Defensas y Delanteros"
             width={1200}
             height={1200}
             className="mx-auto mt-8 w-full max-w-xl rounded-2xl"
@@ -500,8 +500,8 @@ function LandingPage() {
 
           <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
             {[
-              { src: paginasImg, alt: "Páginas reales de los ebooks con diagramas de campo" },
-              { src: heroImg, alt: "Portadas de los ebooks por posición" },
+              { src: paginasImg, alt: "Páginas reales de la biblioteca con diagramas de campo" },
+              { src: heroImg, alt: "Módulos de la biblioteca organizados por posición" },
               { src: paginasImg, alt: "Ejercicios con pasos numerados y flechas de movimiento" },
             ].map((img, i) => (
               <img
