@@ -200,10 +200,30 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-function Cta({ children }: { children: string }) {
+export const CHECKOUT_URL = "https://pay.hotmart.com/D106795605Y?checkoutMode=10";
+
+function Cta({
+  children,
+  checkout = false,
+}: {
+  children: string;
+  checkout?: boolean;
+}) {
   return (
     <div className="flex flex-col items-center">
-      <a href="#oferta" className="ecm-cta">
+      <a
+        href={checkout ? CHECKOUT_URL : "#oferta"}
+        {...(checkout ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        onClick={() => {
+          if (checkout && typeof window !== "undefined") {
+            (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+              "track",
+              "InitiateCheckout",
+            );
+          }
+        }}
+        className="ecm-cta"
+      >
         {children}
         <ArrowRight className="h-5 w-5 flex-shrink-0" />
       </a>
@@ -211,6 +231,7 @@ function Cta({ children }: { children: string }) {
     </div>
   );
 }
+
 
 function Badges() {
   return (
