@@ -136,14 +136,55 @@ const pasos = [
   },
 ];
 
-const ebooks = [
-  { t: "Laterales", d: "Recorrido, centros y repliegue" },
-  { t: "Porteros", d: "Reacción, salidas y juego con los pies" },
-  { t: "Defensas Centrales", d: "Marcaje, coberturas y salida de balón" },
-  { t: "Delanteros", d: "Definición, desmarques y remate" },
-  { t: "Acondicionamiento físico", d: "Circuitos de fuerza, velocidad y resistencia" },
-  { t: "Fútbol femenino", d: "Sesiones adaptadas por categoría" },
-  { t: "Fútbol infantil", d: "Sub-6 a Sub-12, con juego y progresión" },
+const modulos = [
+  {
+    t: "Laterales",
+    d: "Recorrido por banda, centros y repliegue defensivo",
+    img: modLaterales,
+    n: "+180 ejercicios",
+  },
+  {
+    t: "Porteros",
+    d: "Reacción, salidas, blocaje y juego con los pies",
+    img: modPorteros,
+    n: "+150 ejercicios",
+  },
+  {
+    t: "Defensas Centrales",
+    d: "Marcaje, coberturas y salida limpia de balón",
+    img: modDefensas,
+    n: "+170 ejercicios",
+  },
+  {
+    t: "Delanteros",
+    d: "Definición, desmarques y remate en área",
+    img: modDelanteros,
+    n: "+200 ejercicios",
+  },
+  {
+    t: "Técnica individual",
+    d: "Pase, control, conducción y regate en espacio reducido",
+    img: modTecnica,
+    n: "+260 ejercicios",
+  },
+  {
+    t: "Acondicionamiento físico",
+    d: "Circuitos de fuerza, velocidad, agilidad y resistencia",
+    img: modFisico,
+    n: "+140 ejercicios",
+  },
+  {
+    t: "Fútbol femenino",
+    d: "Sesiones adaptadas por categoría y nivel",
+    img: modFemenino,
+    n: "+120 ejercicios",
+  },
+  {
+    t: "Fútbol infantil",
+    d: "Sub-6 a Sub-12, con juego, progresión y diversión",
+    img: modInfantil,
+    n: "+190 ejercicios",
+  },
 ];
 
 const jugador = [
