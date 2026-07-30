@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import {
   AlertTriangle,
   ArrowRight,
@@ -24,6 +25,49 @@ import {
 import heroImg from "@/assets/hero-biblioteca-pdf.jpg";
 import paginasImg from "@/assets/paginas-ejercicios.jpg";
 import coachImg from "@/assets/coach-martinez.jpg";
+import testi1 from "@/assets/testi-1.jpg.asset.json";
+import testi2 from "@/assets/testi-2.jpg.asset.json";
+import testi3 from "@/assets/testi-3.jpg.asset.json";
+import testi4 from "@/assets/testi-4.jpg.asset.json";
+
+const feedbacks = [
+  {
+    name: "Lucas Ferreira",
+    role: "Entrenador Sub-15",
+    img: testi1.url,
+    text: "En 3 semanas dejé de improvisar. Abro el PDF, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
+  },
+  {
+    name: "Diego Santana",
+    role: "Jugador amateur, 21 años",
+    img: testi2.url,
+    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $3,90 fue lo mejor que compré.",
+  },
+  {
+    name: "Rafael Nunes",
+    role: "Cantera Sub-17",
+    img: testi3.url,
+    text: "Los diagramas son clarísimos. Preparé la sesión de la semana en 5 minutos y el míster me pidió el material. Vale muchísimo más de lo que cuesta.",
+  },
+  {
+    name: "Bruno Alves",
+    role: "Coordinador de academia",
+    img: testi4.url,
+    text: "Organizamos toda la academia con la biblioteca: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
+  },
+  {
+    name: "Andrés Molina",
+    role: "Padre y entrenador de barrio",
+    img: testi1.url,
+    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso. Los chavales llegan motivados a cada entrenamiento.",
+  },
+  {
+    name: "Marco Ribeiro",
+    role: "Lateral, categoría adulta",
+    img: testi2.url,
+    text: "Poco espacio, poco material y sin compañeros: encontré sesiones exactas para eso. Ya no tengo excusas para no entrenar.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -200,10 +244,30 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-function Cta({ children }: { children: string }) {
+export const CHECKOUT_URL = "https://pay.hotmart.com/D106795605Y?checkoutMode=10";
+
+function Cta({
+  children,
+  checkout = false,
+}: {
+  children: string;
+  checkout?: boolean;
+}) {
   return (
     <div className="flex flex-col items-center">
-      <a href="#oferta" className="ecm-cta">
+      <a
+        href={checkout ? CHECKOUT_URL : "#oferta"}
+        {...(checkout ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        onClick={() => {
+          if (checkout && typeof window !== "undefined") {
+            (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+              "track",
+              "InitiateCheckout",
+            );
+          }
+        }}
+        className="ecm-cta"
+      >
         {children}
         <ArrowRight className="h-5 w-5 flex-shrink-0" />
       </a>
@@ -211,6 +275,7 @@ function Cta({ children }: { children: string }) {
     </div>
   );
 }
+
 
 function Badges() {
   return (
@@ -244,8 +309,58 @@ function H2({ children }: { children: React.ReactNode }) {
 
 /* --------------------------------- page ---------------------------------- */
 
-function LandingPage() {
+function useScrollReveal() {
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          e.target.classList.toggle("is-visible", e.isIntersecting);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, []);
+}
+
+function TestimonialCard({
+  t,
+}: {
+  t: { name: string; role: string; text: string; img: string };
+}) {
   return (
+    <figure className="ecm-card w-[19rem] flex-shrink-0 p-5 sm:w-[22rem]">
+      <div className="flex items-center gap-3">
+        <img
+          src={t.img}
+          alt={t.name}
+          loading="lazy"
+          className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/40"
+        />
+        <div>
+          <p className="text-sm font-extrabold">{t.name}</p>
+          <p className="text-xs text-muted-foreground">{t.role}</p>
+        </div>
+        <BadgeCheck className="ml-auto h-5 w-5 text-primary" />
+      </div>
+      <div className="mt-3 flex gap-0.5">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+        ))}
+      </div>
+      <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        “{t.text}”
+      </blockquote>
+    </figure>
+  );
+}
+
+function LandingPage() {
+  useScrollReveal();
+  return (
+
     <div className="bg-background">
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
@@ -253,7 +368,7 @@ function LandingPage() {
       </div>
 
       {/* HERO */}
-      <section className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
+      <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
@@ -295,7 +410,7 @@ function LandingPage() {
       </section>
 
       {/* DOLOR */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Seamos honestos</Kicker>
           <H2>¿Te Identificas con Alguna de Estas Situaciones?</H2>
@@ -321,13 +436,12 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
-            <Cta>Quiero Entrenar con Método Desde Hoy</Cta>
           </div>
         </div>
       </section>
 
       {/* CÓMO FUNCIONA */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira la biblioteca por dentro</Kicker>
           <H2>
@@ -368,13 +482,12 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Empezar a Entrenar Así Hoy</Cta>
           </div>
         </div>
       </section>
 
       {/* GALERÍA CONTENIDO */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Esto es lo que vas a tener</Kicker>
           <H2>Nunca más vuelvas a preguntarte "¿qué entreno hoy?"</H2>
@@ -406,13 +519,12 @@ function LandingPage() {
           </div>
 
           <div className="mt-8">
-            <Cta>Quiero Todo Esto en Mi Móvil Hoy</Cta>
           </div>
         </div>
       </section>
 
       {/* PERFILES */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Antes y después de la biblioteca</Kicker>
           <H2>Elige tu Perfil y Mira lo que Cambia en Ti</H2>
@@ -455,13 +567,12 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Ese Cambio en Mi Semana</Cta>
           </div>
         </div>
       </section>
 
       {/* ANTES VS DESPUÉS */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Antes vs Después</Kicker>
           <H2>Dentro de 30 Días Vas a Estar en Uno de los Dos</H2>
@@ -496,13 +607,12 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero Estar del Lado Verde en 30 Días</Cta>
           </div>
         </div>
       </section>
 
       {/* PARA QUIÉN */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>Para quién es</Kicker>
           <H2>Hecho para Alguien Como Tú</H2>
@@ -526,7 +636,7 @@ function LandingPage() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Resultados reales</Kicker>
           <H2>Lo que Pasa Cuando Dejas de Improvisar</H2>
@@ -554,13 +664,59 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Quiero el Mismo Resultado</Cta>
           </div>
         </div>
       </section>
 
+      {/* FEEDBACKS DINÁMICOS */}
+      <section
+        data-reveal
+        className="overflow-hidden border-t border-border bg-card px-0 py-16"
+      >
+        <div className="px-4 sm:px-6">
+          <Kicker>⚡ Lo que dicen quienes ya entrenan con método</Kicker>
+          <H2>
+            Ellos Dejaron de Improvisar.{" "}
+            <span className="ecm-highlight">Ahora Entrenan con un Plan.</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
+            Más de <strong className="text-foreground">2.146 jugadores y entrenadores</strong>{" "}
+            ya usan la biblioteca cada semana. Estos son algunos de sus mensajes.
+          </p>
+        </div>
+
+        <div className="ecm-marquee mt-10">
+          <div className="ecm-marquee-track">
+            {[...feedbacks, ...feedbacks].map((t, i) => (
+              <TestimonialCard key={`a-${i}`} t={t} />
+            ))}
+          </div>
+        </div>
+
+        <div className="ecm-marquee ecm-marquee-reverse mt-4">
+          <div className="ecm-marquee-track">
+            {[...feedbacks.slice().reverse(), ...feedbacks.slice().reverse()].map(
+              (t, i) => (
+                <TestimonialCard key={`b-${i}`} t={t} />
+              ),
+            )}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-4 text-xs font-extrabold uppercase tracking-widest text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <Star className="h-4 w-4 fill-gold text-gold" /> 4,9 / 5 de valoración media
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <BadgeCheck className="h-4 w-4 text-primary" /> Compras verificadas
+          </span>
+        </div>
+      </section>
+
+
+
       {/* OFERTA */}
-      <section id="oferta" className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
+      <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
@@ -636,8 +792,19 @@ function LandingPage() {
               </div>
 
               <div className="mt-8 flex flex-col items-center">
-                <a href="#oferta" className="ecm-cta">
-                  Quiero Mi Biblioteca Completa
+                <a
+                  href={CHECKOUT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+                      "track",
+                      "InitiateCheckout",
+                    )
+                  }
+                  className="ecm-cta"
+                >
+                  Quiero Mi Biblioteca Completa — $3,90
                   <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </a>
                 <p className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
@@ -657,7 +824,7 @@ function LandingPage() {
       </section>
 
       {/* QUIÉN SOY */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
           <img
             src={coachImg}
@@ -703,14 +870,13 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-8">
-              <Cta>Quiero Entrenar con el Método del Coach</Cta>
             </div>
           </div>
         </div>
       </section>
 
       {/* GARANTÍA */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto grid h-24 w-24 place-items-center rounded-full border-4 border-primary bg-accent">
             <Shield className="h-11 w-11 text-primary" />
@@ -726,13 +892,12 @@ function LandingPage() {
             gastar $3,90 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
-            <Cta>Probar 7 Días Sin Riesgo</Cta>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border bg-card px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <H2>Preguntas Frecuentes</H2>
           <Accordion type="single" collapsible className="mt-8">
@@ -749,13 +914,12 @@ function LandingPage() {
           </Accordion>
 
           <div className="mt-10">
-            <Cta>Quiero Mi Acceso Ahora</Cta>
           </div>
         </div>
       </section>
 
       {/* CIERRE */}
-      <section className="border-t border-border px-4 py-16 sm:px-6">
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <Kicker>Última palabra</Kicker>
           <H2>Solo Queda Una Pregunta: ¿Sigues Improvisando o Empiezas Hoy?</H2>
@@ -792,7 +956,6 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
-            <Cta>Quiero Mi Biblioteca Hoy Mismo</Cta>
           </div>
         </div>
       </section>
