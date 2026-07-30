@@ -79,22 +79,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#16a34a" },
       {
         title:
-          "Elite Football Training — Plataforma premium de entrenamiento de fútbol",
+          "Entrena con Método — Biblioteca Completa de Entrenamientos de Fútbol",
       },
       {
         name: "description",
         content:
-          "La biblioteca digital de entrenamiento de fútbol más completa en español. Ejercicios, sesiones y asistente IA para entrenadores, academias y jugadores.",
+          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
-      { name: "author", content: "Elite Football Training" },
-      { property: "og:title", content: "Elite Football Training" },
-      {
-        property: "og:description",
-        content:
-          "La plataforma premium para entrenadores de fútbol. Miles de ejercicios organizados por edad, nivel y objetivo.",
-      },
+      { name: "author", content: "Entrena con Método" },
+      { property: "og:site_name", content: "Entrena con Método" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -109,10 +105,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap",
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -121,7 +118,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="es" className="dark">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>
