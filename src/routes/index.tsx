@@ -265,8 +265,58 @@ function H2({ children }: { children: React.ReactNode }) {
 
 /* --------------------------------- page ---------------------------------- */
 
-function LandingPage() {
+function useScrollReveal() {
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          e.target.classList.toggle("is-visible", e.isIntersecting);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, []);
+}
+
+function TestimonialCard({
+  t,
+}: {
+  t: { name: string; role: string; text: string; img: string };
+}) {
   return (
+    <figure className="ecm-card w-[19rem] flex-shrink-0 p-5 sm:w-[22rem]">
+      <div className="flex items-center gap-3">
+        <img
+          src={t.img}
+          alt={t.name}
+          loading="lazy"
+          className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/40"
+        />
+        <div>
+          <p className="text-sm font-extrabold">{t.name}</p>
+          <p className="text-xs text-muted-foreground">{t.role}</p>
+        </div>
+        <BadgeCheck className="ml-auto h-5 w-5 text-primary" />
+      </div>
+      <div className="mt-3 flex gap-0.5">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+        ))}
+      </div>
+      <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        “{t.text}”
+      </blockquote>
+    </figure>
+  );
+}
+
+function LandingPage() {
+  useScrollReveal();
+  return (
+
     <div className="bg-background">
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
