@@ -40,6 +40,7 @@ import modTecnica from "@/assets/mod-tecnica.jpg";
 import video1 from "@/assets/video-entrenamiento-1.jpg";
 import video2 from "@/assets/video-entrenamiento-2.jpg";
 import video3 from "@/assets/video-entrenamiento-3.jpg";
+import demoVideo from "@/assets/video-biblioteca-demo.mp4.asset.json";
 
 const feedbacks = [
   {
