@@ -37,6 +37,9 @@ import modFisico from "@/assets/mod-fisico.jpg";
 import modFemenino from "@/assets/mod-femenino.jpg";
 import modInfantil from "@/assets/mod-infantil.jpg";
 import modTecnica from "@/assets/mod-tecnica.jpg";
+import video1 from "@/assets/video-entrenamiento-1.jpg";
+import video2 from "@/assets/video-entrenamiento-2.jpg";
+import video3 from "@/assets/video-entrenamiento-3.jpg";
 
 const feedbacks = [
   {
