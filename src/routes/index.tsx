@@ -815,7 +815,7 @@ function LandingPage() {
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             Acceso completo a la Biblioteca de Entrenamiento por un solo pago de{" "}
-            <strong className="text-foreground">$3,90 USD</strong>, sin mensualidades: el
+            <strong className="text-foreground">$7,90 USD</strong>, sin mensualidades: el
             acceso llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
@@ -842,13 +842,13 @@ function LandingPage() {
 
               <div className="mt-6 text-center">
                 <p className="text-sm text-muted-foreground">
-                  De <s>$19,50</s> sólo por hoy
+                  De <s>$39,50</s> sólo por hoy
                 </p>
                 <p className="mt-1 font-display text-6xl text-primary">
-                  $3,90 <span className="text-2xl text-foreground">USD</span>
+                  $7,90 <span className="text-2xl text-foreground">USD</span>
                 </p>
                 <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                  80% DESCUENTO · Ahorras $15,60
+                  80% DESCUENTO · Ahorras $31,60
                 </p>
                 <p className="mt-3 text-sm font-bold text-primary">
                   ✅ Pago único · Acceso vitalicio
