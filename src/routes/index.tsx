@@ -630,6 +630,29 @@ function LandingPage() {
             comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
           </p>
 
+          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
+            <video
+              src={demoVideo.url}
+              poster={video1}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              className="aspect-video h-full w-full bg-ink object-cover"
+            />
+            <div className="p-5 text-center">
+              <p className="text-base font-bold text-foreground">
+                Así se ven las sesiones en acción
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
+                biblioteca.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {videos.map((v) => (
               <div key={v.title} className="ecm-card overflow-hidden">
