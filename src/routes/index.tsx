@@ -318,7 +318,7 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-export const CHECKOUT_URL = "https://pay.hotmart.com/D106795605Y?checkoutMode=10";
+export const CHECKOUT_URL = "https://pay.kiwify.com/DdeFcSY";
 
 function Cta({
   children,
