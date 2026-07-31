@@ -329,6 +329,61 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.kiwify.com/DdeFcSY";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/D106820400M?checkoutMode=10";
+
+function trackCheckout() {
+  if (typeof window !== "undefined") {
+    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+      "track",
+      "InitiateCheckout",
+    );
+  }
+}
+
+function CheckoutButton({
+  href,
+  children,
+  variant = "solid",
+}: {
+  href: string;
+  children: string;
+  variant?: "solid" | "outline";
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackCheckout}
+      className={
+        variant === "outline"
+          ? "ecm-cta border-2 border-primary bg-transparent text-primary"
+          : "ecm-cta"
+      }
+    >
+      {children}
+      <ArrowRight className="h-5 w-5 flex-shrink-0" />
+    </a>
+  );
+}
+
+function PaySafety() {
+  return (
+    <>
+      <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
+        <Lock className="h-3.5 w-3.5" /> Pago 100% seguro vía tarjeta o transferencia
+      </p>
+      <p className="mt-2 text-sm font-semibold text-primary">
+        ✅ Acceso inmediato después de la compra
+      </p>
+      <p className="mt-1 text-center text-sm text-muted-foreground">
+        ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
+      </p>
+    </>
+  );
+}
+
+
 
 function Cta({
   children,
