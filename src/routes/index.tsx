@@ -495,8 +495,64 @@ function TestimonialCard({
   );
 }
 
+const compras = [
+  { nombre: "Lucas M.", ciudad: "Buenos Aires", plan: "Paquete Completo" },
+  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Básico" },
+  { nombre: "Diego R.", ciudad: "Ciudad de México", plan: "Paquete Completo" },
+  { nombre: "Javier S.", ciudad: "Madrid", plan: "Paquete Completo" },
+  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Básico" },
+  { nombre: "Bruno F.", ciudad: "Lima", plan: "Paquete Completo" },
+  { nombre: "Carlos V.", ciudad: "Montevideo", plan: "Paquete Completo" },
+  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Básico" },
+];
+
+function ComprasRecientes() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let hideTimer: ReturnType<typeof setTimeout>;
+    const show = () => {
+      setVisible(true);
+      hideTimer = setTimeout(() => setVisible(false), 5000);
+    };
+    const first = setTimeout(show, 6000);
+    const loop = setInterval(() => {
+      setIndex((i) => (i + 1) % compras.length);
+      show();
+    }, 14000);
+    return () => {
+      clearTimeout(first);
+      clearTimeout(hideTimer);
+      clearInterval(loop);
+    };
+  }, []);
+
+  if (!visible) return null;
+  const c = compras[index];
+
+  return (
+    <div className="ecm-buy-toast pointer-events-none fixed bottom-4 left-4 z-40 max-w-[17rem] rounded-xl border border-border bg-card/95 px-3 py-2.5 shadow-lg backdrop-blur sm:max-w-xs">
+      <div className="flex items-start gap-2.5">
+        <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-accent">
+          <Check className="h-4 w-4 text-primary" />
+        </span>
+        <div className="min-w-0">
+          <p className="truncate text-sm font-bold text-foreground">
+            {c.nombre} · {c.ciudad}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Acaba de comprar el {c.plan}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LandingPage() {
   useScrollReveal();
+
   return (
 
     <div className="bg-background">
