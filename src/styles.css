@@ -319,6 +319,7 @@ div[style*="Edit with Lovable"],
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .ecm-marquee-track { animation: none !important; }
+  .ecm-cta, .ecm-cta::after { animation: none !important; }
 }
 
 /* Carrusel infinito de testimonios */
