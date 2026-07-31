@@ -297,11 +297,21 @@ const incluye = [
   "Garantía incondicional de 7 días",
 ];
 
+const incluyeBasico = [
+  "Biblioteca esencial: +120 sesiones y +800 ejercicios",
+  "Módulos por posición: Defensas, Delanteros y Mediocampo",
+  "Diagramas de campo con pasos numerados",
+  "Acceso inmediato y vitalicio",
+  "BONO 01 · Guía de Entrenamiento",
+  "Garantía incondicional de 7 días",
+];
+
 const bonos = [
   ["BONO 01", "Guía de Entrenamiento", "$47"],
   ["BONO 02", "50 Ejercicios de Técnica Individual", "$39"],
   ["BONO 03", "Pack de Circuitos de Preparación Física", "$49"],
 ];
+
 
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con el enlace de descarga de tu biblioteca en PDF. En la mayoría de los casos, en menos de 2 minutos."],
