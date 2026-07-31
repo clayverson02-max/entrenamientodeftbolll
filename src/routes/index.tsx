@@ -355,13 +355,8 @@ function CheckoutButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={trackCheckout}
-      style={
-        variant === "outline"
-          ? { background: "var(--background)", color: "var(--primary)" }
-          : undefined
-      }
       className={
-        variant === "outline" ? "ecm-cta border-2 border-primary" : "ecm-cta"
+        variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta"
       }
 
     >
