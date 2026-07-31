@@ -193,6 +193,13 @@
   }
 }
 
+@utility ecm-cta-outline {
+  background: var(--background);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 20px -14px rgba(15, 23, 42, 0.5);
+}
+
 @utility ecm-card {
   border-radius: 1.25rem;
   border: 1px solid var(--border);

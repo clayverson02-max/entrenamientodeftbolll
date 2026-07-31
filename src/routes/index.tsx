@@ -297,11 +297,21 @@ const incluye = [
   "Garantía incondicional de 7 días",
 ];
 
+const incluyeBasico = [
+  "Biblioteca esencial: +120 sesiones y +800 ejercicios",
+  "Módulos por posición: Defensas, Delanteros y Mediocampo",
+  "Diagramas de campo con pasos numerados",
+  "Acceso inmediato y vitalicio",
+  "BONO 01 · Guía de Entrenamiento",
+  "Garantía incondicional de 7 días",
+];
+
 const bonos = [
   ["BONO 01", "Guía de Entrenamiento", "$47"],
   ["BONO 02", "50 Ejercicios de Técnica Individual", "$39"],
   ["BONO 03", "Pack de Circuitos de Preparación Física", "$49"],
 ];
+
 
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con el enlace de descarga de tu biblioteca en PDF. En la mayoría de los casos, en menos de 2 minutos."],
@@ -319,6 +329,60 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.kiwify.com/DdeFcSY";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/D106820400M?checkoutMode=10";
+
+function trackCheckout() {
+  if (typeof window !== "undefined") {
+    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
+      "track",
+      "InitiateCheckout",
+    );
+  }
+}
+
+function CheckoutButton({
+  href,
+  children,
+  variant = "solid",
+}: {
+  href: string;
+  children: string;
+  variant?: "solid" | "outline";
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={trackCheckout}
+      className={
+        variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta"
+      }
+
+    >
+      {children}
+      <ArrowRight className="h-5 w-5 flex-shrink-0" />
+    </a>
+  );
+}
+
+function PaySafety() {
+  return (
+    <>
+      <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
+        <Lock className="h-3.5 w-3.5" /> Pago 100% seguro vía tarjeta o transferencia
+      </p>
+      <p className="mt-2 text-sm font-semibold text-primary">
+        ✅ Acceso inmediato después de la compra
+      </p>
+      <p className="mt-1 text-center text-sm text-muted-foreground">
+        ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
+      </p>
+    </>
+  );
+}
+
+
 
 function Cta({
   children,
@@ -880,113 +944,139 @@ function LandingPage() {
 
 
 
-      {/* OFERTA */}
+      {/* OFERTA — DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-6xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Acceso completo a la Biblioteca de Entrenamiento por un solo pago de{" "}
-            <strong className="text-foreground">$7,90 USD</strong>, sin mensualidades: el
-            acceso llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
+            <strong className="text-foreground">Básico $5 USD</strong> para empezar hoy con
+            método, o <strong className="text-foreground">Completo $7,90 USD</strong> con la
+            biblioteca entera y todos los bonos. Un solo pago, sin mensualidades: el acceso
+            llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
 
           <div className="mx-auto mt-6 flex max-w-xl items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
             <p className="text-sm font-semibold">
-              ¡Última oportunidad! Precio válido solo por hoy. Mañana vuelve al valor
+              ¡Última oportunidad! Precios válidos solo por hoy. Mañana vuelven al valor
               normal.
             </p>
           </div>
 
-          <div className="ecm-card mt-8 overflow-hidden border-primary/40">
-            <div className="bg-primary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-primary-foreground">
-              Oferta única
-            </div>
-            <div className="p-6 sm:p-8">
-              <img
-                src={heroImg}
-                alt="Biblioteca completa en PDF"
-                loading="lazy"
-                className="mx-auto w-full max-w-xs rounded-xl"
-              />
-
-              <div className="mt-6 text-center">
-                <p className="text-sm text-muted-foreground">
-                  De <s>$39,50</s> sólo por hoy
-                </p>
-                <p className="mt-1 font-display text-6xl text-primary">
-                  $7,90 <span className="text-2xl text-foreground">USD</span>
-                </p>
-                <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                  80% DESCUENTO · Ahorras $31,60
-                </p>
-                <p className="mt-3 text-sm font-bold text-primary">
-                  ✅ Pago único · Acceso vitalicio
-                </p>
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
+            {/* PLAN COMPLETO */}
+            <div className="ecm-card relative overflow-hidden border-primary/40">
+              <div className="bg-primary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-primary-foreground">
+                🔥 ¡Más vendido!
               </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="text-center text-2xl">Paquete Completo</h3>
+                <img
+                  src={heroImg}
+                  alt="Biblioteca completa de entrenamientos"
+                  loading="lazy"
+                  className="mx-auto mt-5 w-full max-w-xs rounded-xl"
+                />
 
-              <ul className="mt-6 space-y-3 border-t border-border pt-6">
-                {incluye.map((i) => (
-                  <li key={i} className="flex gap-3 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                    <span>{i}</span>
-                  </li>
-                ))}
-              </ul>
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-muted-foreground">
+                    De <s>$39,50</s> sólo por hoy
+                  </p>
+                  <p className="mt-1 font-display text-6xl text-primary">
+                    $7,90 <span className="text-2xl text-foreground">USD</span>
+                  </p>
+                  <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
+                    80% DESCUENTO · Ahorras $31,60
+                  </p>
+                  <p className="mt-3 text-sm font-bold text-primary">
+                    ✅ Pago único · Acceso vitalicio
+                  </p>
+                </div>
 
-              <div className="mt-6 rounded-xl bg-secondary p-5">
-                <p className="flex items-center gap-2 text-sm font-extrabold">
-                  <Gift className="h-4 w-4 text-primary" /> Bonos exclusivos incluidos
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {bonos.map(([n, t, p]) => (
-                    <li key={n} className="flex flex-wrap items-center gap-2 text-sm">
-                      <span className="rounded bg-primary px-2 py-0.5 text-[10px] font-extrabold text-primary-foreground">
-                        {n}
-                      </span>
-                      <span className="font-semibold">{t}</span>
-                      <span className="text-muted-foreground">
-                        <s>{p}</s>{" "}
-                        <strong className="text-primary">GRATIS</strong>
-                      </span>
+                <ul className="mt-6 space-y-3 border-t border-border pt-6">
+                  {incluye.map((i) => (
+                    <li key={i} className="flex gap-3 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                      <span>{i}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              <div className="mt-8 flex flex-col items-center">
-                <a
-                  href={CHECKOUT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
-                      "track",
-                      "InitiateCheckout",
-                    )
-                  }
-                  className="ecm-cta"
-                >
-                  Quiero Mi Biblioteca Completa — $7,90
-                  <ArrowRight className="h-5 w-5 flex-shrink-0" />
-                </a>
-                <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
-                  <Lock className="h-3.5 w-3.5" /> Pago 100% seguro vía tarjeta o
-                  transferencia
-                </p>
-                <p className="mt-2 text-sm font-semibold text-primary">
-                  ✅ Acceso inmediato después de la compra
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
-                </p>
+                <div className="mt-6 rounded-xl bg-secondary p-5">
+                  <p className="flex items-center gap-2 text-sm font-extrabold">
+                    <Gift className="h-4 w-4 text-primary" /> Bonos exclusivos incluidos
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {bonos.map(([n, t, p]) => (
+                      <li key={n} className="flex flex-wrap items-center gap-2 text-sm">
+                        <span className="rounded bg-primary px-2 py-0.5 text-[10px] font-extrabold text-primary-foreground">
+                          {n}
+                        </span>
+                        <span className="font-semibold">{t}</span>
+                        <span className="text-muted-foreground">
+                          <s>{p}</s>{" "}
+                          <strong className="text-primary">GRATIS</strong>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-8 flex flex-col items-center">
+                  <CheckoutButton href={CHECKOUT_URL}>
+                    Quiero el Paquete Completo
+                  </CheckoutButton>
+                  <PaySafety />
+                </div>
+              </div>
+            </div>
+
+            {/* PLAN BÁSICO */}
+            <div className="ecm-card overflow-hidden">
+              <div className="bg-secondary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
+                Para empezar hoy
+              </div>
+              <div className="p-6 sm:p-8">
+                <h3 className="text-center text-2xl">Paquete Básico</h3>
+
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-muted-foreground">
+                    De <s>$25,00</s> sólo por hoy
+                  </p>
+                  <p className="mt-1 font-display text-6xl text-foreground">
+                    $5,00 <span className="text-2xl text-muted-foreground">USD</span>
+                  </p>
+                  <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
+                    80% DESCUENTO · Ahorras $20,00
+                  </p>
+                  <p className="mt-3 text-sm font-bold text-primary">
+                    ✅ Pago único · Acceso vitalicio
+                  </p>
+                </div>
+
+                <ul className="mt-6 space-y-3 border-t border-border pt-6">
+                  {incluyeBasico.map((i) => (
+                    <li key={i} className="flex gap-3 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 flex flex-col items-center">
+                  <CheckoutButton href={CHECKOUT_BASICO_URL} variant="outline">
+                    Elegir Paquete Básico
+                  </CheckoutButton>
+                  <PaySafety />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* QUIÉN SOY */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
@@ -1035,7 +1125,9 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-8">
+              <Cta>Quiero Entrenar con el Método del Coach</Cta>
             </div>
+
           </div>
         </div>
       </section>
@@ -1054,7 +1146,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti — por cualquier motivo y
             sin dar explicaciones — nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $7,90 es perder otros 6 meses entrenando a ciegas.
+            gastar $5 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
           </div>
