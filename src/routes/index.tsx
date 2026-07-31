@@ -1126,7 +1126,9 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-8">
+              <Cta>Quiero Entrenar con el Método del Coach</Cta>
             </div>
+
           </div>
         </div>
       </section>
@@ -1145,7 +1147,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti — por cualquier motivo y
             sin dar explicaciones — nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $7,90 es perder otros 6 meses entrenando a ciegas.
+            gastar $5 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
           </div>
