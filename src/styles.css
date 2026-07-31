@@ -169,7 +169,31 @@
   -webkit-box-decoration-break: clone;
 }
 
+@keyframes ecm-cta-breathe {
+  0%,
+  100% {
+    box-shadow: 0 12px 28px -12px rgba(22, 163, 74, 0.75),
+      0 0 0 0 rgba(22, 163, 74, 0.35);
+  }
+  50% {
+    box-shadow: 0 14px 30px -12px rgba(22, 163, 74, 0.85),
+      0 0 0 0.55rem rgba(22, 163, 74, 0);
+  }
+}
+
+@keyframes ecm-cta-shine {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
 @utility ecm-cta {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   width: 100%;
   max-width: 34rem;
@@ -186,6 +210,23 @@
   text-align: center;
   box-shadow: 0 12px 28px -12px rgba(22, 163, 74, 0.75);
   transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  animation: ecm-cta-breathe 2.6s ease-in-out infinite;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: 0;
+    height: 220%;
+    width: 32%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.42),
+      transparent
+    );
+    animation: ecm-cta-shine 3.6s ease-in-out infinite;
+    pointer-events: none;
+  }
   &:hover {
     transform: translateY(-2px);
     filter: brightness(1.05);
@@ -198,7 +239,32 @@
   color: var(--primary);
   border: 2px solid var(--primary);
   box-shadow: 0 8px 20px -14px rgba(15, 23, 42, 0.5);
+  animation: none;
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(22, 163, 74, 0.16),
+      transparent
+    );
+  }
 }
+
+@keyframes ecm-buy-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@utility ecm-buy-toast {
+  animation: ecm-buy-pop 320ms ease-out both;
+}
+
 
 @utility ecm-card {
   border-radius: 1.25rem;
@@ -253,6 +319,7 @@ div[style*="Edit with Lovable"],
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .ecm-marquee-track { animation: none !important; }
+  .ecm-cta, .ecm-cta::after { animation: none !important; }
 }
 
 /* Carrusel infinito de testimonios */
