@@ -355,12 +355,15 @@ function CheckoutButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={trackCheckout}
-      className={
+      style={
         variant === "outline"
-          ? "ecm-cta border-2 border-primary !bg-none !bg-background !text-primary"
-          : "ecm-cta"
-
+          ? { background: "var(--background)", color: "var(--primary)" }
+          : undefined
       }
+      className={
+        variant === "outline" ? "ecm-cta border-2 border-primary" : "ecm-cta"
+      }
+
     >
       {children}
       <ArrowRight className="h-5 w-5 flex-shrink-0" />
