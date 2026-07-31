@@ -357,8 +357,9 @@ function CheckoutButton({
       onClick={trackCheckout}
       className={
         variant === "outline"
-          ? "ecm-cta border-2 border-primary bg-transparent text-primary"
+          ? "ecm-cta border-2 border-primary !bg-none !bg-background !text-primary"
           : "ecm-cta"
+
       }
     >
       {children}
