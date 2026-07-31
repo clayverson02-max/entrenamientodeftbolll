@@ -556,6 +556,8 @@ function LandingPage() {
   return (
 
     <div className="bg-background">
+      <ComprasRecientes />
+
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
         Descuento exclusivo solo hoy
