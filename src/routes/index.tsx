@@ -602,8 +602,93 @@ function LandingPage() {
             <span className="text-gold">★★★★★</span>
             <span className="text-muted-foreground">4.9/5 · +2146 evaluaciones</span>
           </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {[
+              ["+250", "sesiones listas"],
+              ["+2.000", "ejercicios ilustrados"],
+              ["5 min", "para armar tu sesión"],
+            ].map(([n, d]) => (
+              <div key={d} className="ecm-card px-4 py-4 text-center">
+                <p className="font-display text-2xl text-primary sm:text-3xl">{n}</p>
+                <p className="mt-1 text-sm font-semibold text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* VIDEOS EXPLICATIVOS (movido arriba para captar atención) */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Mira esto antes de seguir</Kicker>
+          <H2>
+            No solo PDFs: cada ejercicio tiene su{" "}
+            <span className="ecm-highlight">video explicativo</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
+            coach muestra la técnica correcta, la organización del campo y los errores más
+            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
+          </p>
+
+          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
+            <video
+              src={demoVideo.url}
+              poster={video1}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              className="aspect-video h-full w-full bg-ink object-cover"
+            />
+            <div className="p-5 text-center">
+              <p className="text-base font-bold text-foreground">
+                Así se ven las sesiones en acción
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
+                biblioteca.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {videos.map((v) => (
+              <div key={v.title} className="ecm-card overflow-hidden">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={v.src}
+                    alt={v.alt}
+                    loading="lazy"
+                    width={1024}
+                    height={576}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 pl-0.5">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-extrabold">{v.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
+            ✅ Acceso a todos los videos incluido en el mismo pago único
+          </p>
+        </div>
+      </section>
+
 
       {/* DOLOR */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
@@ -632,7 +717,9 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
+            <Cta>Quiero Salir de Esto Hoy Mismo</Cta>
           </div>
+
         </div>
       </section>
 
@@ -739,76 +826,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* VIDEOS EXPLICATIVOS */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>También incluye videos</Kicker>
-          <H2>
-            No solo PDFs: cada ejercicio tiene su{" "}
-            <span className="ecm-highlight">video explicativo</span>
-          </H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
-            coach muestra la técnica correcta, la organización del campo y los errores más
-            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
-          </p>
-
-          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
-            <video
-              src={demoVideo.url}
-              poster={video1}
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="metadata"
-              className="aspect-video h-full w-full bg-ink object-cover"
-            />
-            <div className="p-5 text-center">
-              <p className="text-base font-bold text-foreground">
-                Así se ven las sesiones en acción
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
-                biblioteca.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {videos.map((v) => (
-              <div key={v.title} className="ecm-card overflow-hidden">
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={v.src}
-                    alt={v.alt}
-                    loading="lazy"
-                    width={1024}
-                    height={576}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 pl-0.5">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-extrabold">{v.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
-            ✅ Acceso a todos los videos incluido en el mismo pago único
-          </p>
-        </div>
-      </section>
 
       {/* PERFILES */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
