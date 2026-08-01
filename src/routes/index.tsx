@@ -717,7 +717,9 @@ function LandingPage() {
           </p>
 
           <div className="mt-8">
+            <Cta>Quiero Salir de Esto Hoy Mismo</Cta>
           </div>
+
         </div>
       </section>
 
