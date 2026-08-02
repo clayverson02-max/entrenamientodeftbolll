@@ -550,8 +550,29 @@ function ComprasRecientes() {
   );
 }
 
+function useStartAtTop() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.location.hash) return;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    const r1 = requestAnimationFrame(toTop);
+    const t1 = setTimeout(toTop, 120);
+    const t2 = setTimeout(toTop, 400);
+    return () => {
+      cancelAnimationFrame(r1);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+}
+
 function LandingPage() {
   useScrollReveal();
+  useStartAtTop();
 
   return (
 
