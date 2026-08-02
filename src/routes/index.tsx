@@ -448,42 +448,47 @@ const OFFER_PAINS = [
 ];
 
 function OfferModal() {
-  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState<null | "main" | "down">(null);
+  const [downUsed, setDownUsed] = useState(false);
   const [left, setLeft] = useState(15 * 60);
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = () => setStep("main");
     window.addEventListener(OFFER_EVENT, onOpen);
     return () => window.removeEventListener(OFFER_EVENT, onOpen);
   }, []);
 
+  const close = () => {
+    if (step === "main" && !downUsed) {
+      setDownUsed(true);
+      setStep("down");
+      return;
+    }
+    setStep(null);
+  };
+
   useEffect(() => {
-    if (!open) return;
+    if (!step) return;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
     const id = setInterval(() => setLeft((v) => (v > 0 ? v - 1 : 0)), 1000);
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
       clearInterval(id);
     };
-  }, [open]);
+  }, [step]);
 
-  if (!open) return null;
+  if (!step) return null;
 
   const mm = String(Math.floor(left / 60)).padStart(2, "0");
   const ss = String(left % 60).padStart(2, "0");
 
-  return (
+  const shell = (label: string, children: React.ReactNode) => (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Oferta principal"
+      aria-label={label}
       className="fixed inset-0 z-[100] flex items-end justify-center bg-foreground/70 p-0 backdrop-blur-sm sm:items-center sm:p-4"
-      onClick={() => setOpen(false)}
+      onClick={close}
     >
       <div
         className="relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-2xl border border-primary/30 bg-card p-5 shadow-2xl sm:rounded-2xl sm:p-7"
@@ -491,43 +496,48 @@ function OfferModal() {
       >
         <button
           type="button"
-          onClick={() => setOpen(false)}
+          onClick={close}
           aria-label="Cerrar"
           className="absolute right-3 top-3 rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
           <X className="h-5 w-5" />
         </button>
+        {children}
+      </div>
+    </div>
+  );
 
-        <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
-          <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss}
+  if (step === "down") {
+    return shell(
+      "Oferta alternativa",
+      <>
+        <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-foreground">
+          <Gift className="h-3.5 w-3.5 text-primary" /> Espera · última oportunidad
         </span>
 
         <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
-          Paquete Completo: todo lo que necesitas para{" "}
-          <span className="ecm-highlight">nunca más improvisar</span>
+          ¿El precio te frenó? Empieza hoy con el{" "}
+          <span className="ecm-highlight">Paquete Básico</span>
         </h2>
 
-        <p className="mt-3 text-sm font-semibold text-muted-foreground">
-          Esto es lo que dejas atrás hoy mismo:
+        <p className="mt-3 text-sm text-muted-foreground">
+          No te vayas con las manos vacías: sigue improvisando entrenamientos sin objetivo
+          o empieza hoy mismo con las sesiones esenciales por menos de lo que cuesta un
+          café doble.
         </p>
-        <ul className="mt-3 space-y-2">
-          {OFFER_PAINS.map((p) => (
-            <li key={p} className="flex items-start gap-2 text-sm text-foreground">
-              <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
-              <span>{p}</span>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
           <ul className="space-y-2">
             {[
-              "+250 sesiones y +2.000 ejercicios listos para imprimir",
-              "Organizado por posición, categoría, edad y objetivo",
-              "Videoguías de apoyo en cada ejercicio",
-              "Acceso inmediato y de por vida, un solo pago",
+              "Sesiones esenciales listas para imprimir",
+              "Ejercicios ilustrados paso a paso",
+              "Acceso inmediato y de por vida",
+              "Garantía de 7 días o te devolvemos el dinero",
             ].map((b) => (
-              <li key={b} className="flex items-start gap-2 text-sm font-semibold text-accent-foreground">
+              <li
+                key={b}
+                className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
+              >
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                 <span>{b}</span>
               </li>
@@ -536,43 +546,103 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-sm font-semibold text-muted-foreground line-through">
-            Valor real $97 USD
-          </p>
-          <p className="mt-1 text-4xl font-black text-foreground">$9,99 USD</p>
-          <p className="mt-1 text-sm font-bold text-primary">
-            Pago único · sin mensualidades
+          <p className="text-4xl font-black text-foreground">$7,50 USD</p>
+          <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
+          <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
+            <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
           </p>
         </div>
 
         <div className="mt-5 flex flex-col items-center">
           <a
-            href={CHECKOUT_URL}
+            href={CHECKOUT_BASICO_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackCheckout}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Sí, quiero el Paquete Completo
+            Quiero empezar por $7,50
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </a>
           <Badges />
-          <PaySafety />
           <button
             type="button"
-            onClick={() => {
-              setOpen(false);
-              document
-                .getElementById("oferta")
-                ?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
+            onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Ver los dos paquetes
+            Prefiero el Paquete Completo ($9,99)
           </button>
         </div>
+      </>,
+    );
+  }
+
+  return shell(
+    "Oferta principal",
+    <>
+      <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
+        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss}
+      </span>
+
+      <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
+        Paquete Completo: todo lo que necesitas para{" "}
+        <span className="ecm-highlight">nunca más improvisar</span>
+      </h2>
+
+      <p className="mt-3 text-sm font-semibold text-muted-foreground">
+        Esto es lo que dejas atrás hoy mismo:
+      </p>
+      <ul className="mt-3 space-y-2">
+        {OFFER_PAINS.map((p) => (
+          <li key={p} className="flex items-start gap-2 text-sm text-foreground">
+            <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
+        <ul className="space-y-2">
+          {[
+            "+250 sesiones y +2.000 ejercicios listos para imprimir",
+            "Organizado por posición, categoría, edad y objetivo",
+            "Videoguías de apoyo en cada ejercicio",
+            "Acceso inmediato y de por vida, un solo pago",
+          ].map((b) => (
+            <li
+              key={b}
+              className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
+            >
+              <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+
+      <div className="mt-5 text-center">
+        <p className="text-sm font-semibold text-muted-foreground line-through">
+          Valor real $97 USD
+        </p>
+        <p className="mt-1 text-4xl font-black text-foreground">$9,99 USD</p>
+        <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
+      </div>
+
+      <div className="mt-5 flex flex-col items-center">
+        <a
+          href={CHECKOUT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={trackCheckout}
+          className="ecm-cta ecm-cta-breathe w-full justify-center"
+        >
+          Sí, quiero el Paquete Completo
+          <ArrowRight className="h-5 w-5 flex-shrink-0" />
+        </a>
+        <Badges />
+        <PaySafety />
+      </div>
+    </>,
   );
 }
 
