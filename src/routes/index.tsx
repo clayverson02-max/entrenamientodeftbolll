@@ -384,7 +384,55 @@ function PaySafety() {
 
 
 
+function LazyVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || load) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setLoad(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [load]);
+
+  return (
+    <div ref={ref} className="aspect-video w-full bg-ink">
+      {load ? (
+        <video
+          src={src}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+          preload="none"
+          className="aspect-video h-full w-full bg-ink object-cover"
+        />
+      ) : (
+        <img
+          src={poster}
+          alt="Vista previa del video de entrenamiento"
+          loading="lazy"
+          decoding="async"
+          className="aspect-video h-full w-full object-cover"
+        />
+      )}
+    </div>
+  );
+}
+
 const OFFER_EVENT = "ecm:open-offer";
+
 
 function openOfferModal() {
   if (typeof window !== "undefined") {
