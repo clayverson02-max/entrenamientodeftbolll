@@ -53,7 +53,7 @@ const feedbacks = [
     name: "Diego Santana",
     role: "Jugador amateur, 21 años",
     img: testi2.url,
-    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por $7,90 fue lo mejor que compré.",
+    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por menos de $10 fue lo mejor que compré.",
   },
   {
     name: "Rafael Nunes",
@@ -329,7 +329,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.kiwify.com/DdeFcSY";
-export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/D106820400M?checkoutMode=10";
+export const CHECKOUT_BASICO_URL = "https://pay.kiwify.com/eQoQd0Y";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -550,8 +550,29 @@ function ComprasRecientes() {
   );
 }
 
+function useStartAtTop() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.location.hash) return;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    const r1 = requestAnimationFrame(toTop);
+    const t1 = setTimeout(toTop, 120);
+    const t2 = setTimeout(toTop, 400);
+    return () => {
+      cancelAnimationFrame(r1);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+}
+
 function LandingPage() {
   useScrollReveal();
+  useStartAtTop();
 
   return (
 
@@ -1025,8 +1046,8 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $5 USD</strong> para empezar hoy con
-            método, o <strong className="text-foreground">Completo $7,90 USD</strong> con la
+            <strong className="text-foreground">Básico $7,50 USD</strong> para empezar hoy con
+            método, o <strong className="text-foreground">Completo $9,99 USD</strong> con la
             biblioteca entera y todos los bonos. Un solo pago, sin mensualidades: el acceso
             llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1057,13 +1078,13 @@ function LandingPage() {
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    De <s>$39,50</s> sólo por hoy
+                    De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $7,90 <span className="text-2xl text-foreground">USD</span>
+                    $9,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    80% DESCUENTO · Ahorras $31,60
+                    80% DESCUENTO · Ahorras $39,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1118,13 +1139,13 @@ function LandingPage() {
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    De <s>$25,00</s> sólo por hoy
+                    De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $5,00 <span className="text-2xl text-muted-foreground">USD</span>
+                    $7,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    80% DESCUENTO · Ahorras $20,00
+                    80% DESCUENTO · Ahorras $30,00
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1221,7 +1242,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti — por cualquier motivo y
             sin dar explicaciones — nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $5 es perder otros 6 meses entrenando a ciegas.
+            gastar $7,50 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
           </div>
