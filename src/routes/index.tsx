@@ -560,7 +560,7 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$7,50 USD</p>
+          <p className="text-4xl font-black text-foreground">$5,50 USD</p>
           <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
           <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
             <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
@@ -575,7 +575,7 @@ function OfferModal() {
             onClick={trackCheckout}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Quiero empezar por $7,50
+            Quiero empezar por $5,50
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </a>
           <Badges />
@@ -584,7 +584,7 @@ function OfferModal() {
             onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Prefiero el Paquete Completo ($9,99)
+            Prefiero el Paquete Completo ($7,90)
           </button>
         </div>
       </>,
@@ -638,7 +638,7 @@ function OfferModal() {
         <p className="text-sm font-semibold text-muted-foreground line-through">
           Valor real $97 USD
         </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$9,99 USD</p>
+        <p className="mt-1 text-4xl font-black text-foreground">$7,90 USD</p>
         <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
       </div>
 
