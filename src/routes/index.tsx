@@ -22,24 +22,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroImg from "@/assets/hero-biblioteca-pdf.jpg";
-import paginasImg from "@/assets/paginas-ejercicios.jpg";
-import coachImg from "@/assets/coach-martinez.jpg";
+import heroImg from "@/assets/hero-biblioteca-pdf.webp";
+import paginasImg from "@/assets/paginas-ejercicios.webp";
+import coachImg from "@/assets/coach-martinez.webp";
 import testi1 from "@/assets/testi-1.jpg.asset.json";
 import testi2 from "@/assets/testi-2.jpg.asset.json";
 import testi3 from "@/assets/testi-3.jpg.asset.json";
 import testi4 from "@/assets/testi-4.jpg.asset.json";
-import modLaterales from "@/assets/mod-laterales.jpg";
-import modPorteros from "@/assets/mod-porteros.jpg";
-import modDefensas from "@/assets/mod-defensas.jpg";
-import modDelanteros from "@/assets/mod-delanteros.jpg";
-import modFisico from "@/assets/mod-fisico.jpg";
-import modFemenino from "@/assets/mod-femenino.jpg";
-import modInfantil from "@/assets/mod-infantil.jpg";
-import modTecnica from "@/assets/mod-tecnica.jpg";
-import video1 from "@/assets/video-entrenamiento-1.jpg";
-import video2 from "@/assets/video-entrenamiento-2.jpg";
-import video3 from "@/assets/video-entrenamiento-3.jpg";
+import modLaterales from "@/assets/mod-laterales.webp";
+import modPorteros from "@/assets/mod-porteros.webp";
+import modDefensas from "@/assets/mod-defensas.webp";
+import modDelanteros from "@/assets/mod-delanteros.webp";
+import modFisico from "@/assets/mod-fisico.webp";
+import modFemenino from "@/assets/mod-femenino.webp";
+import modInfantil from "@/assets/mod-infantil.webp";
+import modTecnica from "@/assets/mod-tecnica.webp";
+import video1 from "@/assets/video-entrenamiento-1.webp";
+import video2 from "@/assets/video-entrenamiento-2.webp";
+import video3 from "@/assets/video-entrenamiento-3.webp";
 import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
 
 const feedbacks = [
@@ -757,6 +757,8 @@ function LandingPage() {
 
           <img
             src={heroImg}
+            fetchPriority="high"
+            decoding="async"
             alt="Biblioteca de entrenamientos por posición — Laterales, Porteros, Defensas y Delanteros"
             width={1200}
             height={1200}
@@ -1219,6 +1221,8 @@ function LandingPage() {
                 <h3 className="text-center text-2xl">Paquete Completo</h3>
                 <img
                   src={heroImg}
+            fetchPriority="high"
+            decoding="async"
                   alt="Biblioteca completa de entrenamientos"
                   loading="lazy"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
