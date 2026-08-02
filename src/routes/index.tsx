@@ -1517,7 +1517,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $7,50 es perder otros 6 meses entrenando a ciegas.
+            gastar $5,50 es perder otros 6 meses entrenando a ciegas.
           </p>
           <div className="mt-8">
           </div>
