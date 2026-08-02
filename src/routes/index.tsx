@@ -87,7 +87,7 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Entrena con Método — Biblioteca Completa de Entrenamientos de Fútbol",
+          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
       },
       {
         name: "description",
@@ -97,7 +97,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:title",
         content:
-          "Entrena con Método — Biblioteca Completa de Entrenamientos de Fútbol",
+          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
       },
       {
         property: "og:description",
@@ -878,7 +878,7 @@ function LandingPage() {
             src={heroImg}
             fetchPriority="high"
             decoding="async"
-            alt="Biblioteca de entrenamientos por posición — Laterales, Porteros, Defensas y Delanteros"
+            alt="Biblioteca de entrenamientos por posición: Laterales, Porteros, Defensas y Delanteros"
             width={1200}
             height={1200}
             className="mx-auto mt-8 w-full max-w-xl rounded-2xl"
@@ -992,7 +992,7 @@ function LandingPage() {
 
           <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-secondary p-6 text-center text-sm leading-relaxed text-muted-foreground">
             El talento sin dirección se pierde. Cada semana entrenando a ciegas es una
-            semana que no vuelve — para ti, o para los chicos que dependen de ti. Y nadie
+            semana que no vuelve, para ti o para los chicos que dependen de ti. Y nadie
             se estanca por falta de ganas: se estanca por no saber qué entrenar hoy. Eso
             se resuelve en 5 minutos, a partir de hoy.
           </p>
@@ -1215,7 +1215,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-            <Cta>Sí, Ese Soy Yo — Quiero Mi Acceso</Cta>
+            <Cta>Sí, Ese Soy Yo, Quiero Mi Acceso</Cta>
           </div>
         </div>
       </section>
@@ -1300,7 +1300,7 @@ function LandingPage() {
 
 
 
-      {/* OFERTA — DOS PLANES */}
+      {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
@@ -1309,7 +1309,7 @@ function LandingPage() {
             <strong className="text-foreground">Básico $7,50 USD</strong> para empezar hoy con
             método, o <strong className="text-foreground">Completo $9,99 USD</strong> con la
             biblioteca entera y todos los bonos. Un solo pago, sin mensualidades: el acceso
-            llega a tu e-mail en minutos y es tuyo de por vida — con{" "}
+            llega a tu e-mail en minutos y es tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
 
@@ -1441,7 +1441,7 @@ function LandingPage() {
         <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
           <img
             src={coachImg}
-            alt="Coach Martínez — Entrenador Profesional"
+            alt="Coach Martínez, Entrenador Profesional"
             loading="lazy"
             width={912}
             height={1104}
@@ -1452,13 +1452,13 @@ function LandingPage() {
               Quién soy · +15 años en el campo
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl">
-              Coach Martínez — Metodología que Forma Jugadores de Verdad
+              Coach Martínez: Metodología que Forma Jugadores de Verdad
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Llevo más de <strong className="text-foreground">15 años</strong> como
               entrenador profesional trabajando con academias, canteras y jugadores
               amateur en toda Latinoamérica y España. He formado a más de{" "}
-              <strong className="text-foreground">2.000 futbolistas</strong> — desde niños
+              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
               de 6 años hasta adultos en clubes semiprofesionales.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -1501,8 +1501,8 @@ function LandingPage() {
           <p className="mt-4 text-muted-foreground">
             Descarga hoy, aplica los entrenamientos durante{" "}
             <strong className="text-foreground">7 días completos</strong> y mira el cambio
-            con tus propios ojos. Si sientes que no es para ti — por cualquier motivo y
-            sin dar explicaciones — nos escribes un email y te devolvemos{" "}
+            con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
+            sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
             gastar $7,50 es perder otros 6 meses entrenando a ciegas.
           </p>
@@ -1542,7 +1542,7 @@ function LandingPage() {
             Seas <strong className="text-foreground">jugador</strong> o{" "}
             <strong className="text-foreground">entrenador</strong>, el próximo
             entrenamiento va a llegar igual. La única diferencia es si llegas a él con un
-            plan profesional en el bolsillo — o improvisando otra vez.
+            plan profesional en el bolsillo, o improvisando otra vez.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
