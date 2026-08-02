@@ -804,17 +804,8 @@ function LandingPage() {
           </p>
 
           <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
-            <video
-              src={demoVideo.url}
-              poster={video1}
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="metadata"
-              className="aspect-video h-full w-full bg-ink object-cover"
-            />
+            <LazyVideo src={demoVideo.url} poster={video1} />
+
             <div className="p-5 text-center">
               <p className="text-base font-bold text-foreground">
                 Así se ven las sesiones en acción
