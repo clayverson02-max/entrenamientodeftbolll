@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import {
   AlertTriangle,
@@ -482,7 +483,7 @@ function OfferModal() {
   const mm = String(Math.floor(left / 60)).padStart(2, "0");
   const ss = String(left % 60).padStart(2, "0");
 
-  const shell = (label: string, children: React.ReactNode) => (
+  const shell = (label: string, children: ReactNode) => (
     <div
       role="dialog"
       aria-modal="true"
