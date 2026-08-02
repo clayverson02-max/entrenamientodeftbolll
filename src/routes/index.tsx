@@ -345,27 +345,40 @@ function CheckoutButton({
   href,
   children,
   variant = "solid",
+  direct = false,
 }: {
   href: string;
   children: string;
   variant?: "solid" | "outline";
+  /** true = va directo al checkout (usado dentro del pop-up de oferta) */
+  direct?: boolean;
 }) {
+  const className =
+    variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
+
+  if (!direct) {
+    return (
+      <button type="button" onClick={openOfferModal} className={className}>
+        {children}
+        <ArrowRight className="h-5 w-5 flex-shrink-0" />
+      </button>
+    );
+  }
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       onClick={trackCheckout}
-      className={
-        variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta"
-      }
-
+      className={className}
     >
       {children}
       <ArrowRight className="h-5 w-5 flex-shrink-0" />
     </a>
   );
 }
+
 
 function PaySafety() {
   return (
