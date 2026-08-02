@@ -299,11 +299,11 @@ const incluye = [
 ];
 
 const incluyeBasico = [
-  "Biblioteca esencial: +120 sesiones y +800 ejercicios",
-  "Módulos por posición: Defensas, Delanteros y Mediocampo",
+  "Módulo de Fútbol Femenino: sesiones adaptadas por categoría y nivel",
+  "Módulo de Fútbol Infantil: Sub-6 a Sub-12 con juego y progresión",
+  "Módulo de Acondicionamiento Físico: fuerza, velocidad, agilidad y resistencia",
   "Diagramas de campo con pasos numerados",
   "Acceso inmediato y vitalicio",
-  "BONO 01 · Guía de Entrenamiento",
   "Garantía incondicional de 7 días",
 ];
 
