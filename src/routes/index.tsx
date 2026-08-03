@@ -1059,8 +1059,8 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-          <Cta>Quiero Acceso Inmediato</Cta>
-        </div>
+            <Cta>Quiero Acceso Inmediato</Cta>
+          </div>
       </section>
 
       {/* GALERÍA CONTENIDO */}
