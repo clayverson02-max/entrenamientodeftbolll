@@ -1059,7 +1059,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-10">
-          </div>
+          <Cta>Quiero Acceso Inmediato</Cta>
         </div>
       </section>
 
