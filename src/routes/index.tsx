@@ -898,7 +898,7 @@ function LandingPage() {
           />
 
           <div className="mt-8">
-            <Cta>Quiero Mi Biblioteca de Entrenamiento Hoy</Cta>
+            {/* Botón eliminado según instrucción */}
           </div>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
