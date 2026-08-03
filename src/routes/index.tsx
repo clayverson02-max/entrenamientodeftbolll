@@ -1061,6 +1061,7 @@ function LandingPage() {
           <div className="mt-10">
             <Cta>Quiero Acceso Inmediato</Cta>
           </div>
+        </div>
       </section>
 
       {/* GALERÍA CONTENIDO */}
