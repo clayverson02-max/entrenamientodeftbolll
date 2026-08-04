@@ -1318,12 +1318,19 @@ function LandingPage() {
                 </div>
                 <blockquote className="mt-3 text-sm leading-relaxed">"{t.q}"</blockquote>
                 <figcaption className="mt-4 flex items-center gap-3 border-t border-border pt-4">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-primary font-display text-primary-foreground">
-                    {t.n.charAt(0)}
-                  </div>
+                  {(() => {
+                    const initials = t.n.split(" ").map(n => n[0]).join("").slice(0, 2);
+                    const colors = ["bg-primary/20 text-primary", "bg-gold/20 text-gold", "bg-blue-500/20 text-blue-500"];
+                    const colorIndex = t.n.charCodeAt(0) % colors.length;
+                    return (
+                      <div className={`grid h-10 w-10 place-items-center rounded-full text-xs font-bold ${colors[colorIndex]}`}>
+                        {initials}
+                      </div>
+                    );
+                  })()}
                   <div>
                     <p className="text-sm font-bold">{t.n}</p>
-                    <p className="text-sm text-muted-foreground">{t.r}</p>
+                    <p className="text-sm text-muted-foreground">{r.r}</p>
                   </div>
                 </figcaption>
               </figure>
