@@ -1076,10 +1076,12 @@ function LandingPage() {
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira la biblioteca por dentro</Kicker>
-          <H2>
-            Así Funciona la Biblioteca que Está Cambiando la Forma de Entrenar de Miles
-            de Personas
-          </H2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+              Accede a tu <strong>Área de Miembros</strong> profesional. Navega por categorías,
+              mira los videos y ten todo tu arsenal de entrenamiento organizado en un solo
+              lugar. Sin PDFs sueltos, todo en tu plataforma personal.
+            </p>
+
 
           <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
             {[
