@@ -357,11 +357,11 @@ function CheckoutModal() {
 
   return (
     <div 
-      className="fixed inset-0 z-[110] flex items-center justify-center bg-foreground/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-foreground/60 p-6 backdrop-blur-sm sm:p-8"
       onClick={() => setUrl(null)}
     >
       <div 
-        className="relative h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+        className="relative h-[80vh] w-full max-w-xl overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -553,11 +553,11 @@ function OfferModal() {
       role="dialog"
       aria-modal="true"
       aria-label={label}
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-foreground/70 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/60 p-6 backdrop-blur-sm sm:p-8"
       onClick={close}
     >
       <div
-        className="relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-2xl border border-primary/30 bg-card p-5 shadow-2xl sm:rounded-2xl sm:p-7"
+        className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-primary/30 bg-card p-5 shadow-2xl sm:p-7 transition-all duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <button
