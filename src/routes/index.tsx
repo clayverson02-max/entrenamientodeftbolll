@@ -372,7 +372,7 @@ function CheckoutModal() {
           <X className="h-6 w-6" />
         </button>
         <iframe 
-          src={`${url}?checkoutMode=1`} 
+          src={url} 
           className="h-full w-full border-none" 
           title="Checkout"
         />
