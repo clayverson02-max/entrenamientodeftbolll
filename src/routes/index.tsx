@@ -1647,8 +1647,8 @@ function LandingPage() {
       </section>
 
       <footer className="border-t border-border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Entrena con Método · Biblioteca de Entrenamientos de
-        Fútbol en PDF
+        © {new Date().getFullYear()} Entrena con Método · Plataforma de Entrenamientos de
+        Fútbol
       </footer>
     </div>
   );
