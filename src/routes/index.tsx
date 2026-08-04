@@ -1487,7 +1487,11 @@ function LandingPage() {
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
+                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Precio de lanzamiento para los primeros usuarios
+                  </p>
                 </div>
+
 
                 <ul className="mt-6 space-y-3 border-t border-border pt-6">
                   {incluyeBasico.map((i) => (
