@@ -336,6 +336,51 @@ function trackCheckout() {
   }
 }
 
+const CHECKOUT_MODAL_EVENT = "ecm:open-checkout-modal";
+
+function openCheckoutModal(url: string) {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(CHECKOUT_MODAL_EVENT, { detail: { url } }));
+  }
+}
+
+function CheckoutModal() {
+  const [url, setUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const onOpen = (e: any) => setUrl(e.detail.url);
+    window.addEventListener(CHECKOUT_MODAL_EVENT, onOpen);
+    return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, onOpen);
+  }, []);
+
+  if (!url) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-foreground/80 p-4 backdrop-blur-md"
+      onClick={() => setUrl(null)}
+    >
+      <div 
+        className="relative h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={() => setUrl(null)}
+          className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-colors hover:bg-foreground/20"
+        >
+          <X className="h-6 w-6" />
+        </button>
+        <iframe 
+          src={`${url}?checkoutMode=1`} 
+          className="h-full w-full border-none" 
+          title="Checkout"
+        />
+      </div>
+    </div>
+  );
+}
+
 function CheckoutButton({
   href,
   children,
@@ -351,8 +396,6 @@ function CheckoutButton({
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
 
-  // Todos los botones ahora abren el modal de oferta primero, 
-  // excepto cuando ya estamos dentro del modal (direct={true})
   if (!direct) {
     return (
       <button type="button" onClick={openOfferModal} className={className}>
@@ -367,8 +410,7 @@ function CheckoutButton({
       type="button"
       onClick={() => {
         trackCheckout();
-        // Abrir en formato pop-up/iframe si es posible, o nueva pestaña
-        window.open(href, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+        openCheckoutModal(href);
       }}
       className={className}
     >
@@ -582,7 +624,7 @@ function OfferModal() {
             type="button"
             onClick={() => {
               trackCheckout();
-              window.open(CHECKOUT_BASICO_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+              openCheckoutModal(CHECKOUT_BASICO_URL);
             }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
@@ -658,7 +700,7 @@ function OfferModal() {
           type="button"
           onClick={() => {
             trackCheckout();
-            window.open(CHECKOUT_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+            openCheckoutModal(CHECKOUT_URL);
           }}
           className="ecm-cta ecm-cta-breathe w-full justify-center"
         >
@@ -686,7 +728,7 @@ function Cta({
           type="button"
           onClick={() => {
             trackCheckout();
-            window.open(CHECKOUT_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+            openCheckoutModal(CHECKOUT_URL);
           }}
           className="ecm-cta"
         >
@@ -887,6 +929,7 @@ function LandingPage() {
     <div className="bg-background">
       <ComprasRecientes />
       <OfferModal />
+      <CheckoutModal />
 
 
       {/* Top bar */}
