@@ -261,41 +261,42 @@ const perfiles = [
 
 const testimonios = [
   {
-    q: "Llegué al entrenamiento con la sesión ya impresa en la mochila. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
-    n: "Coach Andrés M.",
+    q: "Llegué al entrenamiento con la sesión ya lista en mi plataforma. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
+    n: "Andrés M.",
     r: "Formador Sub-12 · Vancouver",
   },
   {
     q: "Los ejercicios de pase y control cambiaron completamente el ritmo del equipo. En 3 semanas ya se notó en los partidos.",
-    n: "Coach Diego R.",
+    n: "Diego R.",
     r: "Categoría Sub-15 · Madrid",
   },
   {
-    q: "Entreno solo en la cancha del barrio con la guía en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
+    q: "Entreno solo en la cancha del barrio con la plataforma en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
     n: "Mateo S.",
     r: "Jugador Sub-17 · Buenos Aires",
   },
   {
-    q: "Ya no gasto horas armando entrenamientos. Abro el PDF, miro el diagrama y listo. Los padres notaron la diferencia.",
-    n: "Coach Luis F.",
+    q: "Ya no gasto horas armando entrenamientos. Abro la plataforma, miro el video y listo. Los padres notaron la diferencia.",
+    n: "Luis F.",
     r: "Escuela Sub-9 · Bogotá",
   },
 ];
 
 const incluye = [
-  "Biblioteca completa en PDF: +250 sesiones y +2.000 ejercicios",
-  "Módulos organizados por posición: Laterales, Porteros, Defensas Centrales, Delanteros",
+  "Acceso a la Plataforma Web Personalizada",
+  "+250 sesiones y +2.000 ejercicios organizados",
+  "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
-  "Diagramas de campo con pasos numerados y flechas de movimiento",
-  "Acceso vitalicio e inmediato",
-  "Actualizaciones GRATIS",
+  "Diagramas de campo y Videoguías integradas",
+  "Acceso vitalicio con usuario y contraseña",
+  "Actualizaciones automáticas sin descargas extras",
   "Garantía incondicional de 7 días",
 ];
 
 const incluyeBasico = [
-  "Módulo de Fútbol Femenino: sesiones adaptadas por categoría y nivel",
-  "Módulo de Fútbol Infantil: Sub-6 a Sub-12 con juego y progresión",
-  "Módulo de Acondicionamiento Físico: fuerza, velocidad, agilidad y resistencia",
+  "Plataforma Web: Módulo de Fútbol Femenino",
+  "Plataforma Web: Módulo de Fútbol Infantil",
+  "Plataforma Web: Acondicionamiento Físico",
   "Diagramas de campo con pasos numerados",
   "Acceso inmediato y vitalicio",
   "Garantía incondicional de 7 días",
