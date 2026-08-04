@@ -47,37 +47,31 @@ const feedbacks = [
   {
     name: "Lucas Ferreira",
     role: "Entrenador Sub-15",
-    img: testi1.url,
-    text: "En 3 semanas dejé de improvisar. Abro el PDF, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
+    text: "En 3 semanas dejé de improvisar. Abro la plataforma, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
   },
   {
     name: "Diego Santana",
     role: "Jugador amateur, 21 años",
-    img: testi2.url,
     text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por menos de $10 fue lo mejor que compré.",
   },
   {
     name: "Rafael Nunes",
     role: "Cantera Sub-17",
-    img: testi3.url,
     text: "Los diagramas son clarísimos. Preparé la sesión de la semana en 5 minutos y el míster me pidió el material. Vale muchísimo más de lo que cuesta.",
   },
   {
     name: "Bruno Alves",
     role: "Coordinador de academia",
-    img: testi4.url,
-    text: "Organizamos toda la academia con la biblioteca: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
+    text: "Organizamos toda la academia con la plataforma: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
   },
   {
     name: "Andrés Molina",
     role: "Padre y entrenador de barrio",
-    img: testi1.url,
-    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso. Los chavales llegan motivados a cada entrenamiento.",
+    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso en la plataforma. Los chavales llegan motivados a cada entrenamiento.",
   },
   {
     name: "Marco Ribeiro",
     role: "Lateral, categoría adulta",
-    img: testi2.url,
     text: "Poco espacio, poco material y sin compañeros: encontré sesiones exactas para eso. Ya no tengo excusas para no entrenar.",
   },
 ];
