@@ -1621,7 +1621,7 @@ function LandingPage() {
               [Mail, "Acceso inmediato en tu e-mail"],
               [Check, "Un solo pago, acceso de por vida"],
               [Shield, "7 días de garantía total"],
-              [Smartphone, "Funciona desde el móvil, para imprimir o leer en pantalla"],
+              [Smartphone, "Funciona desde el móvil, tablet u ordenador, con tu login personal"],
             ].map(([Icon, label]) => {
               const I = Icon as typeof Mail;
               return (
