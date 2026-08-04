@@ -739,17 +739,34 @@ function useScrollReveal() {
 function TestimonialCard({
   t,
 }: {
-  t: { name: string; role: string; text: string; img: string };
+  t: { name: string; role: string; text: string };
 }) {
+  const initials = t.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2);
+
+  // Generate a consistent color based on the name
+  const colors = [
+    "bg-primary/20 text-primary",
+    "bg-gold/20 text-gold",
+    "bg-blue-500/20 text-blue-500",
+    "bg-purple-500/20 text-purple-500",
+    "bg-orange-500/20 text-orange-500",
+  ];
+  const colorIndex =
+    t.name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) %
+    colors.length;
+
   return (
     <figure className="ecm-card w-[19rem] flex-shrink-0 p-5 sm:w-[22rem]">
       <div className="flex items-center gap-3">
-        <img
-          src={t.img}
-          alt={t.name}
-          loading="lazy"
-          className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/40"
-        />
+        <div
+          className={`grid h-12 w-12 place-items-center rounded-full text-sm font-bold ring-2 ring-primary/40 ${colors[colorIndex]}`}
+        >
+          {initials}
+        </div>
         <div>
           <p className="text-sm font-extrabold">{t.name}</p>
           <p className="text-sm text-muted-foreground">{t.role}</p>
