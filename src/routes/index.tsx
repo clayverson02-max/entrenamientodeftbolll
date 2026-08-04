@@ -351,6 +351,8 @@ function CheckoutButton({
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
 
+  // Todos los botones ahora abren el modal de oferta primero, 
+  // excepto cuando ya estamos dentro del modal (direct={true})
   if (!direct) {
     return (
       <button type="button" onClick={openOfferModal} className={className}>
@@ -361,16 +363,18 @@ function CheckoutButton({
   }
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={trackCheckout}
+    <button
+      type="button"
+      onClick={() => {
+        trackCheckout();
+        // Abrir en formato pop-up/iframe si es posible, o nueva pestaña
+        window.open(href, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+      }}
       className={className}
     >
       {children}
       <ArrowRight className="h-5 w-5 flex-shrink-0" />
-    </a>
+    </button>
   );
 }
 
@@ -574,16 +578,17 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 flex flex-col items-center">
-          <a
-            href={CHECKOUT_BASICO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackCheckout}
+          <button
+            type="button"
+            onClick={() => {
+              trackCheckout();
+              window.open(CHECKOUT_BASICO_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+            }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
             Quiero empezar por $5,50
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
-          </a>
+          </button>
           <Badges />
           <button
             type="button"
@@ -649,16 +654,17 @@ function OfferModal() {
       </div>
 
       <div className="mt-5 flex flex-col items-center">
-        <a
-          href={CHECKOUT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={trackCheckout}
+        <button
+          type="button"
+          onClick={() => {
+            trackCheckout();
+            window.open(CHECKOUT_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+          }}
           className="ecm-cta ecm-cta-breathe w-full justify-center"
         >
           Sí, quiero el Paquete Completo
           <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </a>
+        </button>
         <Badges />
         <PaySafety />
       </div>
@@ -676,16 +682,17 @@ function Cta({
   return (
     <div className="flex flex-col items-center">
       {checkout ? (
-        <a
-          href={CHECKOUT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={trackCheckout}
+        <button
+          type="button"
+          onClick={() => {
+            trackCheckout();
+            window.open(CHECKOUT_URL, "_blank", "width=500,height=700,status=no,scrollbars=yes,resizable=yes");
+          }}
           className="ecm-cta"
         >
           {children}
           <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </a>
+        </button>
       ) : (
         <button type="button" onClick={openOfferModal} className="ecm-cta">
           {children}
@@ -976,14 +983,14 @@ function LandingPage() {
                 ))}
               </ul>
             </div>
-            <div className="ecm-card overflow-hidden">
-              {/* REEMPLAZAR con screenshot real del dashboard/panel de la plataforma */}
-              <div className="aspect-video bg-secondary flex items-center justify-center p-8 text-center text-sm text-muted-foreground">
-                <div className="space-y-3">
-                  <Smartphone className="h-10 w-10 mx-auto text-primary opacity-50" />
-                  <p>[VISTA PREVIA DEL DASHBOARD ORGANIZADO]</p>
-                  <p className="text-xs italic">Más de 2.000 contenidos listos para ti</p>
-                </div>
+            <div className="ecm-card overflow-hidden shadow-2xl ring-1 ring-primary/10">
+              <img 
+                src={heroImg} 
+                alt="Vista previa de la plataforma" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="bg-primary/5 p-4 text-center border-t border-border">
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">Más de 2.000 contenidos listos para ti</p>
               </div>
             </div>
           </div>
