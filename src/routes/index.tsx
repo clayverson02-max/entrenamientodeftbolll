@@ -933,30 +933,73 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* VIDEOS EXPLICATIVOS (movido arriba para captar atención) */}
+      {/* TU PLATAFORMA PERSONAL */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Tu área de miembros exclusiva</Kicker>
+          <H2>
+            Tu Plataforma Personal,{" "}
+            <span className="ecm-highlight">Lista en Minutos</span>
+          </H2>
+          <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <p className="text-lg font-semibold leading-relaxed">
+                Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
+                plataforma web completa diseñada para potenciar tu evolución.
+              </p>
+              <ul className="mt-6 space-y-4">
+                {[
+                  ["Login exclusivo con usuario y contraseña", "Tu progreso y contenido siempre seguros y a mano."],
+                  ["Panel organizado por categorías", "Navega fácilmente por posición, edad u objetivo del día."],
+                  ["Reproductor de video integrado", "Mira la técnica correcta sin salir de la sesión."],
+                  ["Acceso multidispositivo", "Usa tu móvil en el campo o tu tablet en casa sin limitaciones."],
+                  ["Actualizaciones automáticas", "Recibe contenido nuevo sin tener que descargar nada de nuevo."],
+                ].map(([t, d]) => (
+                  <li key={t as string} className="flex gap-3">
+                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                    <div>
+                      <p className="text-sm font-bold">{t as string}</p>
+                      <p className="text-sm text-muted-foreground">{d as string}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="ecm-card overflow-hidden">
+              {/* REEMPLAZAR con screenshot real del dashboard/panel de la plataforma */}
+              <div className="aspect-video bg-secondary flex items-center justify-center p-8 text-center text-sm text-muted-foreground">
+                <div className="space-y-3">
+                  <Smartphone className="h-10 w-10 mx-auto text-primary opacity-50" />
+                  <p>[VISTA PREVIA DEL DASHBOARD ORGANIZADO]</p>
+                  <p className="text-xs italic">Más de 2.000 contenidos listos para ti</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEOS EXPLICATIVOS */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira esto antes de seguir</Kicker>
           <H2>
-            No solo PDFs: cada ejercicio tiene su{" "}
-            <span className="ecm-highlight">video explicativo</span>
+            Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
-            coach muestra la técnica correcta, la organización del campo y los errores más
+            Dentro de tu plataforma, cada ejercicio tiene su video corto donde el coach
+            muestra la técnica correcta, la organización del campo y los errores más
             comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
           </p>
 
           <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
             <LazyVideo src={demoVideo.url} poster={video1} />
-
             <div className="p-5 text-center">
               <p className="text-base font-bold text-foreground">
-                Así se ven las sesiones en acción
+                Experiencia fluida en cualquier dispositivo
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
-                biblioteca.
+                Ejemplo del reproductor integrado que encontrarás en cada sesión.
               </p>
             </div>
           </div>
