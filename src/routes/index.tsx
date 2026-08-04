@@ -47,37 +47,31 @@ const feedbacks = [
   {
     name: "Lucas Ferreira",
     role: "Entrenador Sub-15",
-    img: testi1.url,
-    text: "En 3 semanas dejé de improvisar. Abro el PDF, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
+    text: "En 3 semanas dejé de improvisar. Abro la plataforma, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
   },
   {
     name: "Diego Santana",
     role: "Jugador amateur, 21 años",
-    img: testi2.url,
     text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por menos de $10 fue lo mejor que compré.",
   },
   {
     name: "Rafael Nunes",
     role: "Cantera Sub-17",
-    img: testi3.url,
     text: "Los diagramas son clarísimos. Preparé la sesión de la semana en 5 minutos y el míster me pidió el material. Vale muchísimo más de lo que cuesta.",
   },
   {
     name: "Bruno Alves",
     role: "Coordinador de academia",
-    img: testi4.url,
-    text: "Organizamos toda la academia con la biblioteca: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
+    text: "Organizamos toda la academia con la plataforma: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
   },
   {
     name: "Andrés Molina",
     role: "Padre y entrenador de barrio",
-    img: testi1.url,
-    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso. Los chavales llegan motivados a cada entrenamiento.",
+    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso en la plataforma. Los chavales llegan motivados a cada entrenamiento.",
   },
   {
     name: "Marco Ribeiro",
     role: "Lateral, categoría adulta",
-    img: testi2.url,
     text: "Poco espacio, poco material y sin compañeros: encontré sesiones exactas para eso. Ya no tengo excusas para no entrenar.",
   },
 ];
@@ -126,18 +120,18 @@ const dolores = [
 const pasos = [
   {
     n: "1",
-    t: "Accedes hoy mismo",
-    d: "Un solo pago y el acceso llega a tu e-mail en minutos. Descarga en PDF desde el móvil, tablet u ordenador.",
+    t: "Acceso Instantáneo",
+    d: "Recibes tu acceso por e-mail en minutos: usuario y contraseña para entrar a tu plataforma personal desde cualquier dispositivo.",
   },
   {
     n: "2",
-    t: "Dices qué necesitas",
-    d: "Posición, edad y objetivo del día. La biblioteca está organizada para que encuentres exactamente qué entrenar.",
+    t: "Todo Organizado",
+    d: "Accedes a tu panel personalizado por posición, edad y objetivo. La plataforma está diseñada para que encuentres todo en segundos.",
   },
   {
     n: "3",
-    t: "Entrenas con seguridad",
-    d: "Guía ilustrada paso a paso, con diagramas de campo y ejercicios numerados. Llegas al campo sabiendo qué hacer, cómo y por qué.",
+    t: "Entrenas con Video",
+    d: "Mira el video, sigue el diagrama y aplica con seguridad. Llegas al campo sabiendo exactamente qué hacer, cómo y por qué.",
   },
 ];
 
@@ -267,41 +261,42 @@ const perfiles = [
 
 const testimonios = [
   {
-    q: "Llegué al entrenamiento con la sesión ya impresa en la mochila. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
-    n: "Coach Andrés M.",
+    q: "Llegué al entrenamiento con la sesión ya lista en mi plataforma. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
+    n: "Andrés M.",
     r: "Formador Sub-12 · Vancouver",
   },
   {
     q: "Los ejercicios de pase y control cambiaron completamente el ritmo del equipo. En 3 semanas ya se notó en los partidos.",
-    n: "Coach Diego R.",
+    n: "Diego R.",
     r: "Categoría Sub-15 · Madrid",
   },
   {
-    q: "Entreno solo en la cancha del barrio con la guía en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
+    q: "Entreno solo en la cancha del barrio con la plataforma en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
     n: "Mateo S.",
     r: "Jugador Sub-17 · Buenos Aires",
   },
   {
-    q: "Ya no gasto horas armando entrenamientos. Abro el PDF, miro el diagrama y listo. Los padres notaron la diferencia.",
-    n: "Coach Luis F.",
+    q: "Ya no gasto horas armando entrenamientos. Abro la plataforma, miro el video y listo. Los padres notaron la diferencia.",
+    n: "Luis F.",
     r: "Escuela Sub-9 · Bogotá",
   },
 ];
 
 const incluye = [
-  "Biblioteca completa en PDF: +250 sesiones y +2.000 ejercicios",
-  "Módulos organizados por posición: Laterales, Porteros, Defensas Centrales, Delanteros",
+  "Acceso a la Plataforma Web Personalizada",
+  "+250 sesiones y +2.000 ejercicios organizados",
+  "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
-  "Diagramas de campo con pasos numerados y flechas de movimiento",
-  "Acceso vitalicio e inmediato",
-  "Actualizaciones GRATIS",
+  "Diagramas de campo y Videoguías integradas",
+  "Acceso vitalicio con usuario y contraseña",
+  "Actualizaciones automáticas sin descargas extras",
   "Garantía incondicional de 7 días",
 ];
 
 const incluyeBasico = [
-  "Módulo de Fútbol Femenino: sesiones adaptadas por categoría y nivel",
-  "Módulo de Fútbol Infantil: Sub-6 a Sub-12 con juego y progresión",
-  "Módulo de Acondicionamiento Físico: fuerza, velocidad, agilidad y resistencia",
+  "Plataforma Web: Módulo de Fútbol Femenino",
+  "Plataforma Web: Módulo de Fútbol Infantil",
+  "Plataforma Web: Acondicionamiento Físico",
   "Diagramas de campo con pasos numerados",
   "Acceso inmediato y vitalicio",
   "Garantía incondicional de 7 días",
@@ -315,15 +310,15 @@ const bonos = [
 
 
 const faqs = [
-  ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con el enlace de descarga de tu biblioteca en PDF. En la mayoría de los casos, en menos de 2 minutos."],
-  ["¿Para quién está diseñada la Biblioteca?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso inmediato a la biblioteca completa en PDF, organizada por posición y categoría, además de los bonos exclusivos y acceso vitalicio."],
+  ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
+  ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa, organizada por posición y categoría, con videoguías integradas, además de los bonos exclusivos."],
   ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
-  ["¿Qué pasa si la Biblioteca no cumple mis expectativas?", "Tienes 7 días de garantía. Si no cumple tus expectativas, solicitas el reembolso y recibes el 100% de tu dinero."],
-  ["¿Necesito experiencia para aprovechar la Biblioteca?", "No. Todos los ejercicios están explicados paso a paso con diagramas, para que cualquier nivel pueda aplicarlos."],
+  ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
+  ["¿Necesito experiencia para aprovechar el contenido?", "No. Todos los ejercicios están explicados paso a paso con diagramas y videos, para que cualquier nivel pueda aplicarlos."],
   ["¿Y si tengo poco espacio, poco material o faltan jugadores?", "Hay sesiones pensadas exactamente para eso: espacios reducidos, poco material y grupos pequeños."],
-  ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Eliges posición, edad y objetivo, abres el PDF con el diagrama y ya puedes ir al campo con todo claro."],
+  ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Entras a la plataforma, eliges posición y objetivo, miras el video y ya puedes ir al campo con todo claro."],
   ["¿Sirve tanto para jugadores como para entrenadores?", "Sí. El jugador encuentra sesiones individuales para evolucionar por su cuenta y el entrenador encuentra sesiones completas de equipo."],
 ];
 
@@ -383,12 +378,23 @@ function CheckoutButton({
 function PaySafety() {
   return (
     <>
-      <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
-        <Lock className="h-3.5 w-3.5" /> Pago 100% seguro vía tarjeta o transferencia
-      </p>
+      <div className="mt-3 flex flex-col items-center gap-2">
+        <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+          <Lock className="h-3.5 w-3.5" /> Conexión encriptada SSL
+        </p>
+        <div className="flex items-center gap-3 opacity-60">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-3" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-5" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4" />
+        </div>
+        <p className="text-xs font-bold text-primary">
+          Pago 100% seguro y garantizado
+        </p>
+      </div>
       <p className="mt-2 text-sm font-semibold text-primary">
         ✅ Acceso inmediato después de la compra
       </p>
+
       <p className="mt-1 text-center text-sm text-muted-foreground">
         ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
       </p>
@@ -744,17 +750,34 @@ function useScrollReveal() {
 function TestimonialCard({
   t,
 }: {
-  t: { name: string; role: string; text: string; img: string };
+  t: { name: string; role: string; text: string };
 }) {
+  const initials = t.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2);
+
+  // Generate a consistent color based on the name
+  const colors = [
+    "bg-primary/20 text-primary",
+    "bg-gold/20 text-gold",
+    "bg-blue-500/20 text-blue-500",
+    "bg-purple-500/20 text-purple-500",
+    "bg-orange-500/20 text-orange-500",
+  ];
+  const colorIndex =
+    t.name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) %
+    colors.length;
+
   return (
     <figure className="ecm-card w-[19rem] flex-shrink-0 p-5 sm:w-[22rem]">
       <div className="flex items-center gap-3">
-        <img
-          src={t.img}
-          alt={t.name}
-          loading="lazy"
-          className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/40"
-        />
+        <div
+          className={`grid h-12 w-12 place-items-center rounded-full text-sm font-bold ring-2 ring-primary/40 ${colors[colorIndex]}`}
+        >
+          {initials}
+        </div>
         <div>
           <p className="text-sm font-extrabold">{t.name}</p>
           <p className="text-sm text-muted-foreground">{t.role}</p>
@@ -921,30 +944,73 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* VIDEOS EXPLICATIVOS (movido arriba para captar atención) */}
+      {/* TU PLATAFORMA PERSONAL */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Tu área de miembros exclusiva</Kicker>
+          <H2>
+            Tu Plataforma Personal,{" "}
+            <span className="ecm-highlight">Lista en Minutos</span>
+          </H2>
+          <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <p className="text-lg font-semibold leading-relaxed">
+                Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
+                plataforma web completa diseñada para potenciar tu evolución.
+              </p>
+              <ul className="mt-6 space-y-4">
+                {[
+                  ["Login exclusivo con usuario y contraseña", "Tu progreso y contenido siempre seguros y a mano."],
+                  ["Panel organizado por categorías", "Navega fácilmente por posición, edad u objetivo del día."],
+                  ["Reproductor de video integrado", "Mira la técnica correcta sin salir de la sesión."],
+                  ["Acceso multidispositivo", "Usa tu móvil en el campo o tu tablet en casa sin limitaciones."],
+                  ["Actualizaciones automáticas", "Recibe contenido nuevo sin tener que descargar nada de nuevo."],
+                ].map(([t, d]) => (
+                  <li key={t as string} className="flex gap-3">
+                    <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                    <div>
+                      <p className="text-sm font-bold">{t as string}</p>
+                      <p className="text-sm text-muted-foreground">{d as string}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="ecm-card overflow-hidden">
+              {/* REEMPLAZAR con screenshot real del dashboard/panel de la plataforma */}
+              <div className="aspect-video bg-secondary flex items-center justify-center p-8 text-center text-sm text-muted-foreground">
+                <div className="space-y-3">
+                  <Smartphone className="h-10 w-10 mx-auto text-primary opacity-50" />
+                  <p>[VISTA PREVIA DEL DASHBOARD ORGANIZADO]</p>
+                  <p className="text-xs italic">Más de 2.000 contenidos listos para ti</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEOS EXPLICATIVOS */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira esto antes de seguir</Kicker>
           <H2>
-            No solo PDFs: cada ejercicio tiene su{" "}
-            <span className="ecm-highlight">video explicativo</span>
+            Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Además de la biblioteca descargable, recibes acceso a videos cortos donde el
-            coach muestra la técnica correcta, la organización del campo y los errores más
+            Dentro de tu plataforma, cada ejercicio tiene su video corto donde el coach
+            muestra la técnica correcta, la organización del campo y los errores más
             comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
           </p>
 
           <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
             <LazyVideo src={demoVideo.url} poster={video1} />
-
             <div className="p-5 text-center">
               <p className="text-base font-bold text-foreground">
-                Así se ven las sesiones en acción
+                Experiencia fluida en cualquier dispositivo
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                Ejemplo de un ejercicio guiado paso a paso, igual que en los videos de la
-                biblioteca.
+                Ejemplo del reproductor integrado que encontrarás en cada sesión.
               </p>
             </div>
           </div>
@@ -1021,10 +1087,12 @@ function LandingPage() {
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>Mira la biblioteca por dentro</Kicker>
-          <H2>
-            Así Funciona la Biblioteca que Está Cambiando la Forma de Entrenar de Miles
-            de Personas
-          </H2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+              Accede a tu <strong>Área de Miembros</strong> profesional. Navega por categorías,
+              mira los videos y ten todo tu arsenal de entrenamiento organizado en un solo
+              lugar. Sin PDFs sueltos, todo en tu plataforma personal.
+            </p>
+
 
           <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
             {[
@@ -1250,9 +1318,16 @@ function LandingPage() {
                 </div>
                 <blockquote className="mt-3 text-sm leading-relaxed">"{t.q}"</blockquote>
                 <figcaption className="mt-4 flex items-center gap-3 border-t border-border pt-4">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-primary font-display text-primary-foreground">
-                    {t.n.charAt(0)}
-                  </div>
+                  {(() => {
+                    const initials = t.n.split(" ").map(n => n[0]).join("").slice(0, 2);
+                    const colors = ["bg-primary/20 text-primary", "bg-gold/20 text-gold", "bg-blue-500/20 text-blue-500"];
+                    const colorIndex = t.n.charCodeAt(0) % colors.length;
+                    return (
+                      <div className={`grid h-10 w-10 place-items-center rounded-full text-xs font-bold ${colors[colorIndex]}`}>
+                        {initials}
+                      </div>
+                    );
+                  })()}
                   <div>
                     <p className="text-sm font-bold">{t.n}</p>
                     <p className="text-sm text-muted-foreground">{t.r}</p>
@@ -1286,7 +1361,7 @@ function LandingPage() {
 
         <div className="ecm-marquee mt-10">
           <div className="ecm-marquee-track">
-            {[...feedbacks, ...feedbacks].map((t, i) => (
+            {feedbacks.map((t, i) => (
               <TestimonialCard key={`a-${i}`} t={t} />
             ))}
           </div>
@@ -1294,11 +1369,9 @@ function LandingPage() {
 
         <div className="ecm-marquee ecm-marquee-reverse mt-4">
           <div className="ecm-marquee-track">
-            {[...feedbacks.slice().reverse(), ...feedbacks.slice().reverse()].map(
-              (t, i) => (
-                <TestimonialCard key={`b-${i}`} t={t} />
-              ),
-            )}
+            {feedbacks.slice().reverse().map((t, i) => (
+              <TestimonialCard key={`b-${i}`} t={t} />
+            ))}
           </div>
         </div>
 
@@ -1365,7 +1438,11 @@ function LandingPage() {
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
+                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Precio de lanzamiento para los primeros usuarios
+                  </p>
                 </div>
+
 
                 <ul className="mt-6 space-y-3 border-t border-border pt-6">
                   {incluye.map((i) => (
@@ -1426,7 +1503,11 @@ function LandingPage() {
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
+                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Precio de lanzamiento para los primeros usuarios
+                  </p>
                 </div>
+
 
                 <ul className="mt-6 space-y-3 border-t border-border pt-6">
                   {incluyeBasico.map((i) => (
@@ -1513,7 +1594,7 @@ function LandingPage() {
           <Kicker>Compra Protegida</Kicker>
           <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
           <p className="mt-4 text-muted-foreground">
-            Descarga hoy, aplica los entrenamientos durante{" "}
+            Accede hoy, aplica los entrenamientos durante{" "}
             <strong className="text-foreground">7 días completos</strong> y mira el cambio
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
@@ -1564,7 +1645,7 @@ function LandingPage() {
               [Mail, "Acceso inmediato en tu e-mail"],
               [Check, "Un solo pago, acceso de por vida"],
               [Shield, "7 días de garantía total"],
-              [Smartphone, "Funciona desde el móvil, para imprimir o leer en pantalla"],
+              [Smartphone, "Funciona desde el móvil, tablet u ordenador, con tu login personal"],
             ].map(([Icon, label]) => {
               const I = Icon as typeof Mail;
               return (
@@ -1590,8 +1671,8 @@ function LandingPage() {
       </section>
 
       <footer className="border-t border-border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Entrena con Método · Biblioteca de Entrenamientos de
-        Fútbol en PDF
+        © {new Date().getFullYear()} Entrena con Método · Plataforma de Entrenamientos de
+        Fútbol
       </footer>
     </div>
   );
