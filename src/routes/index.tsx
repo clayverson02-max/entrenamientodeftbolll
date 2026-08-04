@@ -1330,7 +1330,7 @@ function LandingPage() {
                   })()}
                   <div>
                     <p className="text-sm font-bold">{t.n}</p>
-                    <p className="text-sm text-muted-foreground">{r.r}</p>
+                    <p className="text-sm text-muted-foreground">{t.r}</p>
                   </div>
                 </figcaption>
               </figure>
