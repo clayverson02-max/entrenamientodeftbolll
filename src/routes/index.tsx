@@ -310,15 +310,15 @@ const bonos = [
 
 
 const faqs = [
-  ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con el enlace de descarga de tu biblioteca en PDF. En la mayoría de los casos, en menos de 2 minutos."],
-  ["¿Para quién está diseñada la Biblioteca?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso inmediato a la biblioteca completa en PDF, organizada por posición y categoría, además de los bonos exclusivos y acceso vitalicio."],
+  ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
+  ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa, organizada por posición y categoría, con videoguías integradas, además de los bonos exclusivos."],
   ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
-  ["¿Qué pasa si la Biblioteca no cumple mis expectativas?", "Tienes 7 días de garantía. Si no cumple tus expectativas, solicitas el reembolso y recibes el 100% de tu dinero."],
-  ["¿Necesito experiencia para aprovechar la Biblioteca?", "No. Todos los ejercicios están explicados paso a paso con diagramas, para que cualquier nivel pueda aplicarlos."],
+  ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
+  ["¿Necesito experiencia para aprovechar el contenido?", "No. Todos los ejercicios están explicados paso a paso con diagramas y videos, para que cualquier nivel pueda aplicarlos."],
   ["¿Y si tengo poco espacio, poco material o faltan jugadores?", "Hay sesiones pensadas exactamente para eso: espacios reducidos, poco material y grupos pequeños."],
-  ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Eliges posición, edad y objetivo, abres el PDF con el diagrama y ya puedes ir al campo con todo claro."],
+  ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Entras a la plataforma, eliges posición y objetivo, miras el video y ya puedes ir al campo con todo claro."],
   ["¿Sirve tanto para jugadores como para entrenadores?", "Sí. El jugador encuentra sesiones individuales para evolucionar por su cuenta y el entrenador encuentra sesiones completas de equipo."],
 ];
 
