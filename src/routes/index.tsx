@@ -120,18 +120,18 @@ const dolores = [
 const pasos = [
   {
     n: "1",
-    t: "Accedes hoy mismo",
-    d: "Un solo pago y el acceso llega a tu e-mail en minutos. Descarga en PDF desde el móvil, tablet u ordenador.",
+    t: "Acceso Instantáneo",
+    d: "Recibes tu acceso por e-mail en minutos: usuario y contraseña para entrar a tu plataforma personal desde cualquier dispositivo.",
   },
   {
     n: "2",
-    t: "Dices qué necesitas",
-    d: "Posición, edad y objetivo del día. La biblioteca está organizada para que encuentres exactamente qué entrenar.",
+    t: "Todo Organizado",
+    d: "Accedes a tu panel personalizado por posición, edad y objetivo. La plataforma está diseñada para que encuentres todo en segundos.",
   },
   {
     n: "3",
-    t: "Entrenas con seguridad",
-    d: "Guía ilustrada paso a paso, con diagramas de campo y ejercicios numerados. Llegas al campo sabiendo qué hacer, cómo y por qué.",
+    t: "Entrenas con Video",
+    d: "Mira el video, sigue el diagrama y aplica con seguridad. Llegas al campo sabiendo exactamente qué hacer, cómo y por qué.",
   },
 ];
 
