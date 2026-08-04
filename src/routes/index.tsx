@@ -324,8 +324,8 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-export const CHECKOUT_URL = "https://pay.kiwify.com/DdeFcSY";
-export const CHECKOUT_BASICO_URL = "https://pay.kiwify.com/eQoQd0Y";
+export const CHECKOUT_URL = "https://pay.hotmart.com/D106820400M?checkoutMode=10";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/D106795605Y?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -372,7 +372,7 @@ function CheckoutModal() {
           <X className="h-6 w-6" />
         </button>
         <iframe 
-          src={`${url}?checkoutMode=1`} 
+          src={url} 
           className="h-full w-full border-none" 
           title="Checkout"
         />
