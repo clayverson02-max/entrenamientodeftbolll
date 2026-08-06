@@ -340,45 +340,13 @@ const CHECKOUT_MODAL_EVENT = "ecm:open-checkout-modal";
 
 function openCheckoutModal(url: string) {
   if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent(CHECKOUT_MODAL_EVENT, { detail: { url } }));
+    trackCheckout();
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 }
 
 function CheckoutModal() {
-  const [url, setUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onOpen = (e: any) => setUrl(e.detail.url);
-    window.addEventListener(CHECKOUT_MODAL_EVENT, onOpen);
-    return () => window.removeEventListener(CHECKOUT_MODAL_EVENT, onOpen);
-  }, []);
-
-  if (!url) return null;
-
-  return (
-    <div 
-      className="fixed inset-0 z-[110] flex items-center justify-center bg-foreground/60 p-6 backdrop-blur-sm sm:p-8"
-      onClick={() => setUrl(null)}
-    >
-      <div 
-        className="relative h-[80vh] w-full max-w-xl overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-300"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          type="button"
-          onClick={() => setUrl(null)}
-          className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-colors hover:bg-foreground/20"
-        >
-          <X className="h-6 w-6" />
-        </button>
-        <iframe 
-          src={url} 
-          className="h-full w-full border-none" 
-          title="Checkout"
-        />
-      </div>
-    </div>
-  );
+  return null;
 }
 
 function CheckoutButton({
@@ -409,7 +377,6 @@ function CheckoutButton({
     <button
       type="button"
       onClick={() => {
-        trackCheckout();
         openCheckoutModal(href);
       }}
       className={className}
