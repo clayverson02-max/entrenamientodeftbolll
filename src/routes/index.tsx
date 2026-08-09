@@ -341,7 +341,26 @@ const CHECKOUT_MODAL_EVENT = "ecm:open-checkout-modal";
 function openCheckoutModal(url: string) {
   if (typeof window !== "undefined") {
     trackCheckout();
-    window.open(url, "_blank", "noopener,noreferrer");
+    
+    let finalUrl = url;
+    try {
+      const searchParams = new URLSearchParams(window.location.search);
+      const utms = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+      const urlObj = new URL(url);
+      
+      utms.forEach(utm => {
+        const value = searchParams.get(utm);
+        if (value) {
+          urlObj.searchParams.set(utm, value);
+        }
+      });
+      
+      finalUrl = urlObj.toString();
+    } catch (e) {
+      // fallback to original url if anything fails
+    }
+
+    window.open(finalUrl, "_blank", "noopener,noreferrer");
   }
 }
 
