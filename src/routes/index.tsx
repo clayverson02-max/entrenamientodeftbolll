@@ -216,11 +216,11 @@ const jugador = [
 ];
 
 const entrenador = [
-  ["Recuperas 5 horas cada semana", "Abres la guía en el móvil y ya tienes la sesión estructurada."],
+  ["Recuperas 5 horas cada semana", "Abres la plataforma en el móvil y ya tienes la sesión estructurada."],
   ["Nunca repites la misma sesión", "Más de 250 sesiones organizadas por objetivo."],
   ["Los padres dejan de cuestionarte", "Cuando la sesión está estructurada y explicada, se nota desde la banda."],
   ["Tu equipo empieza a jugar distinto", "Trabajo por bloques y progresión visibles en pocas semanas."],
-  ["Nunca más llegas al campo improvisando", "Siempre hay una sesión en PDF lista para esa situación."],
+  ["Nunca más llegas al campo improvisando", "Siempre hay una sesión lista en tu plataforma para esa situación."],
 ];
 
 const antes = [
