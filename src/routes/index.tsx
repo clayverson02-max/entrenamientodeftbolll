@@ -283,11 +283,12 @@ const testimonios = [
 ];
 
 const incluye = [
-  "Acceso a la Plataforma Web Personalizada",
+  "Acceso a la Plataforma Web Completa y Personalizada",
   "+250 sesiones y +2.000 ejercicios organizados",
   "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
-  "Diagramas de campo y Videoguías integradas",
+  "Materiales en video didácticos integrados en cada ejercicio",
+  "Diagramas de campo claros y descargables",
   "Acceso vitalicio con usuario y contraseña",
   "Actualizaciones automáticas sin descargas extras",
   "Garantía incondicional de 7 días",
@@ -312,7 +313,7 @@ const bonos = [
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
   ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa, organizada por posición y categoría, con videoguías integradas, además de los bonos exclusivos."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: biblioteca organizada por posición y categoría, materiales en video didácticos integrados y bonos exclusivos. Todo en una sola herramienta."],
   ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
   ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
@@ -920,7 +921,7 @@ function LandingPage() {
 
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
-        Descuento exclusivo solo hoy
+        🔥 Precio de lanzamiento activo · Cierra pronto
       </div>
 
       {/* HERO */}
