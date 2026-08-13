@@ -638,12 +638,12 @@ function OfferModal() {
       </span>
 
       <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
-        Paquete Completo: todo lo que necesitas para{" "}
-        <span className="ecm-highlight">nunca más improvisar</span>
+        Paquete Completo: tu{" "}
+        <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
       </h2>
 
       <p className="mt-3 text-sm font-semibold text-muted-foreground">
-        Esto es lo que dejas atrás hoy mismo:
+        Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
       </p>
       <ul className="mt-3 space-y-2">
         {OFFER_PAINS.map((p) => (
@@ -657,9 +657,9 @@ function OfferModal() {
       <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
         <ul className="space-y-2">
           {[
-            "+250 sesiones y +2.000 ejercicios listos para imprimir",
-            "Organizado por posición, categoría, edad y objetivo",
-            "Videoguías de apoyo en cada ejercicio",
+            "+250 sesiones y +2.000 ejercicios en tu plataforma personal",
+            "Materiales en video integrados en cada ejercicio",
+            "Todo organizado por posición, categoría, edad y objetivo",
             "Acceso inmediato y de por vida, un solo pago",
           ].map((b) => (
             <li
@@ -1465,8 +1465,9 @@ function LandingPage() {
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
             fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $5,50 USD</strong> con la
-            biblioteca entera y todos los bonos. Un solo pago, sin mensualidades: el acceso
-            llega a tu e-mail en minutos y es tuyo de por vida, con{" "}
+            plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
+            Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
+            tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
 
