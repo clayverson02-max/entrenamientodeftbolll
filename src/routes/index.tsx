@@ -1666,12 +1666,12 @@ function LandingPage() {
           <Kicker>Compra Protegida</Kicker>
           <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
           <p className="mt-4 text-muted-foreground">
-            Accede hoy, aplica los entrenamientos durante{" "}
+            Accede hoy a toda la plataforma, aplica los entrenamientos durante{" "}
             <strong className="text-foreground">7 días completos</strong> y mira el cambio
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $4,50 es perder otros 6 meses entrenando a ciegas.
+            invertir $4,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
