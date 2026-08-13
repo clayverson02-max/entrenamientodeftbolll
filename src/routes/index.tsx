@@ -1229,6 +1229,36 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* PLATAFORMA COMPLETA */}
+      <section data-reveal className="border-t border-border bg-accent px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-4xl text-center">
+          <Kicker>Todo en una sola herramienta</Kicker>
+          <H2>
+            No es solo una biblioteca: es tu{" "}
+            <span className="ecm-highlight">Plataforma Completa</span> de Entrenamiento
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Todo lo que necesitas para entrenar con método, en un solo lugar: sesiones
+            organizadas, diagramas claros y materiales en video que te enseñan paso a paso.
+            Olvídate de archivos sueltos, PDFs perdidos y horas buscando en Internet.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {[
+              ["Organización total", "Encuentra cualquier sesión en segundos, por posición, edad o objetivo."],
+              ["Videos didácticos", "Cada ejercicio explicado con técnica, campo y errores comunes."],
+              ["Acceso vitalicio", "Una sola compra. Usa la plataforma hoy, mañana y siempre."],
+            ].map(([t, d]) => (
+              <div key={t} className="ecm-card p-5 text-center">
+                <p className="font-bold text-foreground">{t}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Cta>Quiero mi Plataforma Completa</Cta>
+          </div>
+        </div>
+      </section>
 
       {/* PERFILES */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
