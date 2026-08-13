@@ -937,12 +937,13 @@ function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Descubre la <strong className="text-foreground">Biblioteca Completa</strong>{" "}
-            con <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>{" "}
-            profesionales, organizados por{" "}
+            Accede a una <strong className="text-foreground">Plataforma Completa</strong>{" "}
+            de entrenamiento profesional: biblioteca organizada con{" "}
+            <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
+            más <strong className="text-foreground">materiales en video</strong> integrados
+            que te muestran exactamente cómo ejecutar cada ejercicio. Todo por{" "}
             <strong className="text-foreground">posición, categoría y objetivo</strong>: en
-            menos de 5 minutos tienes la sesión de hoy lista para imprimir o llevar en
-            tu móvil.{" "}
+            menos de 5 minutos tienes la sesión de hoy lista para aplicar en el campo.{" "}
             <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
           </p>
 
@@ -992,7 +993,9 @@ function LandingPage() {
             <div>
               <p className="text-lg font-semibold leading-relaxed">
                 Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
-                plataforma web completa diseñada para potenciar tu evolución.
+                <strong className="text-foreground"> plataforma web completa</strong> diseñada
+                para organizar, acelerar y potenciar tu evolución: biblioteca + videos didácticos
+                + herramientas de planificación, todo en un solo lugar.
               </p>
               <ul className="mt-6 space-y-4">
                 {[
@@ -1034,9 +1037,10 @@ function LandingPage() {
             Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Dentro de tu plataforma, cada ejercicio tiene su video corto donde el coach
+            Dentro de tu plataforma, cada ejercicio cuenta con material en video donde el coach
             muestra la técnica correcta, la organización del campo y los errores más
-            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
+            comunes. No solo ves el ejercicio: lo entiendes, lo copias y lo aplicas con
+            seguridad desde el primer minuto.
           </p>
 
           <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
