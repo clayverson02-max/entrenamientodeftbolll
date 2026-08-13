@@ -216,11 +216,11 @@ const jugador = [
 ];
 
 const entrenador = [
-  ["Recuperas 5 horas cada semana", "Abres la guía en el móvil y ya tienes la sesión estructurada."],
+  ["Recuperas 5 horas cada semana", "Abres la plataforma en el móvil y ya tienes la sesión estructurada."],
   ["Nunca repites la misma sesión", "Más de 250 sesiones organizadas por objetivo."],
   ["Los padres dejan de cuestionarte", "Cuando la sesión está estructurada y explicada, se nota desde la banda."],
   ["Tu equipo empieza a jugar distinto", "Trabajo por bloques y progresión visibles en pocas semanas."],
-  ["Nunca más llegas al campo improvisando", "Siempre hay una sesión en PDF lista para esa situación."],
+  ["Nunca más llegas al campo improvisando", "Siempre hay una sesión lista en tu plataforma para esa situación."],
 ];
 
 const antes = [
@@ -283,11 +283,12 @@ const testimonios = [
 ];
 
 const incluye = [
-  "Acceso a la Plataforma Web Personalizada",
+  "Acceso a la Plataforma Web Completa y Personalizada",
   "+250 sesiones y +2.000 ejercicios organizados",
   "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
-  "Diagramas de campo y Videoguías integradas",
+  "Materiales en video didácticos integrados en cada ejercicio",
+  "Diagramas de campo claros y descargables",
   "Acceso vitalicio con usuario y contraseña",
   "Actualizaciones automáticas sin descargas extras",
   "Garantía incondicional de 7 días",
@@ -312,7 +313,7 @@ const bonos = [
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
   ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa, organizada por posición y categoría, con videoguías integradas, además de los bonos exclusivos."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: biblioteca organizada por posición y categoría, materiales en video didácticos integrados y bonos exclusivos. Todo en una sola herramienta."],
   ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
   ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
@@ -638,12 +639,12 @@ function OfferModal() {
       </span>
 
       <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
-        Paquete Completo: todo lo que necesitas para{" "}
-        <span className="ecm-highlight">nunca más improvisar</span>
+        Paquete Completo: tu{" "}
+        <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
       </h2>
 
       <p className="mt-3 text-sm font-semibold text-muted-foreground">
-        Esto es lo que dejas atrás hoy mismo:
+        Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
       </p>
       <ul className="mt-3 space-y-2">
         {OFFER_PAINS.map((p) => (
@@ -657,9 +658,9 @@ function OfferModal() {
       <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
         <ul className="space-y-2">
           {[
-            "+250 sesiones y +2.000 ejercicios listos para imprimir",
-            "Organizado por posición, categoría, edad y objetivo",
-            "Videoguías de apoyo en cada ejercicio",
+            "+250 sesiones y +2.000 ejercicios en tu plataforma personal",
+            "Materiales en video integrados en cada ejercicio",
+            "Todo organizado por posición, categoría, edad y objetivo",
             "Acceso inmediato y de por vida, un solo pago",
           ].map((b) => (
             <li
@@ -920,7 +921,7 @@ function LandingPage() {
 
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
-        Descuento exclusivo solo hoy
+        🔥 Precio de lanzamiento activo · Cierra pronto
       </div>
 
       {/* HERO */}
@@ -937,12 +938,13 @@ function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Descubre la <strong className="text-foreground">Biblioteca Completa</strong>{" "}
-            con <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>{" "}
-            profesionales, organizados por{" "}
+            Accede a una <strong className="text-foreground">Plataforma Completa</strong>{" "}
+            de entrenamiento profesional: biblioteca organizada con{" "}
+            <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
+            más <strong className="text-foreground">materiales en video</strong> integrados
+            que te muestran exactamente cómo ejecutar cada ejercicio. Todo por{" "}
             <strong className="text-foreground">posición, categoría y objetivo</strong>: en
-            menos de 5 minutos tienes la sesión de hoy lista para imprimir o llevar en
-            tu móvil.{" "}
+            menos de 5 minutos tienes la sesión de hoy lista para aplicar en el campo.{" "}
             <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
           </p>
 
@@ -992,7 +994,9 @@ function LandingPage() {
             <div>
               <p className="text-lg font-semibold leading-relaxed">
                 Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
-                plataforma web completa diseñada para potenciar tu evolución.
+                <strong className="text-foreground"> plataforma web completa</strong> diseñada
+                para organizar, acelerar y potenciar tu evolución: biblioteca + videos didácticos
+                + herramientas de planificación, todo en un solo lugar.
               </p>
               <ul className="mt-6 space-y-4">
                 {[
@@ -1034,9 +1038,10 @@ function LandingPage() {
             Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Dentro de tu plataforma, cada ejercicio tiene su video corto donde el coach
+            Dentro de tu plataforma, cada ejercicio cuenta con material en video donde el coach
             muestra la técnica correcta, la organización del campo y los errores más
-            comunes. Ideal para copiar la ejecución exacta antes de salir a entrenar.
+            comunes. No solo ves el ejercicio: lo entiendes, lo copias y lo aplicas con
+            seguridad desde el primer minuto.
           </p>
 
           <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
@@ -1225,6 +1230,36 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* PLATAFORMA COMPLETA */}
+      <section data-reveal className="border-t border-border bg-accent px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-4xl text-center">
+          <Kicker>Todo en una sola herramienta</Kicker>
+          <H2>
+            No es solo una biblioteca: es tu{" "}
+            <span className="ecm-highlight">Plataforma Completa</span> de Entrenamiento
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Todo lo que necesitas para entrenar con método, en un solo lugar: sesiones
+            organizadas, diagramas claros y materiales en video que te enseñan paso a paso.
+            Olvídate de archivos sueltos, PDFs perdidos y horas buscando en Internet.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {[
+              ["Organización total", "Encuentra cualquier sesión en segundos, por posición, edad o objetivo."],
+              ["Videos didácticos", "Cada ejercicio explicado con técnica, campo y errores comunes."],
+              ["Acceso vitalicio", "Una sola compra. Usa la plataforma hoy, mañana y siempre."],
+            ].map(([t, d]) => (
+              <div key={t} className="ecm-card p-5 text-center">
+                <p className="font-bold text-foreground">{t}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Cta>Quiero mi Plataforma Completa</Cta>
+          </div>
+        </div>
+      </section>
 
       {/* PERFILES */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
@@ -1431,8 +1466,9 @@ function LandingPage() {
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
             fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $5,50 USD</strong> con la
-            biblioteca entera y todos los bonos. Un solo pago, sin mensualidades: el acceso
-            llega a tu e-mail en minutos y es tuyo de por vida, con{" "}
+            plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
+            Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
+            tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
           </p>
 
@@ -1630,12 +1666,12 @@ function LandingPage() {
           <Kicker>Compra Protegida</Kicker>
           <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
           <p className="mt-4 text-muted-foreground">
-            Accede hoy, aplica los entrenamientos durante{" "}
+            Accede hoy a toda la plataforma, aplica los entrenamientos durante{" "}
             <strong className="text-foreground">7 días completos</strong> y mira el cambio
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            gastar $4,50 es perder otros 6 meses entrenando a ciegas.
+            invertir $4,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
