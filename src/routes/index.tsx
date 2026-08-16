@@ -25,7 +25,8 @@ import {
 } from "@/components/ui/accordion";
 import heroImg from "@/assets/hero-biblioteca-pdf.webp";
 import paginasImg from "@/assets/paginas-ejercicios.webp";
-import coachImg from "@/assets/coach-martinez.webp";
+import coachImgAsset from "@/assets/coach-martinez.jpg.asset.json";
+const coachImg = coachImgAsset.url;
 import testi1 from "@/assets/testi-1.jpg.asset.json";
 import testi2 from "@/assets/testi-2.jpg.asset.json";
 import testi3 from "@/assets/testi-3.jpg.asset.json";
@@ -43,36 +44,49 @@ import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
 import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
 
-const feedbacks = [
+const feedbacksTop = [
   {
-    name: "Lucas Ferreira",
-    role: "Entrenador Sub-15",
-    text: "En 3 semanas dejé de improvisar. Abro la plataforma, elijo la sesión y entro al campo con todo claro. Mis jugadores notaron el cambio enseguida.",
+    name: "Carlos Méndez",
+    role: "Entrenador Sub-14",
+    text: "La organización por posición es lo que más me ayudó. Ya no pierdo tiempo pensando qué hacer con los laterales mientras trabajo con los centrales.",
   },
   {
-    name: "Diego Santana",
-    role: "Jugador amateur, 21 años",
-    text: "Entreno solo 4 días por semana con los ejercicios individuales. Mi control y mi primer toque cambiaron por completo. Por menos de $10 fue lo mejor que compré.",
+    name: "Julián Castro",
+    role: "Jugador Juvenil",
+    text: "Los videos son clave. Veo el movimiento exacto antes de intentar el ejercicio. Siento que mi técnica individual mejoró en solo 2 semanas.",
   },
   {
-    name: "Rafael Nunes",
-    role: "Cantera Sub-17",
-    text: "Los diagramas son clarísimos. Preparé la sesión de la semana en 5 minutos y el míster me pidió el material. Vale muchísimo más de lo que cuesta.",
+    name: "Roberto Gómez",
+    role: "Coordinador Deportivo",
+    text: "Implementamos esta plataforma en toda la academia y el nivel de los entrenamientos subió drásticamente. Los diagramas son muy profesionales.",
   },
   {
-    name: "Bruno Alves",
-    role: "Coordinador de academia",
-    text: "Organizamos toda la academia con la plataforma: por posición, por categoría y por objetivo. Ahorramos horas cada semana de planificación.",
+    name: "Santiago Peña",
+    role: "Padre de jugador",
+    text: "Mi hijo entrena con estas sesiones en el parque. Está mucho más motivado porque siente que está haciendo lo mismo que los profesionales.",
+  },
+];
+
+const feedbacksBottom = [
+  {
+    name: "Fernando Ruiz",
+    role: "Entrenador de Porteros",
+    text: "La sección de arqueros es muy completa. Trabajo reacción y juego con los pies de una forma que no encontraba en otros manuales.",
   },
   {
-    name: "Andrés Molina",
-    role: "Padre y entrenador de barrio",
-    text: "No tengo experiencia técnica y aun así pude aplicar todo paso a paso en la plataforma. Los chavales llegan motivados a cada entrenamiento.",
+    name: "Miguel Ángel Torres",
+    role: "Delantero Amateur",
+    text: "Los circuitos de finalización me dieron mucha más confianza frente al arco. La plataforma es intuitiva y fácil de usar en el móvil.",
   },
   {
-    name: "Marco Ribeiro",
-    role: "Lateral, categoría adulta",
-    text: "Poco espacio, poco material y sin compañeros: encontré sesiones exactas para eso. Ya no tengo excusas para no entrenar.",
+    name: "Gabriel Silva",
+    role: "Entrenador Sub-10",
+    text: "Ideal para el fútbol base. Los chicos se divierten y aprenden con una metodología seria pero adaptada a su edad.",
+  },
+  {
+    name: "Luis Eduardo Paz",
+    role: "Preparador Físico",
+    text: "Los bloques de agilidad y velocidad integrados con balón son excelentes. Aprovecho cada minuto de la sesión al máximo.",
   },
 ];
 
