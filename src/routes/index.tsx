@@ -1438,7 +1438,7 @@ function LandingPage() {
 
         <div className="ecm-marquee mt-10">
           <div className="ecm-marquee-track">
-            {feedbacks.map((t, i) => (
+            {feedbacksTop.map((t, i) => (
               <TestimonialCard key={`a-${i}`} t={t} />
             ))}
           </div>
@@ -1446,7 +1446,7 @@ function LandingPage() {
 
         <div className="ecm-marquee ecm-marquee-reverse mt-4">
           <div className="ecm-marquee-track">
-            {feedbacks.slice().reverse().map((t, i) => (
+            {feedbacksBottom.map((t, i) => (
               <TestimonialCard key={`b-${i}`} t={t} />
             ))}
           </div>
