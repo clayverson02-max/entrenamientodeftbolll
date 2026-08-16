@@ -412,14 +412,6 @@ function PaySafety() {
   return (
     <>
       <div className="mt-3 flex flex-col items-center gap-2">
-        <p className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-          <Lock className="h-3.5 w-3.5" /> Conexión encriptada SSL
-        </p>
-        <div className="flex items-center gap-3 opacity-60">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-3" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-5" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4" />
-        </div>
         <p className="text-xs font-bold text-primary">
           Pago 100% seguro y garantizado
         </p>
