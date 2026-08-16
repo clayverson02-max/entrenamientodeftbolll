@@ -427,6 +427,13 @@ function PaySafety() {
   );
 }
 
+      <p className="mt-1 text-center text-sm text-muted-foreground">
+        ¿Finalizaste el pedido? Revisa tu e-mail y accede ahora mismo.
+      </p>
+    </>
+  );
+}
+
 
 
 function LazyVideo({ src, poster }: { src: string; poster: string }) {
