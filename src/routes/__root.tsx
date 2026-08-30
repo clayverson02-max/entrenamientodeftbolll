@@ -133,6 +133,12 @@ fbq('track', 'PageView');`,
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "y3eu0rrzej");`,
       },
+      {
+        src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
+        async: true,
+        defer: true,
+        "data-utmify-prevent-subids": "",
+      },
     ],
   }),
 
