@@ -42,10 +42,7 @@ import modTecnica from "@/assets/mod-tecnica.webp";
 import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
-import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
-import bibliotecaDemoVideo from "@/assets/video-biblioteca-demo.mp4.asset.json";
 const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2001.55.51.mp4";
-const uploadedVslEnglish = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2002.08.19.mp4";
 
 const feedbacksTop = [
   {
@@ -652,7 +649,7 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$6,50 USD</p>
+          <p className="text-4xl font-black text-foreground">$4,50 USD</p>
           <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
           <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
             <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
@@ -668,7 +665,7 @@ function OfferModal() {
             }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Quiero empezar por $6,50
+            Quiero empezar por $4,50
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </button>
           <Badges />
@@ -677,7 +674,7 @@ function OfferModal() {
             onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Prefiero el Paquete Completo ($9,99)
+            Prefiero el Paquete Completo ($4,50)
           </button>
         </div>
       </>,
@@ -734,7 +731,7 @@ function OfferModal() {
         <p className="text-sm font-semibold text-muted-foreground line-through">
           Valor real $97 USD
         </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$9,99 USD</p>
+        <p className="mt-1 text-4xl font-black text-foreground">$6,50 USD</p>
         <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
         <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
           <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
@@ -760,7 +757,7 @@ function OfferModal() {
           onClick={() => setStep("down")}
           className="mt-4 text-center text-sm font-semibold text-muted-foreground underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary"
         >
-          Salir y ver el Paquete Básico por $6,50
+          Salir y ver el Paquete Básico por $4,50
         </button>
       </div>
     </>,
@@ -1039,26 +1036,6 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="my-8 flex items-center gap-3" aria-hidden="true">
-              <div className="h-px flex-1 bg-border" />
-              <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
-                También disponible en inglés
-              </span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-
-            <div>
-              <div className="overflow-hidden rounded-2xl border border-border bg-background p-2 shadow-lg sm:p-3">
-                <div className="p-3 text-center sm:p-4">
-                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en inglés</p>
-                  <h3 className="mt-1 text-xl font-black sm:text-2xl">See how the platform works</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Explora la biblioteca organizada y descubre cómo planificar tu próxima sesión con claridad.
-                  </p>
-                </div>
-                <LazyVideo src={uploadedVslEnglish} poster={video2} buttonLabel="Ver vídeo en inglés" />
-              </div>
-            </div>
           </div>
 
           <img
@@ -1137,36 +1114,6 @@ function LandingPage() {
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
                 <p className="text-xs font-bold uppercase tracking-wider text-primary">Más de 2.000 contenidos listos para ti</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERIENCIA VISUAL DE LA PLATAFORMA */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Experiencia visual</Kicker>
-          <H2>
-            Una plataforma hecha para que entrenes{" "}
-            <span className="ecm-highlight">sin complicarte</span>
-          </H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
-            Estos videos complementan la experiencia y muestran cómo se siente entrenar con una biblioteca organizada, clara y lista para usar.
-          </p>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
-              <LazyVideo src={demoVideo.url} poster={video1} />
-              <div className="p-4">
-                <p className="text-sm font-extrabold text-primary">Demostración de la plataforma</p>
-                <p className="mt-1 text-sm text-muted-foreground">Conoce el acceso, los módulos y la forma de encontrar una sesión.</p>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
-              <LazyVideo src={bibliotecaDemoVideo.url} poster={video2} />
-              <div className="p-4">
-                <p className="text-sm font-extrabold text-primary">Biblioteca organizada</p>
-                <p className="mt-1 text-sm text-muted-foreground">Mira cómo los contenidos quedan reunidos en un solo lugar para tu próxima sesión.</p>
               </div>
             </div>
           </div>
@@ -1283,88 +1230,6 @@ function LandingPage() {
       </section>
 
 
-      {/* DOLOR */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Seamos honestos</Kicker>
-          <H2>¿Te Identificas con Alguna de Estas Situaciones?</H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Si respondes "sí" a dos o más de estas situaciones, probablemente el problema
-            no sea tu esfuerzo... sino la falta de un método claro para entrenar.
-          </p>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {dolores.map((d) => (
-              <div key={d} className="ecm-card flex gap-3 p-5">
-                <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-destructive" />
-                <p className="text-sm font-semibold leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-secondary p-6 text-center text-sm leading-relaxed text-muted-foreground">
-            El talento sin dirección se pierde. Cada semana entrenando a ciegas es una
-            semana que no vuelve, para ti o para los chicos que dependen de ti. Y nadie
-            se estanca por falta de ganas: se estanca por no saber qué entrenar hoy. Eso
-            se resuelve en 5 minutos, a partir de hoy.
-          </p>
-
-          <div className="mt-8">
-            <Cta>Quiero Salir de Esto Hoy Mismo</Cta>
-          </div>
-
-        </div>
-      </section>
-
-      {/* CÓMO FUNCIONA */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Mira la biblioteca por dentro</Kicker>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-              Accede a tu <strong>Área de Miembros</strong> profesional. Navega por categorías,
-              mira los videos y ten todo tu arsenal de entrenamiento organizado en un solo
-              lugar. Sin PDFs sueltos, todo en tu plataforma personal.
-            </p>
-
-
-          <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
-            {[
-              { src: paginasImg, alt: "Páginas reales de la biblioteca con diagramas de campo" },
-              { src: heroImg, alt: "Módulos de la biblioteca organizados por posición" },
-              { src: paginasImg, alt: "Ejercicios con pasos numerados y flechas de movimiento" },
-            ].map((img, i) => (
-              <img
-                key={i}
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="w-[85%] flex-shrink-0 snap-center rounded-2xl border border-border object-cover sm:w-[48%]"
-              />
-            ))}
-          </div>
-
-          <h3 className="mt-10 text-center text-2xl sm:text-3xl">
-            De la duda al campo en 3 pasos
-          </h3>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {pasos.map((p) => (
-              <div key={p.n} className="ecm-card p-6 text-center">
-                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary font-display text-xl text-primary-foreground">
-                  {p.n}
-                </div>
-                <h4 className="mt-4 font-extrabold">{p.t}</h4>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Cta>Quiero Acceso Inmediato</Cta>
-          </div>
-        </div>
-      </section>
-
       {/* GALERÍA CONTENIDO */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
@@ -1449,118 +1314,6 @@ function LandingPage() {
           </div>
           <div className="mt-10">
             <Cta>Quiero mi Plataforma Completa</Cta>
-          </div>
-        </div>
-      </section>
-
-      {/* PERFILES */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Antes y después de la biblioteca</Kicker>
-          <H2>Elige tu Perfil y Mira lo que Cambia en Ti</H2>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-semibold text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-primary" /> Sesión lista en 5 minutos
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Smartphone className="h-4 w-4 text-primary" /> Todo desde el móvil, en el campo
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Target className="h-4 w-4 text-primary" /> Progresión clara, semana a semana
-            </span>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {[
-              { emoji: "⚽", tag: "Si eres jugador", title: "Dejas de Entrenar Sin Rumbo", items: jugador },
-              { emoji: "👨‍🏫", tag: "Si eres entrenador", title: "Recuperas tu Tiempo y tu Autoridad", items: entrenador },
-            ].map((col) => (
-              <div key={col.tag} className="ecm-card p-6">
-                <p className="text-sm font-bold text-primary">
-                  {col.emoji} {col.tag}
-                </p>
-                <h3 className="mt-2 text-2xl">{col.title}</h3>
-                <ul className="mt-5 space-y-4">
-                  {col.items.map(([t, d]) => (
-                    <li key={t} className="flex gap-3">
-                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                      <div>
-                        <p className="text-sm font-bold">{t}</p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">{d}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-          </div>
-        </div>
-      </section>
-
-      {/* ANTES VS DESPUÉS */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Antes vs Después</Kicker>
-          <H2>Dentro de 30 Días Vas a Estar en Uno de los Dos</H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            El tiempo va a pasar igual. Lo único que cambia es si lo aprovechas con
-            método o lo sigues perdiendo.
-          </p>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-destructive/25 bg-destructive/5 p-6">
-              <h3 className="text-xl text-destructive">Si Sigues Como Hasta Hoy</h3>
-              <ul className="mt-4 space-y-3">
-                {antes.map((a) => (
-                  <li key={a} className="flex gap-3 text-sm">
-                    <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
-                    <span>{a}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-primary/30 bg-accent p-6">
-              <h3 className="text-xl text-primary">Si Empiezas Hoy con la Biblioteca</h3>
-              <ul className="mt-4 space-y-3">
-                {despues.map((a) => (
-                  <li key={a} className="flex gap-3 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                    <span>{a}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-10">
-          </div>
-        </div>
-      </section>
-
-      {/* PARA QUIÉN */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl">
-          <Kicker>Para quién es</Kicker>
-          <H2>Hecho para Alguien Como Tú</H2>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {perfiles.map(([t, d]) => (
-              <div key={t} className="ecm-card p-5">
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="h-5 w-5 flex-shrink-0 text-primary" />
-                  <p className="text-sm font-extrabold">{t}</p>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Cta>Sí, Ese Soy Yo, Quiero Mi Acceso</Cta>
           </div>
         </div>
       </section>
@@ -1656,8 +1409,8 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $6,50 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $9,99 USD</strong> con la
+            <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $6,50 USD</strong> con la
             plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1696,7 +1449,7 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $9,99 <span className="text-2xl text-foreground">USD</span>
+                    $6,50 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
                     80% DESCUENTO · Ahorras $39,91
@@ -1761,7 +1514,7 @@ function LandingPage() {
                     De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $6,50 <span className="text-2xl text-muted-foreground">USD</span>
+                    $4,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
                     83% DESCUENTO · Ahorras $31,00
@@ -1811,7 +1564,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $9,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
