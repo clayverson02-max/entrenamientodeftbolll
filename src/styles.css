@@ -159,12 +159,12 @@
 
 /* Utilities */
 @utility ecm-highlight {
-  /* Énfasis sutil: prioriza la lectura y evita bloques amarillos sobre el texto. */
-  background-color: transparent;
-  color: var(--highlight-foreground);
-  border-bottom: 0.12em solid color-mix(in srgb, var(--highlight) 58%, transparent);
+  /* Énfasis suave con contraste adaptativo para fondos claros y oscuros. */
+  background-color: color-mix(in srgb, var(--highlight) 22%, transparent);
+  color: var(--foreground);
+  border-bottom: 0.08em solid color-mix(in srgb, var(--highlight) 45%, transparent);
   border-radius: 0.08em;
-  padding: 0;
+  padding: 0 0.04em;
   box-shadow: none;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
