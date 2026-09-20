@@ -984,52 +984,47 @@ function LandingPage() {
 
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 Promoción solo hoy · Si cierras esta página pierdes el precio especial · Cierra pronto
+        🔥 Precio especial por tiempo limitado · Acceso de por vida
       </div>
 
       {/* HERO */}
-      <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
+      <section data-reveal className="px-4 pb-8 pt-7 sm:px-6 sm:pt-10">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
-            +2146 jugadores y entrenadores ya evolucionando
+            +2.000 ejercicios organizados
           </span>
 
-          <h1 className="mt-6 text-[2.1rem] leading-[1.18] sm:text-[3.4rem]">
-            Descubre el <span className="ecm-highlight">Método Profesional</span>{" "}
-            para Dejar de Improvisar Tus Entrenamientos y Evolucionar Más Rápido
+          <h1 className="mt-4 text-[2.1rem] leading-[1.12] sm:text-[3.4rem]">
+            Entrena con método.{" "}
+            <span className="ecm-highlight">Evoluciona más rápido.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Accede a una <strong className="text-foreground">plataforma completa de entrenamiento</strong>,
-            no a archivos sueltos: una biblioteca con{" "}
-            <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
-            videos explicativos integrados y contenidos organizados por{" "}
-            <strong className="text-foreground">posición, categoría y objetivo</strong>. Entras,
-            eliges lo que necesitas y empiezas a entrenar en menos de 5 minutos, desde cualquier dispositivo.{" "}
-            <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            Una plataforma con sesiones, videos y ejercicios organizados por posición y objetivo.
+            Elige tu entrenamiento y empieza en menos de 5 minutos.
           </p>
 
-          <div className="ecm-card mx-auto mt-8 max-w-4xl overflow-hidden border-primary/25 bg-card p-4 text-left shadow-xl sm:p-7">
+          <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
             <div className="text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
-                🎬 Conoce la plataforma por dentro
+                🎬 Mira la plataforma por dentro
               </span>
               <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-                Mira cómo funciona antes de empezar
+                Descubre cómo funciona
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Primero conoce la plataforma en español. Después, si lo prefieres, mira la versión en inglés y descubre cómo encontrar tus entrenamientos en pocos segundos.
+                Mira cómo acceder a tus entrenamientos y encontrar una sesión en pocos segundos.
               </p>
             </div>
 
-            <div className="mt-7">
+            <div className="mt-4">
               <div className="overflow-hidden rounded-2xl border border-primary/30 bg-background p-2 shadow-lg sm:p-3">
                 <div className="p-3 text-center sm:p-4">
                   <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en español</p>
-                  <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usar la plataforma</h3>
+                  <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usarla</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Mira el recorrido completo y entiende cómo acceder a los módulos, sesiones y videos de entrenamiento.
+                    Accede, elige tu módulo y empieza a entrenar.
                   </p>
                 </div>
                 <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
@@ -1038,32 +1033,18 @@ function LandingPage() {
 
           </div>
 
-          <img
-            src={heroImg}
-            fetchPriority="high"
-            decoding="async"
-            alt="Biblioteca de entrenamientos por posición: Laterales, Porteros, Defensas y Delanteros"
-            width={1200}
-            height={1200}
-            className="mx-auto mt-8 w-full max-w-xl rounded-2xl"
-          />
-
-          <div className="mt-8">
-            {/* Botón eliminado según instrucción */}
-          </div>
-
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
             <span className="text-gold">★★★★★</span>
             <span className="text-muted-foreground">4.9/5 · +2146 evaluaciones</span>
           </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="mt-5 grid gap-2 sm:grid-cols-3">
             {[
               ["+250", "sesiones listas"],
               ["+2.000", "ejercicios ilustrados"],
               ["5 min", "para armar tu sesión"],
             ].map(([n, d]) => (
-              <div key={d} className="ecm-card px-4 py-4 text-center">
+              <div key={d} className="ecm-card px-3 py-3 text-center">
                 <p className="font-display text-2xl text-primary sm:text-3xl">{n}</p>
                 <p className="mt-1 text-sm font-semibold text-muted-foreground">{d}</p>
               </div>
