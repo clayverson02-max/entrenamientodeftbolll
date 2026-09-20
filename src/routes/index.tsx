@@ -1473,8 +1473,8 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $5,00 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $5,50 USD</strong> con la
+            <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
             plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
