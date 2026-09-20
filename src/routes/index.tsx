@@ -1474,7 +1474,7 @@ function LandingPage() {
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
-          <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
+          <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
             fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
