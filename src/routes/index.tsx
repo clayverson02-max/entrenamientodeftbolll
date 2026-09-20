@@ -1182,16 +1182,10 @@ function LandingPage() {
             seguridad desde el primer minuto.
           </p>
 
-          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
-            <LazyVideo src={demoVideo.url} poster={video1} />
-            <div className="p-5 text-center">
-              <p className="text-base font-bold text-foreground">
-                Experiencia fluida en cualquier dispositivo
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Ejemplo del reproductor integrado que encontrarás en cada sesión.
-              </p>
-            </div>
+          <div className="mx-auto mt-8 max-w-2xl rounded-xl border border-border bg-secondary/50 p-5 text-center">
+            <p className="text-sm font-bold text-foreground">
+              Cada sesión cuenta con videos y explicaciones claras para que entiendas la técnica y la apliques correctamente.
+            </p>
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
