@@ -1030,7 +1030,7 @@ function LandingPage() {
                     Mira el recorrido completo y entiende cómo acceder a los módulos, sesiones y videos de entrenamiento.
                   </p>
                 </div>
-                <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Assistir vídeo em espanhol" />
+                <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
               </div>
             </div>
 
@@ -1051,7 +1051,7 @@ function LandingPage() {
                     Explora la biblioteca organizada y descubre cómo planificar tu próxima sesión con claridad.
                   </p>
                 </div>
-                <LazyVideo src={uploadedVslEnglish} poster={video2} buttonLabel="Assistir vídeo em inglês" />
+                <LazyVideo src={uploadedVslEnglish} poster={video2} buttonLabel="Ver vídeo en inglés" />
               </div>
             </div>
           </div>
