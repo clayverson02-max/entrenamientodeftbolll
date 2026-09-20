@@ -501,7 +501,7 @@ function LazyVideo({
 
   return (
     <div ref={ref} className="w-full">
-      <div className="aspect-video w-full bg-ink">
+      <div className="flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-xl bg-ink sm:min-h-[320px]">
         {load ? (
           <video
             ref={videoRef}
@@ -510,7 +510,7 @@ function LazyVideo({
             playsInline
             controls
             preload="metadata"
-            className="aspect-video h-full w-full bg-ink object-cover"
+            className="block max-h-[78vh] max-w-full object-contain"
           />
         ) : (
           <img
@@ -518,7 +518,7 @@ function LazyVideo({
             alt="Vista previa del video de entrenamiento"
             loading="lazy"
             decoding="async"
-            className="aspect-video h-full w-full object-cover"
+            className="block max-h-[78vh] max-w-full object-contain"
           />
         )}
       </div>
