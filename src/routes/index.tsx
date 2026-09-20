@@ -43,6 +43,7 @@ import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
 import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
+import bibliotecaDemoVideo from "@/assets/video-biblioteca-demo.mp4.asset.json";
 
 const feedbacksTop = [
   {
@@ -605,7 +606,7 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$9,99 USD</p>
+          <p className="text-4xl font-black text-foreground">$6,50 USD</p>
           <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
           <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
             <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
@@ -621,7 +622,7 @@ function OfferModal() {
             }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Quiero empezar por $9,99
+            Quiero empezar por $6,50
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </button>
           <Badges />
@@ -630,7 +631,7 @@ function OfferModal() {
             onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Prefiero el Paquete Completo ($17,99)
+            Prefiero el Paquete Completo ($9,99)
           </button>
         </div>
       </>,
@@ -687,7 +688,7 @@ function OfferModal() {
         <p className="text-sm font-semibold text-muted-foreground line-through">
           Valor real $97 USD
         </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$17,99 USD</p>
+        <p className="mt-1 text-4xl font-black text-foreground">$9,99 USD</p>
         <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
         <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
           <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
@@ -950,15 +951,49 @@ function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Accede a una <strong className="text-foreground">Plataforma Completa</strong>{" "}
-            de entrenamiento profesional: biblioteca organizada con{" "}
+            Accede a una <strong className="text-foreground">plataforma completa de entrenamiento</strong>,
+            no a archivos sueltos: una biblioteca con{" "}
             <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
-            más <strong className="text-foreground">materiales en video</strong> integrados
-            que te muestran exactamente cómo ejecutar cada ejercicio. Todo por{" "}
-            <strong className="text-foreground">posición, categoría y objetivo</strong>: en
-            menos de 5 minutos tienes la sesión de hoy lista para aplicar en el campo.{" "}
+            videos explicativos integrados y contenidos organizados por{" "}
+            <strong className="text-foreground">posición, categoría y objetivo</strong>. Entras,
+            eliges lo que necesitas y empiezas a entrenar en menos de 5 minutos, desde cualquier dispositivo.{" "}
             <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
           </p>
+
+          <div className="ecm-card mx-auto mt-8 max-w-4xl overflow-hidden border-primary/25 bg-card p-5 text-left shadow-xl sm:p-7">
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
+                🎥 Mira la plataforma por dentro
+              </span>
+              <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
+                Antes de decidir, descubre cómo funciona por dentro
+              </h2>
+              <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                En estos videos verás la plataforma real, la organización de las sesiones y cómo puedes encontrar tu entrenamiento en pocos segundos.
+              </p>
+            </div>
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <div className="overflow-hidden rounded-xl border border-border bg-background">
+                <LazyVideo src={demoVideo.url} poster={video1} />
+                <div className="p-4">
+                  <p className="text-sm font-extrabold text-primary">Versión en español</p>
+                  <h3 className="mt-1 font-bold">Mira cómo acceder y empezar a entrenar</h3>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Conoce la plataforma, los módulos y la forma más rápida de encontrar tu sesión.</p>
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-border bg-background">
+                <LazyVideo src={bibliotecaDemoVideo.url} poster={video2} />
+                <div className="p-4">
+                  <p className="text-sm font-extrabold text-primary">English version</p>
+                  <h3 className="mt-1 font-bold">See how the training platform works</h3>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Explore the organized library and discover how simple it is to plan your next session.</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-5 text-center text-sm font-bold text-foreground">
+              No es solo una biblioteca: es tu sistema para entrenar con dirección.
+            </p>
+          </div>
 
           <img
             src={heroImg}
@@ -1476,8 +1511,8 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
+            <strong className="text-foreground">Básico $6,50 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $9,99 USD</strong> con la
             plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1516,10 +1551,10 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $17,99 <span className="text-2xl text-foreground">USD</span>
+                    $9,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    64% DESCUENTO · Ahorras $31,91
+                    80% DESCUENTO · Ahorras $39,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1581,10 +1616,10 @@ function LandingPage() {
                     De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $9,99 <span className="text-2xl text-muted-foreground">USD</span>
+                    $6,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    73% DESCUENTO · Ahorras $27,51
+                    83% DESCUENTO · Ahorras $31,00
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
