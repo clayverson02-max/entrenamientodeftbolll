@@ -630,7 +630,7 @@ function OfferModal() {
             onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Prefiero el Paquete Completo ($5,50)
+            Prefiero el Paquete Completo ($17,99)
           </button>
         </div>
       </>,
