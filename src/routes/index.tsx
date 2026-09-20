@@ -1483,10 +1483,12 @@ function LandingPage() {
 
           <div className="mx-auto mt-6 flex max-w-xl items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-            <p className="text-sm font-semibold">
-              ¡Última oportunidad! Precios válidos solo por hoy. Mañana vuelven al valor
-              normal.
-            </p>
+            <div className="text-sm font-semibold">
+              <p>⚡ Promoción exclusiva solo hoy. Si cierras esta página pierdes el precio especial.</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold">
+                Mañana vuelve al valor normal · Stock limitado de lanzamiento
+              </p>
+            </div>
           </div>
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
