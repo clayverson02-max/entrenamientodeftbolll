@@ -159,12 +159,18 @@
 
 /* Utilities */
 @utility ecm-highlight {
-  /* Énfasis suave con contraste adaptativo para fondos claros y oscuros. */
-  background-color: color-mix(in srgb, var(--highlight) 22%, transparent);
-  color: var(--foreground);
-  border-bottom: 0.08em solid color-mix(in srgb, var(--highlight) 45%, transparent);
-  border-radius: 0.08em;
-  padding: 0 0.04em;
+  /* Marca-texto fino: amarillo acompaña las palabras sem alterar o tamanho da fonte. */
+  background: linear-gradient(
+    to bottom,
+    transparent 62%,
+    color-mix(in srgb, var(--highlight) 55%, transparent) 62%,
+    color-mix(in srgb, var(--highlight) 55%, transparent) 88%,
+    transparent 88%
+  );
+  color: #0f172a;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
   box-shadow: none;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
