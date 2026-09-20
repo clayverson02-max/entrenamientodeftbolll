@@ -929,8 +929,8 @@ function LandingPage() {
 
 
       {/* Top bar */}
-      <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
-        🔥 Precio de lanzamiento activo · Cierra pronto
+      <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
+        🔥 Promoción solo hoy · Si cierras esta página pierdes el precio especial · Cierra pronto
       </div>
 
       {/* HERO */}
