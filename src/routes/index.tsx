@@ -44,6 +44,8 @@ import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
 import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
 import bibliotecaDemoVideo from "@/assets/video-biblioteca-demo.mp4.asset.json";
+const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2001.55.51.mp4";
+const uploadedVslEnglish = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2002.08.19.mp4";
 
 const feedbacksTop = [
   {
@@ -963,35 +965,35 @@ function LandingPage() {
           <div className="ecm-card mx-auto mt-8 max-w-4xl overflow-hidden border-primary/25 bg-card p-5 text-left shadow-xl sm:p-7">
             <div className="text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
-                🎥 Mira la plataforma por dentro
+                🎬 Vea la plataforma antes de comprar
               </span>
               <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-                Antes de decidir, descubre cómo funciona por dentro
+                Descubre cómo funciona por dentro antes de tomar tu decisión
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                En estos videos verás la plataforma real, la organización de las sesiones y cómo puedes encontrar tu entrenamiento en pocos segundos.
+                Mira la plataforma real, conoce la organización de los entrenamientos y descubre por qué es mucho más fácil entrenar cuando todo está listo en un solo lugar.
               </p>
             </div>
             <div className="mt-6 grid gap-5 md:grid-cols-2">
               <div className="overflow-hidden rounded-xl border border-border bg-background">
-                <LazyVideo src={demoVideo.url} poster={video1} />
+                <LazyVideo src={uploadedVslEspanol} poster={video1} />
                 <div className="p-4">
-                  <p className="text-sm font-extrabold text-primary">Versión en español</p>
-                  <h3 className="mt-1 font-bold">Mira cómo acceder y empezar a entrenar</h3>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Conoce la plataforma, los módulos y la forma más rápida de encontrar tu sesión.</p>
+                  <p className="text-sm font-extrabold text-primary">VSL en español</p>
+                  <h3 className="mt-1 font-bold">Mira cómo funciona la plataforma</h3>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Conoce la biblioteca, los módulos y cómo encontrar tu entrenamiento en pocos segundos.</p>
                 </div>
               </div>
               <div className="overflow-hidden rounded-xl border border-border bg-background">
-                <LazyVideo src={bibliotecaDemoVideo.url} poster={video2} />
+                <LazyVideo src={uploadedVslEnglish} poster={video2} />
                 <div className="p-4">
-                  <p className="text-sm font-extrabold text-primary">English version</p>
-                  <h3 className="mt-1 font-bold">See how the training platform works</h3>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Explore the organized library and discover how simple it is to plan your next session.</p>
+                  <p className="text-sm font-extrabold text-primary">English VSL</p>
+                  <h3 className="mt-1 font-bold">See how the platform works</h3>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Explore the organized training library and see how quickly you can plan your next session.</p>
                 </div>
               </div>
             </div>
             <p className="mt-5 text-center text-sm font-bold text-foreground">
-              No es solo una biblioteca: es tu sistema para entrenar con dirección.
+              No es solo contenido: es una plataforma para entrenar con dirección.
             </p>
           </div>
 
@@ -1071,6 +1073,36 @@ function LandingPage() {
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
                 <p className="text-xs font-bold uppercase tracking-wider text-primary">Más de 2.000 contenidos listos para ti</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCIA VISUAL DE LA PLATAFORMA */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Experiencia visual</Kicker>
+          <H2>
+            Una plataforma hecha para que entrenes{" "}
+            <span className="ecm-highlight">sin complicarte</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
+            Estos videos complementan la experiencia y muestran cómo se siente entrenar con una biblioteca organizada, clara y lista para usar.
+          </p>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+              <LazyVideo src={demoVideo.url} poster={video1} />
+              <div className="p-4">
+                <p className="text-sm font-extrabold text-primary">Demostración de la plataforma</p>
+                <p className="mt-1 text-sm text-muted-foreground">Conoce el acceso, los módulos y la forma de encontrar una sesión.</p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+              <LazyVideo src={bibliotecaDemoVideo.url} poster={video2} />
+              <div className="p-4">
+                <p className="text-sm font-extrabold text-primary">Biblioteca organizada</p>
+                <p className="mt-1 text-sm text-muted-foreground">Mira cómo los contenidos quedan reunidos en un solo lugar para tu próxima sesión.</p>
               </div>
             </div>
           </div>
