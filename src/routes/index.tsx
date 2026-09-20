@@ -621,7 +621,7 @@ function OfferModal() {
             }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Quiero empezar por $5,00
+            Quiero empezar por $9,99
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </button>
           <Badges />
