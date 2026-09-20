@@ -92,7 +92,7 @@
 
   /* Amarillo destacado (highlight de titulares) */
   --highlight: #facc15;
-  --highlight-foreground: #0f172a;
+  --highlight-foreground: #ffffff;
 
   --gold: #f59e0b;
   --gold-foreground: #0f172a;
@@ -159,13 +159,13 @@
 
 /* Utilities */
 @utility ecm-highlight {
-  /* Resaltado sin padding vertical: usa box-shadow para no solaparse
-     con la línea de arriba/abajo en títulos multilínea. */
-  background-color: var(--highlight);
+  /* Énfasis sutil: prioriza la lectura y evita bloques amarillos sobre el texto. */
+  background-color: transparent;
   color: var(--highlight-foreground);
-  border-radius: 0.2rem;
-  padding: 0 0.22em;
-  box-shadow: 0 0 0 0.06em var(--highlight);
+  border-bottom: 0.12em solid color-mix(in srgb, var(--highlight) 58%, transparent);
+  border-radius: 0.08em;
+  padding: 0;
+  box-shadow: none;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
