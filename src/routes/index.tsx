@@ -557,7 +557,6 @@ const OFFER_PAINS = [
 
 function OfferModal() {
   const [step, setStep] = useState<null | "main" | "down">(null);
-  const [downUsed, setDownUsed] = useState(false);
   const [left, setLeft] = useState(15 * 60);
 
   useEffect(() => {
@@ -567,8 +566,7 @@ function OfferModal() {
   }, []);
 
   const close = () => {
-    if (step === "main" && !downUsed) {
-      setDownUsed(true);
+    if (step === "main") {
       setStep("down");
       return;
     }
@@ -757,6 +755,13 @@ function OfferModal() {
         </button>
         <Badges />
         <PaySafety />
+        <button
+          type="button"
+          onClick={() => setStep("down")}
+          className="mt-4 text-center text-sm font-semibold text-muted-foreground underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary"
+        >
+          Salir y ver el Paquete Básico por $6,50
+        </button>
       </div>
     </>,
   );
