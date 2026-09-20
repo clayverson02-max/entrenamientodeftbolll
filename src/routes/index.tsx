@@ -1513,16 +1513,16 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $5,50 <span className="text-2xl text-foreground">USD</span>
+                    $17,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    89% DESCUENTO · Ahorras $44,40
+                    64% DESCUENTO · Ahorras $31,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
-                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-                    Precio de lanzamiento para los primeros usuarios
+                  <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
+                    <Clock className="h-3 w-3" /> Precio de lanzamiento · últimas horas
                   </p>
                 </div>
 
