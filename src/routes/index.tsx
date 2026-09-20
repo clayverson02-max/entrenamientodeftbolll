@@ -684,8 +684,11 @@ function OfferModal() {
         <p className="text-sm font-semibold text-muted-foreground line-through">
           Valor real $97 USD
         </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$5,50 USD</p>
+        <p className="mt-1 text-4xl font-black text-foreground">$17,99 USD</p>
         <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
+        <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
+          <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
+        </p>
       </div>
 
       <div className="mt-5 flex flex-col items-center">
