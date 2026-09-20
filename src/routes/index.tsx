@@ -1682,7 +1682,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $5,00 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $9,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
