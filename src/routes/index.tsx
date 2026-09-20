@@ -1228,6 +1228,61 @@ function LandingPage() {
       </section>
 
 
+      {/* QUIÉN SOY */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
+          <img
+            src={coachImg}
+            alt="Coach Martínez, Entrenador Profesional"
+            loading="lazy"
+            width={912}
+            height={1104}
+            className="w-full rounded-2xl object-cover"
+          />
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
+              Quién soy · +15 años en el campo
+            </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Coach Martínez: Metodología que Forma Jugadores de Verdad
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Llevo más de <strong className="text-foreground">15 años</strong> como
+              entrenador profesional trabajando con academias, canteras y jugadores
+              amateur en toda Latinoamérica y España. He formado a más de{" "}
+              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
+              de 6 años hasta adultos en clubes semiprofesionales.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Esta biblioteca reúne{" "}
+              <strong className="text-foreground">toda mi metodología</strong> en un solo
+              lugar: los mismos ejercicios, la misma progresión y las mismas guías
+              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
+              Solo lo que funciona.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">+2.000</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Jugadores formados
+                </p>
+              </div>
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">15</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Años en el campo
+                </p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Cta>Quiero Entrenar con el Método del Coach</Cta>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
       {/* DOLOR */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
@@ -1741,60 +1796,6 @@ function LandingPage() {
         </div>
       </section>
 
-
-      {/* QUIÉN SOY */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
-          <img
-            src={coachImg}
-            alt="Coach Martínez, Entrenador Profesional"
-            loading="lazy"
-            width={912}
-            height={1104}
-            className="w-full rounded-2xl object-cover"
-          />
-          <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
-              Quién soy · +15 años en el campo
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">
-              Coach Martínez: Metodología que Forma Jugadores de Verdad
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Llevo más de <strong className="text-foreground">15 años</strong> como
-              entrenador profesional trabajando con academias, canteras y jugadores
-              amateur en toda Latinoamérica y España. He formado a más de{" "}
-              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
-              de 6 años hasta adultos en clubes semiprofesionales.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Esta biblioteca reúne{" "}
-              <strong className="text-foreground">toda mi metodología</strong> en un solo
-              lugar: los mismos ejercicios, la misma progresión y las mismas guías
-              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
-              Solo lo que funciona.
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">+2.000</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Jugadores formados
-                </p>
-              </div>
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">15</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Años en el campo
-                </p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <Cta>Quiero Entrenar con el Método del Coach</Cta>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* GARANTÍA */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
