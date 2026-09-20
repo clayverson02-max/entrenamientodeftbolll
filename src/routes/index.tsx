@@ -605,7 +605,7 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$5,00 USD</p>
+          <p className="text-4xl font-black text-foreground">$9,99 USD</p>
           <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
           <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
             <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
@@ -621,7 +621,7 @@ function OfferModal() {
             }}
             className="ecm-cta ecm-cta-breathe w-full justify-center"
           >
-            Quiero empezar por $5,00
+            Quiero empezar por $9,99
             <ArrowRight className="h-5 w-5 flex-shrink-0" />
           </button>
           <Badges />
@@ -630,7 +630,7 @@ function OfferModal() {
             onClick={() => setStep("main")}
             className="mt-4 text-sm font-semibold text-muted-foreground underline"
           >
-            Prefiero el Paquete Completo ($5,50)
+            Prefiero el Paquete Completo ($17,99)
           </button>
         </div>
       </>,
@@ -641,13 +641,16 @@ function OfferModal() {
     "Oferta principal",
     <>
       <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
-        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss}
+        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss} · solo hoy
       </span>
 
       <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
         Paquete Completo: tu{" "}
         <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
       </h2>
+      <p className="mt-2 text-xs font-extrabold uppercase tracking-wider text-destructive">
+        ⚠️ Si cierras esta ventana pierdes el precio especial de lanzamiento
+      </p>
 
       <p className="mt-3 text-sm font-semibold text-muted-foreground">
         Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
@@ -684,8 +687,11 @@ function OfferModal() {
         <p className="text-sm font-semibold text-muted-foreground line-through">
           Valor real $97 USD
         </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$5,50 USD</p>
+        <p className="mt-1 text-4xl font-black text-foreground">$17,99 USD</p>
         <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
+        <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
+          <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
+        </p>
       </div>
 
       <div className="mt-5 flex flex-col items-center">
@@ -926,8 +932,8 @@ function LandingPage() {
 
 
       {/* Top bar */}
-      <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.15em] text-primary-foreground sm:text-sm">
-        🔥 Precio de lanzamiento activo · Cierra pronto
+      <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
+        🔥 Promoción solo hoy · Si cierras esta página pierdes el precio especial · Cierra pronto
       </div>
 
       {/* HERO */}
@@ -1468,10 +1474,10 @@ function LandingPage() {
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
-          <H2>Menos de lo que Gastas en un Café. Para Siempre.</H2>
+          <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $5,00 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $5,50 USD</strong> con la
+            <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
             plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1480,10 +1486,12 @@ function LandingPage() {
 
           <div className="mx-auto mt-6 flex max-w-xl items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-            <p className="text-sm font-semibold">
-              ¡Última oportunidad! Precios válidos solo por hoy. Mañana vuelven al valor
-              normal.
-            </p>
+            <div className="text-sm font-semibold">
+              <p>⚡ Promoción exclusiva solo hoy. Si cierras esta página pierdes el precio especial.</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold">
+                Mañana vuelve al valor normal · Stock limitado de lanzamiento
+              </p>
+            </div>
           </div>
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
@@ -1508,16 +1516,16 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $5,50 <span className="text-2xl text-foreground">USD</span>
+                    $17,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    89% DESCUENTO · Ahorras $44,40
+                    64% DESCUENTO · Ahorras $31,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
-                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-                    Precio de lanzamiento para los primeros usuarios
+                  <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
+                    <Clock className="h-3 w-3" /> Precio de lanzamiento · últimas horas
                   </p>
                 </div>
 
@@ -1573,16 +1581,16 @@ function LandingPage() {
                     De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $5,00 <span className="text-2xl text-muted-foreground">USD</span>
+                    $9,99 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    87% DESCUENTO · Ahorras $32,50
+                    73% DESCUENTO · Ahorras $27,51
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
-                  <p className="mt-2 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-                    Precio de lanzamiento para los primeros usuarios
+                  <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
+                    <Clock className="h-3 w-3" /> Solo hoy a este precio
                   </p>
                 </div>
 
@@ -1677,7 +1685,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $5,00 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $9,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
@@ -1739,7 +1747,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-8 text-sm font-semibold">
-            Cuesta menos que un café y lo pruebas 7 días sin riesgo. Si no te sirve, te
+            Cuesta menos que una pizza y lo pruebas 7 días sin riesgo. Si no te sirve, te
             devolvemos todo.
           </p>
 
