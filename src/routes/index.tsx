@@ -446,8 +446,17 @@ function PaySafety() {
 
 
 
-function LazyVideo({ src, poster }: { src: string; poster: string }) {
+function LazyVideo({
+  src,
+  poster,
+  buttonLabel,
+}: {
+  src: string;
+  poster: string;
+  buttonLabel?: string;
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
@@ -466,29 +475,66 @@ function LazyVideo({ src, poster }: { src: string; poster: string }) {
     return () => io.disconnect();
   }, [load]);
 
+  const openFullscreen = () => {
+    const video = videoRef.current as (HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void;
+    }) | null;
+
+    if (!video) {
+      setLoad(true);
+      window.setTimeout(() => {
+        const loadedVideo = videoRef.current as (HTMLVideoElement & {
+          webkitEnterFullscreen?: () => void;
+        }) | null;
+        if (loadedVideo?.requestFullscreen) {
+          void loadedVideo.requestFullscreen();
+        } else {
+          loadedVideo?.webkitEnterFullscreen?.();
+        }
+      }, 80);
+      return;
+    }
+
+    if (video.requestFullscreen) {
+      void video.requestFullscreen();
+    } else {
+      video.webkitEnterFullscreen?.();
+    }
+  };
+
   return (
-    <div ref={ref} className="aspect-video w-full bg-ink">
-      {load ? (
-        <video
-          src={src}
-          poster={poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls
-          preload="none"
-          className="aspect-video h-full w-full bg-ink object-cover"
-        />
-      ) : (
-        <img
-          src={poster}
-          alt="Vista previa del video de entrenamiento"
-          loading="lazy"
-          decoding="async"
-          className="aspect-video h-full w-full object-cover"
-        />
-      )}
+    <div ref={ref} className="w-full">
+      <div className="aspect-video w-full bg-ink">
+        {load ? (
+          <video
+            ref={videoRef}
+            src={src}
+            poster={poster}
+            playsInline
+            controls
+            preload="metadata"
+            className="aspect-video h-full w-full bg-ink object-cover"
+          />
+        ) : (
+          <img
+            src={poster}
+            alt="Vista previa del video de entrenamiento"
+            loading="lazy"
+            decoding="async"
+            className="aspect-video h-full w-full object-cover"
+          />
+        )}
+      </div>
+      {buttonLabel ? (
+        <button
+          type="button"
+          onClick={openFullscreen}
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-primary-foreground shadow-lg transition hover:brightness-110"
+        >
+          <ArrowRight className="h-4 w-4" />
+          {buttonLabel}
+        </button>
+      ) : null}
     </div>
   );
 }
@@ -962,39 +1008,52 @@ function LandingPage() {
             <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
           </p>
 
-          <div className="ecm-card mx-auto mt-8 max-w-4xl overflow-hidden border-primary/25 bg-card p-5 text-left shadow-xl sm:p-7">
+          <div className="ecm-card mx-auto mt-8 max-w-4xl overflow-hidden border-primary/25 bg-card p-4 text-left shadow-xl sm:p-7">
             <div className="text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
-                🎬 Vea la plataforma antes de comprar
+                🎬 Conoce la plataforma por dentro
               </span>
               <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-                Descubre cómo funciona por dentro antes de tomar tu decisión
+                Mira cómo funciona antes de empezar
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Mira la plataforma real, conoce la organización de los entrenamientos y descubre por qué es mucho más fácil entrenar cuando todo está listo en un solo lugar.
+                Primero conoce la plataforma en español. Después, si lo prefieres, mira la versión en inglés y descubre cómo encontrar tus entrenamientos en pocos segundos.
               </p>
             </div>
-            <div className="mt-6 grid gap-5 md:grid-cols-2">
-              <div className="overflow-hidden rounded-xl border border-border bg-background">
-                <LazyVideo src={uploadedVslEspanol} poster={video1} />
-                <div className="p-4">
-                  <p className="text-sm font-extrabold text-primary">VSL en español</p>
-                  <h3 className="mt-1 font-bold">Mira cómo funciona la plataforma</h3>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Conoce la biblioteca, los módulos y cómo encontrar tu entrenamiento en pocos segundos.</p>
+
+            <div className="mt-7">
+              <div className="overflow-hidden rounded-2xl border border-primary/30 bg-background p-2 shadow-lg sm:p-3">
+                <div className="p-3 text-center sm:p-4">
+                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en español</p>
+                  <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usar la plataforma</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Mira el recorrido completo y entiende cómo acceder a los módulos, sesiones y videos de entrenamiento.
+                  </p>
                 </div>
-              </div>
-              <div className="overflow-hidden rounded-xl border border-border bg-background">
-                <LazyVideo src={uploadedVslEnglish} poster={video2} />
-                <div className="p-4">
-                  <p className="text-sm font-extrabold text-primary">English VSL</p>
-                  <h3 className="mt-1 font-bold">See how the platform works</h3>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Explore the organized training library and see how quickly you can plan your next session.</p>
-                </div>
+                <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Assistir vídeo em espanhol" />
               </div>
             </div>
-            <p className="mt-5 text-center text-sm font-bold text-foreground">
-              No es solo contenido: es una plataforma para entrenar con dirección.
-            </p>
+
+            <div className="my-8 flex items-center gap-3" aria-hidden="true">
+              <div className="h-px flex-1 bg-border" />
+              <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-muted-foreground">
+                También disponible en inglés
+              </span>
+              <div className="h-px flex-1 bg-border" />
+            </div>
+
+            <div>
+              <div className="overflow-hidden rounded-2xl border border-border bg-background p-2 shadow-lg sm:p-3">
+                <div className="p-3 text-center sm:p-4">
+                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en inglés</p>
+                  <h3 className="mt-1 text-xl font-black sm:text-2xl">See how the platform works</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Explora la biblioteca organizada y descubre cómo planificar tu próxima sesión con claridad.
+                  </p>
+                </div>
+                <LazyVideo src={uploadedVslEnglish} poster={video2} buttonLabel="Assistir vídeo em inglês" />
+              </div>
+            </div>
           </div>
 
           <img
