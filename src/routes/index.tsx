@@ -881,16 +881,16 @@ function ComprasRecientes() {
   const c = compras[index];
 
   return (
-    <div className="ecm-buy-toast pointer-events-none fixed bottom-4 left-4 z-40 max-w-[17rem] rounded-xl border border-border bg-card/95 px-3 py-2.5 shadow-lg backdrop-blur sm:max-w-xs">
-      <div className="flex items-start gap-2.5">
-        <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-accent">
-          <Check className="h-4 w-4 text-primary" />
+    <div className="ecm-buy-toast pointer-events-none fixed bottom-3 left-3 z-40 max-w-[13.5rem] rounded-lg border border-border bg-card/95 px-2.5 py-2 shadow-md backdrop-blur sm:bottom-4 sm:left-4 sm:max-w-xs sm:rounded-xl sm:px-3 sm:py-2.5 sm:shadow-lg">
+      <div className="flex items-start gap-2 sm:gap-2.5">
+        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent sm:h-7 sm:w-7">
+          <Check className="h-3 w-3 text-primary sm:h-4 sm:w-4" />
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-bold text-foreground">
+          <p className="truncate text-xs font-bold text-foreground sm:text-sm">
             {c.nombre} · {c.ciudad}
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-[10px] leading-snug text-muted-foreground sm:text-xs">
             Acaba de comprar el {c.plan}
           </p>
         </div>
