@@ -641,7 +641,7 @@ function OfferModal() {
     "Oferta principal",
     <>
       <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
-        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss}
+        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss} · solo hoy
       </span>
 
       <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
