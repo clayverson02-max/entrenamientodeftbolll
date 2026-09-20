@@ -648,6 +648,9 @@ function OfferModal() {
         Paquete Completo: tu{" "}
         <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
       </h2>
+      <p className="mt-2 text-xs font-extrabold uppercase tracking-wider text-destructive">
+        ⚠️ Si cierras esta ventana pierdes el precio especial de lanzamiento
+      </p>
 
       <p className="mt-3 text-sm font-semibold text-muted-foreground">
         Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
