@@ -1747,7 +1747,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-8 text-sm font-semibold">
-            Cuesta menos que un café y lo pruebas 7 días sin riesgo. Si no te sirve, te
+            Cuesta menos que una pizza y lo pruebas 7 días sin riesgo. Si no te sirve, te
             devolvemos todo.
           </p>
 
