@@ -605,7 +605,7 @@ function OfferModal() {
         </div>
 
         <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$5,00 USD</p>
+          <p className="text-4xl font-black text-foreground">$9,99 USD</p>
           <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
           <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
             <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
