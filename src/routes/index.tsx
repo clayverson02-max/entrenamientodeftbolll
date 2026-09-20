@@ -731,9 +731,10 @@ function LandingPage() {
             +2.000 ejercicios organizados
           </span>
 
-          <h1 className="mt-4 text-[2.1rem] leading-[1.12] sm:text-[3.4rem]">
-            Entrena con método.{" "}
-            <span className="ecm-highlight">Evoluciona más rápido.</span>
+          <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[3.2rem]">
+            <span className="ecm-highlight">+2.000 entrenamientos de fútbol</span>{" "}
+            con materiales y videos en tu celular o computadora.{" "}
+            <span className="ecm-highlight">+4 bonos por menos que un café.</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
