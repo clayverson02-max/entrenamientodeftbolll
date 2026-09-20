@@ -131,7 +131,7 @@ fbq('track', 'PageView');`,
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y3eu0rrzej");`,
+    })(window, document, "clarity", "script", "yl0cy02b8z");`,
       },
       {
         src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
