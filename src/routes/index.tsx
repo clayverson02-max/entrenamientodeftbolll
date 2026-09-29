@@ -339,8 +339,8 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-export const CHECKOUT_URL = "https://pay.hotmart.com/P107284207G?checkoutMode=10";
-export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
+export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
