@@ -110,7 +110,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
+          "Deja de improvisar. Descarga la plataforma completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       { property: "og:type", content: "product" },
       { property: "og:url", content: "/" },
@@ -210,7 +210,7 @@ const videos = [
   {
     src: video2,
     alt: "Video de finalización en tablet con miniaturas de sesiones",
-    title: "Biblioteca de videos",
+    title: "Plataforma de videos",
     desc: "Más de 120 videos cortos organizados por posición, nivel y objetivo.",
   },
   {
@@ -737,14 +737,10 @@ function LandingPage() {
             <span className="ecm-highlight">Todo organizado. Todo listo para evolucionar.</span>
           </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            No son archivos sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con todo organizado por posición, categoría y objetivo, para que encuentres tu sesión, veas el video y empieces a entrenar en menos de 5 minutos.
-          </p>
-
           <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
             <div className="text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
-                🎬 Mira la plataforma por dentro
+                🎬 Mira lo que vas a recibir por dentro
               </span>
               <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
                 Mira la plataforma que vas a recibir por dentro
@@ -766,6 +762,10 @@ function LandingPage() {
                 <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
               </div>
             </div>
+
+          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            No son archivos sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con todo organizado por posición, categoría y objetivo, para que encuentres tu sesión, veas el video y empieces a entrenar en menos de 5 minutos.
+          </p>
 
           </div>
 
@@ -889,7 +889,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
-            ✅ Acceso a todos los videos incluido en el mismo pago único
+            ✅ Todo el contenido está dentro de tu plataforma con un solo pago
           </p>
         </div>
       </section>
@@ -921,7 +921,7 @@ function LandingPage() {
               de 6 años hasta adultos en clubes semiprofesionales.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Esta biblioteca reúne{" "}
+              Esta plataforma reúne{" "}
               <strong className="text-foreground">toda mi metodología</strong> en un solo
               lugar: los mismos ejercicios, la misma progresión y las mismas guías
               ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
@@ -972,7 +972,7 @@ function LandingPage() {
                   <div className="relative h-40 overflow-hidden">
                     <img
                       src={m.img}
-                      alt={`Entrenamiento de ${m.t} en la biblioteca`}
+                      alt={`Entrenamiento de ${m.t} en la plataforma`}
                       loading="lazy"
                       width={640}
                       height={640}
@@ -988,7 +988,7 @@ function LandingPage() {
                   </div>
                   <div className="p-4">
                     <p className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Incluido en la biblioteca
+                      Incluido en la plataforma
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">{m.d}</p>
                   </div>
@@ -998,7 +998,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-6 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Y muchas áreas más dentro de la biblioteca
+            Y muchas áreas más dentro de la plataforma
           </p>
 
 
@@ -1091,7 +1091,7 @@ function LandingPage() {
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
             Más de <strong className="text-foreground">2.146 jugadores y entrenadores</strong>{" "}
-            ya usan la biblioteca cada semana. Estos son algunos de sus mensajes.
+            ya usan la plataforma cada semana. Estos son algunos de sus mensajes.
           </p>
         </div>
 
@@ -1159,7 +1159,7 @@ function LandingPage() {
                   src={heroImg}
             fetchPriority="high"
             decoding="async"
-                  alt="Biblioteca completa de entrenamientos"
+                  alt="Plataforma completa de entrenamientos"
                   loading="lazy"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
                 />
