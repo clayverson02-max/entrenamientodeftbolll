@@ -42,7 +42,7 @@ import modTecnica from "@/assets/mod-tecnica.webp";
 import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
-const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2001.55.51.mp4";
+const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-30%20at%2000.09.40.mp4";
 
 const feedbacksTop = [
   {
@@ -95,17 +95,17 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
+          "Entrena con Método: Plataforma Completa de Entrenamiento de Fútbol",
       },
       {
         name: "description",
         content:
-          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
+          "Deja de improvisar. Descarga la plataforma completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       {
         property: "og:title",
         content:
-          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
+          "Entrena con Método: Plataforma Completa de Entrenamiento de Fútbol",
       },
       {
         property: "og:description",
@@ -297,7 +297,7 @@ const testimonios = [
 ];
 
 const incluye = [
-  "Acceso a la Plataforma Web Completa y Personalizada",
+  "Acceso a la Plataforma Web Completa y Organizada",
   "+250 sesiones y +2.000 ejercicios organizados",
   "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
@@ -732,14 +732,13 @@ function LandingPage() {
           </span>
 
           <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[3.2rem]">
-            <span className="ecm-highlight">+2.000 entrenamientos de fútbol</span>{" "}
-            con materiales y videos en tu celular o computadora.{" "}
-            <span className="ecm-highlight">+4 bonos por menos que un café.</span>
+            <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES COMPLETAS EN VIDEO</span>{" "}
+            dentro de una plataforma profesional para dejar de improvisar y empezar a entrenar con método.{" "}
+            <span className="ecm-highlight">Todo organizado. Todo listo para evolucionar.</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Una plataforma con sesiones, videos y ejercicios organizados por posición y objetivo.
-            Elige tu entrenamiento y empieza en menos de 5 minutos.
+            No son archivos sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con todo organizado por posición, categoría y objetivo, para que encuentres tu sesión, veas el video y empieces a entrenar en menos de 5 minutos.
           </p>
 
           <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
@@ -748,20 +747,20 @@ function LandingPage() {
                 🎬 Mira la plataforma por dentro
               </span>
               <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-                Descubre cómo funciona
+                Mira la plataforma que vas a recibir por dentro
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Mira cómo acceder a tus entrenamientos y encontrar una sesión en pocos segundos.
+                Observa cómo accedes a tus módulos, eliges una sesión y encuentras exactamente lo que necesitas para entrenar como un profesional.
               </p>
             </div>
 
             <div className="mt-4">
               <div className="overflow-hidden rounded-2xl border border-primary/30 bg-background p-2 shadow-lg sm:p-3">
                 <div className="p-3 text-center sm:p-4">
-                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en español</p>
+                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Demostración real de la plataforma</p>
                   <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usarla</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Accede, elige tu módulo y empieza a entrenar.
+                    Entra, elige tu módulo y empieza a entrenar con una sesión lista.
                   </p>
                 </div>
                 <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
@@ -787,6 +786,10 @@ function LandingPage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-5">
+            <Cta>Quiero Acceder a la Plataforma Completa</Cta>
+          </div>
         </div>
       </section>
 
@@ -801,10 +804,9 @@ function LandingPage() {
           <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
             <div>
               <p className="text-lg font-semibold leading-relaxed">
-                Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
+                Deja de perder tiempo con archivos sueltos. Al unirte, recibes acceso a una
                 <strong className="text-foreground"> plataforma web completa</strong> diseñada
-                para organizar, acelerar y potenciar tu evolución: biblioteca + videos didácticos
-                + herramientas de planificación, todo en un solo lugar.
+                para organizar, acelerar y potenciar tu evolución: +2.000 ejercicios +250 sesiones completas en video + herramientas de planificación, todo organizado dentro de una sola plataforma.
               </p>
               <ul className="mt-6 space-y-4">
                 {[
@@ -831,7 +833,7 @@ function LandingPage() {
                 className="w-full h-auto object-cover"
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">Más de 2.000 contenidos listos para ti</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">+2.000 ejercicios y +250 sesiones en video dentro de tu plataforma</p>
               </div>
             </div>
           </div>
@@ -954,7 +956,7 @@ function LandingPage() {
           <Kicker>Esto es lo que vas a tener</Kicker>
           <H2>Nunca más vuelvas a preguntarte "¿qué entreno hoy?"</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Dentro de la biblioteca encuentras todo esto organizado por posición, edad
+            Dentro de la plataforma encuentras todo esto organizado por posición, edad
             y objetivo. Eliges el área que quieres trabajar hoy, abres la sesión y
             aplicas. Así de simple.
           </p>
