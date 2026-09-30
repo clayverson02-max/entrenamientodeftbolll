@@ -763,11 +763,13 @@ function LandingPage() {
               </div>
             </div>
 
+
+
+          </div>
+
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
             No son archivos sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con todo organizado por posición, categoría y objetivo, para que encuentres tu sesión, veas el video y empieces a entrenar en menos de 5 minutos.
           </p>
-
-          </div>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
             <span className="text-gold">★★★★★</span>
