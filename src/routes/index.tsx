@@ -327,7 +327,7 @@ const bonos = [
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
   ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: biblioteca organizada por posición y categoría, materiales en video didácticos integrados y bonos exclusivos. Todo en una sola herramienta."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: +2.000 ejercicios, +250 sesiones completas en video, organización por posición y categoría y bonos exclusivos. Todo en una sola herramienta."],
   ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
   ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
@@ -1014,7 +1014,7 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <Kicker>Todo en una sola herramienta</Kicker>
           <H2>
-            No es solo una biblioteca: es tu{" "}
+            No son materiales sueltos: es tu{" "}
             <span className="ecm-highlight">Plataforma Completa</span> de Entrenamiento
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -1129,11 +1129,11 @@ function LandingPage() {
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
-          <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
+          <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
             fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $6,50 USD</strong> con la
-            plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
+            plataforma completa: +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1216,7 +1216,7 @@ function LandingPage() {
 
                 <div className="mt-8 flex flex-col items-center">
                   <CheckoutButton href={CHECKOUT_URL}>
-                    Quiero el Paquete Completo
+                    Quiero Acceder a la Plataforma — $6,50
                   </CheckoutButton>
                   <PaySafety />
                 </div>
