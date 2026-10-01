@@ -1210,7 +1210,7 @@ function LandingPage() {
 
                 <div className="mt-8 flex flex-col items-center">
                   <CheckoutButton href={CHECKOUT_URL}>
-                    Quiero Acceder a la Plataforma — $6,50
+                    Quiero Acceder a la Plataforma — $4,99
                   </CheckoutButton>
                   <PaySafety />
                 </div>
