@@ -24,13 +24,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImg from "@/assets/hero-biblioteca-pdf.webp";
-import paginasImg from "@/assets/paginas-ejercicios.webp";
 import coachImgAsset from "@/assets/coach-martinez.jpg.asset.json";
 const coachImg = coachImgAsset.url;
-import testi1 from "@/assets/testi-1.jpg.asset.json";
-import testi2 from "@/assets/testi-2.jpg.asset.json";
-import testi3 from "@/assets/testi-3.jpg.asset.json";
-import testi4 from "@/assets/testi-4.jpg.asset.json";
 import modLaterales from "@/assets/mod-laterales.webp";
 import modPorteros from "@/assets/mod-porteros.webp";
 import modDefensas from "@/assets/mod-defensas.webp";
@@ -821,9 +816,11 @@ function LandingPage() {
               </ul>
             </div>
             <div className="ecm-card overflow-hidden shadow-2xl ring-1 ring-primary/10">
-              <img 
-                src={heroImg} 
-                alt="Vista previa de la plataforma" 
+              <img
+                src={heroImg}
+                alt="Vista previa de la plataforma"
+                loading="lazy"
+                decoding="async" 
                 className="w-full h-auto object-cover"
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
