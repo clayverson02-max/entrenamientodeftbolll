@@ -9,12 +9,12 @@ export const Route = createFileRoute("/precios")({
       {
         name: "description",
         content:
-          "Elige el Paquete Completo por $9.99 o el Paquete Básico por $6.50. Accede a tus entrenamientos con método.",
+          "Elige el Paquete Completo por $6,50 o el Paquete Básico por $4,50. Accede a tus entrenamientos con método.",
       },
       { property: "og:title", content: "Precios — Elite Football Training" },
       {
         property: "og:description",
-        content: "Paquetes de entrenamiento desde $6.50 con acceso inmediato y contenido organizado.",
+        content: "Paquetes de entrenamiento desde $4,50 con acceso inmediato y contenido organizado.",
       },
     ],
   }),
@@ -38,7 +38,7 @@ const plans = [
   },
   {
     name: "Paquete Completo",
-    price: "$9.99",
+    price: "$6,50",
     period: "pago único",
     desc: "La plataforma completa con todo el contenido y acceso de por vida.",
     features: [
@@ -52,10 +52,11 @@ const plans = [
     cta: "Obtener Lifetime",
     highlight: true,
     badge: "Recomendado",
+    href: "https://pay.hotmart.com/G107438250J?checkoutMode=10",
   },
   {
     name: "Paquete Básico",
-    price: "$6.50",
+    price: "$4,50",
     period: "pago único",
     desc: "Una selección completa para empezar a entrenar con método.",
     features: [
@@ -66,6 +67,7 @@ const plans = [
     ],
     cta: "Elegir Paquete Básico",
     highlight: false,
+    href: "https://pay.hotmart.com/A107783439V?checkoutMode=10",
   },
 ];
 
@@ -143,7 +145,7 @@ function PricingPage() {
                   ))}
                 </ul>
                 <a
-                  href="#"
+                  href={plan.href ?? "#"}
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-all ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"
