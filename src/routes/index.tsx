@@ -1150,7 +1150,7 @@ function LandingPage() {
             <p className="text-xs font-extrabold uppercase tracking-widest text-primary">Valor total de los 4 bonos</p>
             <p className="mt-2 font-display text-4xl text-foreground">US$ 184,90</p>
             <p className="mt-2 text-sm font-bold text-primary">Incluidos GRATIS en la Plataforma Completa</p>
-            <p className="mt-1 text-xs text-muted-foreground">Accede a todo por solo US$ 4,99 · pago único · acceso vitalicio</p>
+            <p className="mt-1 text-xs text-muted-foreground">Accede a todo por solo US$ 6,50 · pago único · acceso vitalicio</p>
           </div>
 
           <div className="mt-8">
@@ -1165,7 +1165,7 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Acceso completo por solo $4,99 USD</strong> para empezar hoy con la
+            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para empezar hoy con la
             plataforma completa: +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1203,10 +1203,10 @@ function LandingPage() {
                     De <s>$49,90</s> · precio promocional por tiempo limitado
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $4,99 <span className="text-2xl text-foreground">USD</span>
+                    $6,50 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    90% DESCUENTO · Ahorras $44,91
+                    90% DESCUENTO · Ahorras $43,40
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1252,7 +1252,7 @@ function LandingPage() {
 
                 <div className="mt-8 flex flex-col items-center">
                   <CheckoutButton href={CHECKOUT_URL}>
-                    Quiero Acceder a la Plataforma — $4,99
+                    Quiero Acceder a la Plataforma — $6,50
                   </CheckoutButton>
                   <PaySafety />
                 </div>
@@ -1278,7 +1278,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $4,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
