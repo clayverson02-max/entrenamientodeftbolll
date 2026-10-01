@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   AlertTriangle,
   ArrowRight,
@@ -371,21 +372,28 @@ function CheckoutModal({
   onClose,
   href,
   plan = "complete",
+  exitOffer = false,
 }: {
   open: boolean;
   onClose: () => void;
   href: string;
   plan?: "complete" | "basic";
+  exitOffer?: boolean;
 }) {
   const isBasic = plan === "basic";
   const price = isBasic ? "$4,50" : "$6,50";
   const planName = isBasic ? "Paquete Básico" : "Paquete Completo";
-  const modalTitle = isBasic
-    ? "Empieza con una base clara para dejar de improvisar"
-    : "Estás a un paso de dejar de improvisar";
-  const modalIntro = isBasic
-    ? "Una opción directa para comenzar a entrenar con una biblioteca organizada, elegir mejores sesiones y avanzar con más claridad desde el primer día."
-    : "Antes de salir, mira lo que estás asegurando: una plataforma completa para entrenar con método, encontrar tu sesión en minutos y evolucionar con videos y progresión organizada.";
+  const kicker = exitOffer ? "⏳ Antes de irte" : isBasic ? "⚽ Opción esencial" : "🔥 Oferta de lanzamiento";
+  const modalTitle = exitOffer
+    ? "Espera: todavía puedes empezar por solo $4,50"
+    : isBasic
+      ? "Empieza con una base clara para dejar de improvisar"
+      : "Estás a un paso de dejar de improvisar";
+  const modalIntro = exitOffer
+    ? "Si la plataforma completa no es el momento adecuado, tienes una alternativa más accesible para comenzar hoy con una biblioteca organizada y avanzar sin seguir buscando ejercicios al azar."
+    : isBasic
+      ? "Una opción directa para comenzar a entrenar con una biblioteca organizada, elegir mejores sesiones y avanzar con más claridad desde el primer día."
+      : "Antes de salir, mira lo que estás asegurando: una plataforma completa para entrenar con método, encontrar tu sesión en minutos y evolucionar con videos y progresión organizada.";
   const modalItems = isBasic
     ? [
         "+2.000 ejercicios de fútbol organizados por posición y categoría",
@@ -418,9 +426,9 @@ function CheckoutModal({
 
   if (!open) return null;
 
-  return (
+  const dialog = (
     <div
-      className="fixed inset-0 z-[70] flex items-end justify-center bg-ink/75 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+      className="fixed inset-0 z-[9999] flex items-end justify-center bg-ink/75 p-2 backdrop-blur-sm sm:items-center sm:p-4"
       role="presentation"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
@@ -430,7 +438,7 @@ function CheckoutModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="checkout-modal-title"
-        className="relative max-h-[94vh] w-full max-w-lg overflow-y-auto rounded-t-3xl border border-primary/30 bg-card p-5 shadow-2xl sm:rounded-3xl sm:p-8"
+        className="relative max-h-[calc(100dvh-1rem)] w-full max-w-lg overflow-y-auto overscroll-contain rounded-3xl border border-primary/30 bg-card p-5 shadow-2xl sm:max-h-[94vh] sm:p-8"
       >
         <button
           type="button"
@@ -441,9 +449,9 @@ function CheckoutModal({
           <X className="h-5 w-5" />
         </button>
 
-        <div className="pr-8">
-          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
-            {isBasic ? "⚽ Opción esencial" : "🔥 Oferta de lanzamiento"}
+        <div className="pr-9">
+          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
+            {kicker}
           </p>
           <h2 id="checkout-modal-title" className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
             {modalTitle}
@@ -469,7 +477,7 @@ function CheckoutModal({
 
         <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center">
           <p className="text-xs font-extrabold uppercase tracking-widest text-gold">
-            Precio especial por tiempo limitado
+            {exitOffer ? "Alternativa especial para ti" : "Precio especial por tiempo limitado"}
           </p>
           {!isBasic ? (
             <p className="mt-1 text-sm text-muted-foreground">
@@ -484,16 +492,16 @@ function CheckoutModal({
             {price} <span className="text-lg text-foreground">USD</span>
           </p>
           <p className="mt-1 text-xs font-bold text-gold">
-            ⚡ Asegura tu acceso antes de cerrar esta página.
+            ⚡ {exitOffer ? "Esta condición aparece ahora para que no te vayas sin una opción." : "Asegura tu acceso antes de cerrar esta página."}
           </p>
         </div>
 
         <button
           type="button"
           onClick={() => redirectToCheckout(href)}
-          className="ecm-cta mt-5 w-full justify-center"
+          className="ecm-cta mt-5 w-full justify-center text-center"
         >
-          {isBasic ? "Sí, quiero el paquete básico — $4,50" : "Sí, quiero la plataforma completa — $6,50"}
+          {isBasic ? "Sí, quiero empezar por $4,50" : "Sí, quiero la plataforma completa — $6,50"}
           <ArrowRight className="h-5 w-5 flex-shrink-0" />
         </button>
 
@@ -504,6 +512,8 @@ function CheckoutModal({
       </div>
     </div>
   );
+
+  return createPortal(dialog, document.body);
 }
 
 function CheckoutButton({
@@ -518,14 +528,23 @@ function CheckoutButton({
   plan?: "complete" | "basic";
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExitOfferOpen, setIsExitOfferOpen] = useState(false);
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
+
+  const handleClose = () => {
+    setIsOpen(false);
+    if (plan === "complete") setIsExitOfferOpen(true);
+  };
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsExitOfferOpen(false);
+          setIsOpen(true);
+        }}
         className={className}
       >
         {children}
@@ -533,10 +552,19 @@ function CheckoutButton({
       </button>
       <CheckoutModal
         open={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={handleClose}
         href={href}
         plan={plan}
       />
+      {plan === "complete" ? (
+        <CheckoutModal
+          open={isExitOfferOpen}
+          onClose={() => setIsExitOfferOpen(false)}
+          href={BASIC_CHECKOUT_URL}
+          plan="basic"
+          exitOffer
+        />
+      ) : null}
     </>
   );
 }
@@ -657,12 +685,21 @@ function LazyVideo({
 
 function Cta({ children }: { children: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExitOfferOpen, setIsExitOfferOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setIsExitOfferOpen(true);
+  };
 
   return (
     <div className="flex flex-col items-center">
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsExitOfferOpen(false);
+          setIsOpen(true);
+        }}
         className="ecm-cta"
       >
         {children}
@@ -671,9 +708,16 @@ function Cta({ children }: { children: string }) {
       <Badges />
       <CheckoutModal
         open={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={handleClose}
         href={CHECKOUT_URL}
         plan="complete"
+      />
+      <CheckoutModal
+        open={isExitOfferOpen}
+        onClose={() => setIsExitOfferOpen(false)}
+        href={BASIC_CHECKOUT_URL}
+        plan="basic"
+        exitOffer
       />
     </div>
   );
