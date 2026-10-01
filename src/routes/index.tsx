@@ -1148,8 +1148,7 @@ function LandingPage() {
                 <h3 className="text-center text-2xl">Paquete Completo</h3>
                 <img
                   src={heroImg}
-            fetchPriority="high"
-            decoding="async"
+                  decoding="async"
                   alt="Plataforma completa de entrenamientos"
                   loading="lazy"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
