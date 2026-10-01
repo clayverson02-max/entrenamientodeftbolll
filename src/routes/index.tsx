@@ -339,34 +339,146 @@ function trackCheckout() {
   }
 }
 
-function openCheckoutModal(url: string) {
+function redirectToCheckout(url: string) {
   if (typeof window !== "undefined") {
     trackCheckout();
-    
+
     let finalUrl = url;
     try {
       const searchParams = new URLSearchParams(window.location.search);
       const utms = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
       const urlObj = new URL(url);
-      
-      utms.forEach(utm => {
+
+      utms.forEach((utm) => {
         const value = searchParams.get(utm);
         if (value) {
           urlObj.searchParams.set(utm, value);
         }
       });
-      
+
       finalUrl = urlObj.toString();
-    } catch (e) {
-      // fallback to original url if anything fails
+    } catch {
+      // Mantiene el checkout original si no hay parámetros válidos.
     }
 
     window.open(finalUrl, "_blank", "noopener,noreferrer");
   }
 }
 
-function CheckoutModal() {
-  return null;
+function CheckoutModal({
+  open,
+  onClose,
+  href,
+}: {
+  open: boolean;
+  onClose: () => void;
+  href: string;
+}) {
+  useEffect(() => {
+    if (!open) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[70] flex items-end justify-center bg-ink/75 p-0 backdrop-blur-sm sm:items-center sm:p-4"
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="checkout-modal-title"
+        className="relative max-h-[94vh] w-full max-w-lg overflow-y-auto rounded-t-3xl border border-primary/30 bg-card p-5 shadow-2xl sm:rounded-3xl sm:p-8"
+      >
+        <button
+          type="button"
+          aria-label="Cerrar"
+          onClick={onClose}
+          className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        <div className="pr-8">
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
+            🔥 Oferta de lanzamiento
+          </p>
+          <h2 id="checkout-modal-title" className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
+            Estás a un paso de dejar de improvisar
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Antes de salir, mira lo que estás asegurando: una plataforma completa para
+            entrenar con método, encontrar tu sesión en minutos y evolucionar con
+            videos y progresión organizada.
+          </p>
+        </div>
+
+        <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4">
+          <p className="text-sm font-extrabold text-foreground">
+            Dentro de tu acceso recibes:
+          </p>
+          <ul className="mt-3 space-y-2 text-sm">
+            {[
+              "+2.000 ejercicios organizados por posición y categoría",
+              "+250 sesiones completas con material en video",
+              "4 bonos exclusivos incluidos sin pagar más",
+              "Acceso vitalicio, pago único y garantía de 7 días",
+            ].map((item) => (
+              <li key={item} className="flex gap-2">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center">
+          <p className="text-xs font-extrabold uppercase tracking-widest text-gold">
+            Precio especial de lanzamiento
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Valor normal <s>$49,90</s>
+          </p>
+          <p className="mt-1 font-display text-4xl text-primary">
+            $6,50 <span className="text-lg text-foreground">USD</span>
+          </p>
+          <p className="mt-1 text-xs font-bold text-gold">
+            ⚡ Esta condición promocional puede cambiar cuando cierres esta página.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => redirectToCheckout(href)}
+          className="ecm-cta mt-5 w-full justify-center"
+        >
+          Sí, quiero acceder ahora — $6,50
+          <ArrowRight className="h-5 w-5 flex-shrink-0" />
+        </button>
+
+        <div className="mt-4 space-y-1 text-center text-xs font-semibold text-muted-foreground">
+          <p>🔒 Pago seguro procesado por Hotmart</p>
+          <p>✅ Acceso inmediato · 7 días de garantía · pago único</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function CheckoutButton({
@@ -378,18 +490,26 @@ function CheckoutButton({
   children: string;
   variant?: "solid" | "outline";
 }) {
+  const [isOpen, setIsOpen] = useState(false);
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
 
   return (
-    <button
-      type="button"
-      onClick={() => openCheckoutModal(href)}
-      className={className}
-    >
-      {children}
-      <ArrowRight className="h-5 w-5 flex-shrink-0" />
-    </button>
+    <>
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        className={className}
+      >
+        {children}
+        <ArrowRight className="h-5 w-5 flex-shrink-0" />
+      </button>
+      <CheckoutModal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        href={href}
+      />
+    </>
   );
 }
 
@@ -508,17 +628,24 @@ function LazyVideo({
 }
 
 function Cta({ children }: { children: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="flex flex-col items-center">
       <button
         type="button"
-        onClick={() => openCheckoutModal(CHECKOUT_URL)}
+        onClick={() => setIsOpen(true)}
         className="ecm-cta"
       >
         {children}
         <ArrowRight className="h-5 w-5 flex-shrink-0" />
       </button>
       <Badges />
+      <CheckoutModal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        href={CHECKOUT_URL}
+      />
     </div>
   );
 }
