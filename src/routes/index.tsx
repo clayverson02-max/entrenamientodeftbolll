@@ -309,6 +309,7 @@ const bonos = [
   ["BONO 01", "Guía de Entrenamiento", "$47"],
   ["BONO 02", "50 Ejercicios de Técnica Individual", "$39"],
   ["BONO 03", "Pack de Circuitos de Preparación Física", "$49"],
+  ["BONO 04", "Entrenamientos de Dribles, Fuerza y Técnica", "$49,90"],
 ];
 
 
@@ -1184,7 +1185,7 @@ function LandingPage() {
 
                 <div className="mt-6 rounded-xl bg-secondary p-5">
                   <p className="flex items-center gap-2 text-sm font-extrabold">
-                    <Gift className="h-4 w-4 text-primary" /> Bonos exclusivos incluidos
+                    <Gift className="h-4 w-4 text-primary" /> 4 bonos exclusivos incluidos
                   </p>
                   <ul className="mt-3 space-y-2">
                     {bonos.map(([n, t, p]) => (
@@ -1200,6 +1201,10 @@ function LandingPage() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-4 rounded-lg border border-primary/20 bg-primary/5 px-3 py-3 text-center">
+                    <p className="text-xs font-extrabold uppercase tracking-wider text-primary">Valor total de los 4 bonos: US$ 184,90</p>
+                    <p className="mt-1 text-xs text-muted-foreground">Incluidos GRATIS dentro de la Plataforma Completa.</p>
+                  </div>
                 </div>
 
                 <div className="mt-8 flex flex-col items-center">
