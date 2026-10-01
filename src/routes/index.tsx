@@ -1121,8 +1121,7 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Acceso completo por solo $4,99 USD</strong> para empezar hoy con
-            con la
+            <strong className="text-foreground">Acceso completo por solo $4,99 USD</strong> para empezar hoy con la
             plataforma completa: +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1153,7 +1152,6 @@ function LandingPage() {
             decoding="async"
                   alt="Plataforma completa de entrenamientos"
                   loading="lazy"
-                  decoding="async"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
                 />
 
