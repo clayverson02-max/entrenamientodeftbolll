@@ -1415,8 +1415,6 @@ function LandingPage() {
               </div>
             </div>
 
-          </div>
-
             {/* PLAN BÁSICO */}
             <div className="ecm-card relative overflow-hidden border-border/80 bg-card/80 lg:sticky lg:top-6">
               <div className="bg-secondary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
