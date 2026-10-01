@@ -1116,6 +1116,49 @@ function LandingPage() {
 
 
 
+      {/* BONOS DESTACADOS */}
+      <section id="bonos" data-reveal className="border-t border-border bg-accent px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>🎁 Valor extra incluido</Kicker>
+          <H2>
+            Recibe estos <span className="ecm-highlight">4 bonos exclusivos</span> sin pagar más
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            No son archivos sueltos. Son materiales adicionales incluidos dentro de tu
+            Plataforma Completa para acelerar tu evolución y ayudarte a entrenar con más
+            dirección desde el primer día.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {bonos.map(([n, t, p]) => (
+              <div key={n} className="ecm-card flex items-center gap-4 p-5">
+                <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg">
+                  <Gift className="h-6 w-6" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-primary">{n}</p>
+                  <h3 className="mt-1 text-base font-extrabold leading-tight">{t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Valor: <s>{p}</s> · <strong className="text-primary">GRATIS</strong>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-8 max-w-xl rounded-2xl border-2 border-primary bg-card p-6 text-center shadow-xl">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">Valor total de los 4 bonos</p>
+            <p className="mt-2 font-display text-4xl text-foreground">US$ 184,90</p>
+            <p className="mt-2 text-sm font-bold text-primary">Incluidos GRATIS en la Plataforma Completa</p>
+            <p className="mt-1 text-xs text-muted-foreground">Accede a todo por solo US$ 4,99 · pago único · acceso vitalicio</p>
+          </div>
+
+          <div className="mt-8">
+            <Cta>Quiero recibir los 4 bonos gratis</Cta>
+          </div>
+        </div>
+      </section>
+
       {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl">
