@@ -308,14 +308,7 @@ const incluye = [
   "Garantía incondicional de 7 días",
 ];
 
-const incluyeBasico = [
-  "Plataforma Web: Módulo de Fútbol Femenino",
-  "Plataforma Web: Módulo de Fútbol Infantil",
-  "Plataforma Web: Acondicionamiento Físico",
-  "Diagramas de campo con pasos numerados",
-  "Acceso inmediato y vitalicio",
-  "Garantía incondicional de 7 días",
-];
+
 
 const bonos = [
   ["BONO 01", "Guía de Entrenamiento", "$47"],
@@ -340,7 +333,6 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
-export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -634,13 +626,13 @@ function TestimonialCard({
 
 const compras = [
   { nombre: "Lucas M.", ciudad: "Buenos Aires", plan: "Paquete Completo" },
-  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Básico" },
+  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Completo" },
   { nombre: "Diego R.", ciudad: "Ciudad de México", plan: "Paquete Completo" },
   { nombre: "Javier S.", ciudad: "Madrid", plan: "Paquete Completo" },
-  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Básico" },
+  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Completo" },
   { nombre: "Bruno F.", ciudad: "Lima", plan: "Paquete Completo" },
   { nombre: "Carlos V.", ciudad: "Montevideo", plan: "Paquete Completo" },
-  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Básico" },
+  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Completo" },
 ];
 
 function ComprasRecientes() {
@@ -835,7 +827,7 @@ function LandingPage() {
                 className="w-full h-auto object-cover"
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">+2.000 ejercicios y +250 sesiones en video dentro de tu plataforma</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">+2.000 ejercicios, +250 sesiones completas en video y 4 bonos dentro de tu plataforma</p>
               </div>
             </div>
           </div>
@@ -904,6 +896,7 @@ function LandingPage() {
             src={coachImg}
             alt="Coach Martínez, Entrenador Profesional"
             loading="lazy"
+            decoding="async"
             width={912}
             height={1104}
             className="w-full rounded-2xl object-cover"
@@ -1127,12 +1120,12 @@ function LandingPage() {
 
       {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-3xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $6,50 USD</strong> con la
+            <strong className="text-foreground">Acceso completo por solo $4,99 USD</strong> para empezar hoy con
+            con la
             plataforma completa: +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1149,7 +1142,7 @@ function LandingPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
+          <div className="mt-10">
             {/* PLAN COMPLETO */}
             <div className="ecm-card relative overflow-hidden border-primary/40">
               <div className="bg-primary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-primary-foreground">
@@ -1163,24 +1156,25 @@ function LandingPage() {
             decoding="async"
                   alt="Plataforma completa de entrenamientos"
                   loading="lazy"
+                  decoding="async"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
                 />
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    De <s>$49,90</s> sólo por hoy
+                    De <s>$49,90</s> · precio promocional por tiempo limitado
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $6,50 <span className="text-2xl text-foreground">USD</span>
+                    $4,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    80% DESCUENTO · Ahorras $39,91
+                    90% DESCUENTO · Ahorras $44,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
                   <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
-                    <Clock className="h-3 w-3" /> Precio de lanzamiento · últimas horas
+                    <Clock className="h-3 w-3" /> Precio promocional · tiempo limitado
                   </p>
                 </div>
 
@@ -1223,50 +1217,6 @@ function LandingPage() {
               </div>
             </div>
 
-            {/* PLAN BÁSICO */}
-            <div className="ecm-card overflow-hidden">
-              <div className="bg-secondary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
-                Para empezar hoy
-              </div>
-              <div className="p-6 sm:p-8">
-                <h3 className="text-center text-2xl">Paquete Básico</h3>
-
-                <div className="mt-6 text-center">
-                  <p className="text-sm text-muted-foreground">
-                    De <s>$37,50</s> sólo por hoy
-                  </p>
-                  <p className="mt-1 font-display text-6xl text-foreground">
-                    $4,50 <span className="text-2xl text-muted-foreground">USD</span>
-                  </p>
-                  <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    83% DESCUENTO · Ahorras $31,00
-                  </p>
-                  <p className="mt-3 text-sm font-bold text-primary">
-                    ✅ Pago único · Acceso vitalicio
-                  </p>
-                  <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
-                    <Clock className="h-3 w-3" /> Solo hoy a este precio
-                  </p>
-                </div>
-
-
-                <ul className="mt-6 space-y-3 border-t border-border pt-6">
-                  {incluyeBasico.map((i) => (
-                    <li key={i} className="flex gap-3 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                      <span>{i}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 flex flex-col items-center">
-                  <CheckoutButton href={CHECKOUT_BASICO_URL} variant="outline">
-                    Elegir Paquete Básico
-                  </CheckoutButton>
-                  <PaySafety />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1286,7 +1236,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $4,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
