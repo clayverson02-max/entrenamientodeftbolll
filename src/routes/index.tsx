@@ -329,6 +329,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
+export const BASIC_CHECKOUT_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -369,11 +370,36 @@ function CheckoutModal({
   open,
   onClose,
   href,
+  plan = "complete",
 }: {
   open: boolean;
   onClose: () => void;
   href: string;
+  plan?: "complete" | "basic";
 }) {
+  const isBasic = plan === "basic";
+  const price = isBasic ? "$4,50" : "$6,50";
+  const planName = isBasic ? "Paquete Básico" : "Paquete Completo";
+  const modalTitle = isBasic
+    ? "Empieza con una base clara para dejar de improvisar"
+    : "Estás a un paso de dejar de improvisar";
+  const modalIntro = isBasic
+    ? "Una opción directa para comenzar a entrenar con una biblioteca organizada, elegir mejores sesiones y avanzar con más claridad desde el primer día."
+    : "Antes de salir, mira lo que estás asegurando: una plataforma completa para entrenar con método, encontrar tu sesión en minutos y evolucionar con videos y progresión organizada.";
+  const modalItems = isBasic
+    ? [
+        "+2.000 ejercicios de fútbol organizados por posición y categoría",
+        "Acceso vitalicio a la biblioteca básica",
+        "Contenido práctico para planificar mejor cada entrenamiento",
+        "Pago único y acceso inmediato después de la confirmación",
+      ]
+    : [
+        "+2.000 ejercicios organizados por posición y categoría",
+        "+250 sesiones completas con material en video",
+        "4 bonos exclusivos incluidos sin pagar más",
+        "Acceso vitalicio, pago único y garantía de 7 días",
+      ];
+
   useEffect(() => {
     if (!open) return;
 
@@ -417,29 +443,22 @@ function CheckoutModal({
 
         <div className="pr-8">
           <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
-            🔥 Oferta de lanzamiento
+            {isBasic ? "⚽ Opción esencial" : "🔥 Oferta de lanzamiento"}
           </p>
           <h2 id="checkout-modal-title" className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-            Estás a un paso de dejar de improvisar
+            {modalTitle}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Antes de salir, mira lo que estás asegurando: una plataforma completa para
-            entrenar con método, encontrar tu sesión en minutos y evolucionar con
-            videos y progresión organizada.
+            {modalIntro}
           </p>
         </div>
 
         <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4">
           <p className="text-sm font-extrabold text-foreground">
-            Dentro de tu acceso recibes:
+            Lo que recibes en {planName}:
           </p>
           <ul className="mt-3 space-y-2 text-sm">
-            {[
-              "+2.000 ejercicios organizados por posición y categoría",
-              "+250 sesiones completas con material en video",
-              "4 bonos exclusivos incluidos sin pagar más",
-              "Acceso vitalicio, pago único y garantía de 7 días",
-            ].map((item) => (
+            {modalItems.map((item) => (
               <li key={item} className="flex gap-2">
                 <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                 <span>{item}</span>
@@ -450,16 +469,22 @@ function CheckoutModal({
 
         <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center">
           <p className="text-xs font-extrabold uppercase tracking-widest text-gold">
-            Precio especial de lanzamiento
+            Precio especial por tiempo limitado
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Valor normal <s>$49,90</s>
-          </p>
+          {!isBasic ? (
+            <p className="mt-1 text-sm text-muted-foreground">
+              Valor normal <s>$49,90</s>
+            </p>
+          ) : (
+            <p className="mt-1 text-sm text-muted-foreground">
+              Acceso directo a la biblioteca esencial
+            </p>
+          )}
           <p className="mt-1 font-display text-4xl text-primary">
-            $6,50 <span className="text-lg text-foreground">USD</span>
+            {price} <span className="text-lg text-foreground">USD</span>
           </p>
           <p className="mt-1 text-xs font-bold text-gold">
-            ⚡ Esta condición promocional puede cambiar cuando cierres esta página.
+            ⚡ Asegura tu acceso antes de cerrar esta página.
           </p>
         </div>
 
@@ -468,13 +493,13 @@ function CheckoutModal({
           onClick={() => redirectToCheckout(href)}
           className="ecm-cta mt-5 w-full justify-center"
         >
-          Sí, quiero acceder ahora — $6,50
+          {isBasic ? "Sí, quiero el paquete básico — $4,50" : "Sí, quiero la plataforma completa — $6,50"}
           <ArrowRight className="h-5 w-5 flex-shrink-0" />
         </button>
 
         <div className="mt-4 space-y-1 text-center text-xs font-semibold text-muted-foreground">
           <p>🔒 Pago seguro procesado por Hotmart</p>
-          <p>✅ Acceso inmediato · 7 días de garantía · pago único</p>
+          <p>✅ Acceso inmediato · {isBasic ? "Acceso vitalicio" : "7 días de garantía · pago único"}</p>
         </div>
       </div>
     </div>
@@ -485,10 +510,12 @@ function CheckoutButton({
   href,
   children,
   variant = "solid",
+  plan = "complete",
 }: {
   href: string;
   children: string;
   variant?: "solid" | "outline";
+  plan?: "complete" | "basic";
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const className =
@@ -508,6 +535,7 @@ function CheckoutButton({
         open={isOpen}
         onClose={() => setIsOpen(false)}
         href={href}
+        plan={plan}
       />
     </>
   );
@@ -645,6 +673,7 @@ function Cta({ children }: { children: string }) {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         href={CHECKOUT_URL}
+        plan="complete"
       />
     </div>
   );
@@ -1288,7 +1317,7 @@ function LandingPage() {
 
       {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
@@ -1309,7 +1338,7 @@ function LandingPage() {
             </div>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-[1.18fr_0.82fr]">
             {/* PLAN COMPLETO */}
             <div className="ecm-card relative overflow-hidden border-primary/40">
               <div className="bg-primary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-primary-foreground">
@@ -1386,6 +1415,61 @@ function LandingPage() {
               </div>
             </div>
 
+          </div>
+
+            {/* PLAN BÁSICO */}
+            <div className="ecm-card relative overflow-hidden border-border/80 bg-card/80 lg:sticky lg:top-6">
+              <div className="bg-secondary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
+                Opción esencial
+              </div>
+              <div className="p-6 sm:p-7">
+                <h3 className="text-center text-2xl">Paquete Básico</h3>
+                <p className="mx-auto mt-3 max-w-sm text-center text-sm text-muted-foreground">
+                  Para comenzar con una biblioteca organizada y dejar de perder tiempo buscando qué entrenar.
+                </p>
+
+                <div className="mt-6 text-center">
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
+                    Acceso vitalicio
+                  </p>
+                  <p className="mt-1 font-display text-5xl text-primary">
+                    $4,50 <span className="text-xl text-foreground">USD</span>
+                  </p>
+                  <p className="mt-2 text-xs font-bold text-muted-foreground">
+                    Pago único · sin mensualidades
+                  </p>
+                </div>
+
+                <ul className="mt-6 space-y-3 border-t border-border pt-6">
+                  {[
+                    "+2.000 ejercicios de fútbol",
+                    "Organizados por posición y categoría",
+                    "Acceso vitalicio a la biblioteca básica",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 rounded-xl border border-border bg-secondary/60 p-4 text-center">
+                  <p className="text-sm font-bold text-foreground">
+                    Ideal para empezar con lo esencial
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Si quieres la experiencia completa con videos, sesiones y bonos, el plan recomendado es el Paquete Completo.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex flex-col items-center">
+                  <CheckoutButton href={BASIC_CHECKOUT_URL} plan="basic">
+                    Quiero el Paquete Básico — $4,50
+                  </CheckoutButton>
+                  <PaySafety />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
