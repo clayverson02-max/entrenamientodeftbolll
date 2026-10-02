@@ -1261,15 +1261,9 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl">
           <Kicker>🎥 Feedback real de un alumno</Kicker>
           <H2>
-            No tienes que imaginar cómo se siente entrenar con método.
-            <span className="text-primary"> Mira su experiencia.</span>
+            Él no perdió tiempo: ya adquirió la plataforma.
+            <span className="text-primary"> Mira lo que dijo.</span>
           </H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-white/75 sm:text-lg">
-            Antes de elegir tu próximo entrenamiento, escucha a alguien que ya entró,
-            exploró la plataforma y descubrió lo que cambia cuando dejas de improvisar.
-            La organización, los videos y las sesiones listas hacen que cada minuto en el
-            campo tenga un propósito.
-          </p>
 
           <div className="mx-auto mt-8 max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-3 shadow-2xl sm:p-5">
             <div className="mb-4 rounded-2xl border border-primary/25 bg-primary/10 p-4 text-center">
@@ -1287,25 +1281,8 @@ function LandingPage() {
             />
           </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {[
-              ["Método claro", "Dejas de buscar ejercicios al azar."],
-              ["Sesiones listas", "Entras y sabes qué aplicar."],
-              ["Evolución continua", "Entrenas con dirección cada semana."],
-            ].map(([title, description]) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center"
-              >
-                <p className="font-extrabold text-white">{title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-white/65">{description}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-8 max-w-2xl text-center text-sm font-bold text-white/85">
-            Si te ves en esta experiencia, la plataforma ya está lista para ayudarte a
-            entrenar con más claridad desde el primer día.
+          <p className="mx-auto mt-8 max-w-2xl text-center text-base font-black leading-relaxed text-white sm:text-lg">
+            No pierdas tiempo ni sigas improvisando. Empieza a entrenar como un profesional.
           </p>
         </div>
       </section>
