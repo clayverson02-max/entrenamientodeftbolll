@@ -39,6 +39,7 @@ import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
 const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-30%20at%2000.09.40.mp4";
+const feedbackVideoUrl = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-10-02%20at%2018.49.41.mp4";
 
 const feedbacksTop = [
   {
@@ -1249,6 +1250,65 @@ function LandingPage() {
       </section>
 
 
+
+
+      {/* FEEDBACK EN VIDEO REAL */}
+      <section
+        id="feedback-video"
+        data-reveal
+        className="border-t border-border bg-ink px-4 py-16 text-ink-foreground sm:px-6"
+      >
+        <div className="mx-auto max-w-4xl">
+          <Kicker>🎥 Feedback real de un alumno</Kicker>
+          <H2>
+            No tienes que imaginar cómo se siente entrenar con método.
+            <span className="text-primary"> Mira su experiencia.</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-white/75 sm:text-lg">
+            Antes de elegir tu próximo entrenamiento, escucha a alguien que ya entró,
+            exploró la plataforma y descubrió lo que cambia cuando dejas de improvisar.
+            La organización, los videos y las sesiones listas hacen que cada minuto en el
+            campo tenga un propósito.
+          </p>
+
+          <div className="mx-auto mt-8 max-w-2xl overflow-hidden rounded-3xl border border-white/15 bg-white/5 p-3 shadow-2xl sm:p-5">
+            <div className="mb-4 rounded-2xl border border-primary/25 bg-primary/10 p-4 text-center">
+              <p className="text-sm font-extrabold uppercase tracking-wider text-primary">
+                Testimonio en video
+              </p>
+              <p className="mt-1 text-sm text-white/75">
+                Dale play y descubre por qué una plataforma organizada puede cambiar tu forma de entrenar.
+              </p>
+            </div>
+            <LazyVideo
+              src={feedbackVideoUrl}
+              poster={video3}
+              buttonLabel="Ver el feedback completo"
+            />
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            {[
+              ["Método claro", "Dejas de buscar ejercicios al azar."],
+              ["Sesiones listas", "Entras y sabes qué aplicar."],
+              ["Evolución continua", "Entrenas con dirección cada semana."],
+            ].map(([title, description]) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center"
+              >
+                <p className="font-extrabold text-white">{title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-white/65">{description}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm font-bold text-white/85">
+            Si te ves en esta experiencia, la plataforma ya está lista para ayudarte a
+            entrenar con más claridad desde el primer día.
+          </p>
+        </div>
+      </section>
 
       {/* DESEO ANTES DE LA OFERTA */}
       <section data-reveal className="border-t border-border bg-background px-4 py-16 sm:px-6">
