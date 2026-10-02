@@ -91,12 +91,12 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Entrena con Método: Plataforma Completa de Entrenamiento de Fútbol",
+          "+2.000 Ejercicios +250 Sesiones | Plataforma de Entrenamiento de Fútbol",
       },
       {
         name: "description",
         content:
-          "Deja de improvisar. Descarga la plataforma completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
+          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma. Elige tu sesión, mira el video y empieza a entrenar con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       {
         property: "og:title",
@@ -106,7 +106,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Deja de improvisar. Descarga la plataforma completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
+          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma. Elige tu sesión, mira el video y empieza a entrenar con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       { property: "og:type", content: "product" },
       { property: "og:url", content: "/" },
@@ -908,7 +908,7 @@ function LandingPage() {
 
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 Precio especial por tiempo limitado · Acceso de por vida
+        🔥 +2.000 EJERCICIOS · +250 SESIONES · TODO EN UNA PLATAFORMA
       </div>
 
       {/* HERO */}
@@ -916,13 +916,13 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
-            +2.000 ejercicios organizados
+            PLATAFORMA PROFESIONAL · LISTA PARA APLICAR
           </span>
 
           <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[3.2rem]">
-            <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES COMPLETAS EN VIDEO</span>{" "}
-            dentro de una plataforma profesional para dejar de improvisar y empezar a entrenar con método.{" "}
-            <span className="ecm-highlight">Todo organizado. Todo listo para evolucionar.</span>
+            <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES DE ENTRENAMIENTO</span>{" "}
+            en una sola plataforma, lista para aplicar y entrenar como un profesional.{" "}
+            <span className="ecm-highlight">Elige tu sesión, mira el video y evoluciona con método.</span>
           </h1>
 
           <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
@@ -956,7 +956,7 @@ function LandingPage() {
           </div>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            No son archivos sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con todo organizado por posición, categoría y objetivo, para que encuentres tu sesión, veas el video y empieces a entrenar en menos de 5 minutos.
+            No son PDFs sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con sesiones y videos organizados por posición, categoría y objetivo, para que encuentres qué entrenar y empieces en menos de 5 minutos.
           </p>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
@@ -978,7 +978,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-5">
-            <Cta>Quiero Acceder a la Plataforma Completa</Cta>
+            <Cta>Quiero Entrenar con Método Profesional</Cta>
           </div>
         </div>
       </section>
