@@ -903,9 +903,6 @@ function LandingPage() {
 
     <div className="bg-background">
       <ComprasRecientes />
-      <CheckoutModal />
-
-
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
         🔥 +2.000 EJERCICIOS · +250 SESIONES · TODO EN UNA PLATAFORMA
