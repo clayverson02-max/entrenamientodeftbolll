@@ -269,29 +269,6 @@ const perfiles = [
   ["Quien vive por el fútbol", "Y está harto de entrenar sin ver que nada cambia."],
 ];
 
-const testimonios = [
-  {
-    q: "Llegué al entrenamiento con la sesión ya lista en mi plataforma. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
-    n: "Andrés M.",
-    r: "Formador Sub-12 · Vancouver",
-  },
-  {
-    q: "Los ejercicios de pase y control cambiaron completamente el ritmo del equipo. En 3 semanas ya se notó en los partidos.",
-    n: "Diego R.",
-    r: "Categoría Sub-15 · Madrid",
-  },
-  {
-    q: "Entreno solo en la cancha del barrio con la plataforma en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
-    n: "Mateo S.",
-    r: "Jugador Sub-17 · Buenos Aires",
-  },
-  {
-    q: "Ya no gasto horas armando entrenamientos. Abro la plataforma, miro el video y listo. Los padres notaron la diferencia.",
-    n: "Luis F.",
-    r: "Escuela Sub-9 · Bogotá",
-  },
-];
-
 const incluye = [
   "Acceso a la Plataforma Web Completa y Organizada",
   "+250 sesiones y +2.000 ejercicios organizados",
@@ -1228,46 +1205,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* TESTIMONIOS */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Resultados reales</Kicker>
-          <H2>Lo que Pasa Cuando Dejas de Improvisar</H2>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {testimonios.map((t) => (
-              <figure key={t.n} className="ecm-card p-6">
-                <div className="flex gap-0.5 text-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="mt-3 text-sm leading-relaxed">"{t.q}"</blockquote>
-                <figcaption className="mt-4 flex items-center gap-3 border-t border-border pt-4">
-                  {(() => {
-                    const initials = t.n.split(" ").map(n => n[0]).join("").slice(0, 2);
-                    const colors = ["bg-primary/20 text-primary", "bg-gold/20 text-gold", "bg-blue-500/20 text-blue-500"];
-                    const colorIndex = t.n.charCodeAt(0) % colors.length;
-                    return (
-                      <div className={`grid h-10 w-10 place-items-center rounded-full text-xs font-bold ${colors[colorIndex]}`}>
-                        {initials}
-                      </div>
-                    );
-                  })()}
-                  <div>
-                    <p className="text-sm font-bold">{t.n}</p>
-                    <p className="text-sm text-muted-foreground">{t.r}</p>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-
-          <div className="mt-10">
-          </div>
-        </div>
-      </section>
-
       {/* FEEDBACKS DINÁMICOS */}
       <section
         data-reveal
@@ -1312,6 +1249,66 @@ function LandingPage() {
       </section>
 
 
+
+      {/* DESEO ANTES DE LA OFERTA */}
+      <section data-reveal className="border-t border-border bg-background px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>La diferencia está en el método</Kicker>
+          <H2>
+            No necesitas entrenar más horas. Necesitas saber exactamente{" "}
+            <span className="ecm-highlight">qué hacer en cada sesión.</span>
+          </H2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">
+            Imagínate llegar al campo sin perder tiempo buscando ejercicios, sin repetir
+            siempre lo mismo y sin improvisar la sesión sobre la marcha. Abres tu
+            plataforma, eliges el objetivo y empiezas con una guía clara delante de ti.
+          </p>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              [
+                "Dejas de entrenar a ciegas",
+                "Cada ejercicio tiene un propósito. Sabes qué trabajar, en qué orden y cómo aplicar la sesión.",
+              ],
+              [
+                "Aprovechas cada minuto",
+                "En menos de 5 minutos encuentras una sesión lista para llevar al campo, con videos y diagramas claros.",
+              ],
+              [
+                "Construyes constancia",
+                "Cuando el próximo entrenamiento ya está organizado, es mucho más fácil mantener el ritmo y seguir evolucionando.",
+              ],
+            ].map(([title, description], index) => (
+              <div
+                key={title}
+                className="ecm-card relative overflow-hidden border-primary/20 bg-card p-6"
+              >
+                <span className="font-display text-4xl text-primary/30">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 text-lg font-black">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-primary/25 bg-primary/5 p-6 text-center shadow-lg">
+            <p className="text-lg font-black leading-tight sm:text-2xl">
+              Tu próximo entrenamiento puede ser otra sesión improvisada...
+            </p>
+            <p className="mt-2 text-lg font-black leading-tight text-primary sm:text-2xl">
+              o puede ser el primero de una evolución con dirección.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              La plataforma ya está preparada. Todo lo que necesitas está organizado:
+              ejercicios, sesiones, videos y categorías para que dejes de buscar y
+              empieces a aplicar.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* BONOS DESTACADOS */}
       <section id="bonos" data-reveal className="border-t border-border bg-accent px-4 py-16 sm:px-6">
