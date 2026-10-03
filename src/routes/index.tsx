@@ -894,7 +894,7 @@ function LandingPage() {
             PLATAFORMA PROFESIONAL · LISTA PARA APLICAR
           </span>
 
-          <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[3.2rem]">
+          <h1 className="mt-4 font-sans text-[1.65rem] font-black leading-[1.12] tracking-tight sm:text-[3rem]">
             <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES DE ENTRENAMIENTO</span>{" "}
             en una sola plataforma, lista para aplicar y entrenar como un profesional.{" "}
             <span className="ecm-highlight">Elige tu sesión, mira el video y evoluciona con método.</span>
