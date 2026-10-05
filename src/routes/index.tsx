@@ -91,12 +91,12 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "+2.000 Ejercicios +250 Sesiones | Plataforma de Entrenamiento de Fútbol",
+          "+2.000 Ejercicios +250 Sesiones | Plataforma para Entrenadores de Fútbol",
       },
       {
         name: "description",
         content:
-          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma. Elige tu sesión, mira el video y empieza a entrenar con método profesional. Acceso inmediato y garantía de 7 días.",
+          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma para planificar, aplicar y dirigir sesiones con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       {
         property: "og:title",
@@ -106,7 +106,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma. Elige tu sesión, mira el video y empieza a entrenar con método profesional. Acceso inmediato y garantía de 7 días.",
+          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma para planificar, aplicar y dirigir sesiones con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       { property: "og:type", content: "product" },
       { property: "og:url", content: "/" },
@@ -882,7 +882,7 @@ function LandingPage() {
       <ComprasRecientes />
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 +2.000 EJERCICIOS · +250 SESIONES · TODO EN UNA PLATAFORMA
+        🔥 ENTRENADOR: DEJA DE IMPROVISAR · PLANIFICA CADA SESIÓN CON MÉTODO
       </div>
 
       {/* HERO */}
@@ -890,13 +890,13 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
-            PLATAFORMA PROFESIONAL · LISTA PARA APLICAR
+            PLATAFORMA CREADA PARA ENTRENADORES
           </span>
 
           <h1 className="mt-4 font-sans text-[1.65rem] font-black leading-[1.12] tracking-tight sm:text-[3rem]">
             <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES DE ENTRENAMIENTO</span>{" "}
-            en una sola plataforma, lista para aplicar y entrenar como un profesional.{" "}
-            <span className="ecm-highlight">Elige tu sesión, mira el video y evoluciona con método.</span>
+            para que llegues al campo con una sesión lista, clara y profesional.{" "}
+            <span className="ecm-highlight">Deja de improvisar. Entrena con dirección.</span>
           </h1>
 
           <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
@@ -908,7 +908,7 @@ function LandingPage() {
                 Mira la plataforma que vas a recibir por dentro
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Observa cómo accedes a tus módulos, eliges una sesión y encuentras exactamente lo que necesitas para entrenar como un profesional.
+                Mira cómo un entrenador puede encontrar una sesión, organizar el trabajo y aplicarlo en el campo sin perder horas buscando ejercicios.
               </p>
             </div>
 
@@ -918,7 +918,7 @@ function LandingPage() {
                   <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Demostración real de la plataforma</p>
                   <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usarla</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Entra, elige tu módulo y empieza a entrenar con una sesión lista.
+                    Entra, elige la posición o el objetivo y sal con una sesión lista para aplicar.
                   </p>
                 </div>
                 <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
@@ -930,7 +930,7 @@ function LandingPage() {
           </div>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            No son PDFs sueltos ni ejercicios perdidos en Internet. Es una plataforma completa, con sesiones y videos organizados por posición, categoría y objetivo, para que encuentres qué entrenar y empieces en menos de 5 minutos.
+            No son PDFs sueltos ni ejercicios perdidos en Internet. Es una plataforma creada para entrenadores: sesiones, videos y ejercicios organizados por posición, categoría y objetivo para que prepares tu entrenamiento en menos de 5 minutos.
           </p>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
@@ -952,7 +952,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-5">
-            <Cta>Quiero Entrenar con Método Profesional</Cta>
+            <Cta>Quiero Planificar como un Entrenador Profesional</Cta>
           </div>
         </div>
       </section>
@@ -1009,7 +1009,7 @@ function LandingPage() {
       {/* VIDEOS EXPLICATIVOS */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Kicker>Mira esto antes de seguir</Kicker>
+          <Kicker>Antes de llegar al campo, mira cómo funciona</Kicker>
           <H2>
             Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
@@ -1217,8 +1217,7 @@ function LandingPage() {
             <span className="ecm-highlight">Ahora Entrenan con un Plan.</span>
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
-            Más de <strong className="text-foreground">2.146 jugadores y entrenadores</strong>{" "}
-            ya usan la plataforma cada semana. Estos son algunos de sus mensajes.
+            Entrenadores y jugadores ya usan la plataforma para organizar mejor sus sesiones. Mira lo que cuentan quienes empezaron a entrenar con método.
           </p>
         </div>
 
@@ -1254,7 +1253,7 @@ function LandingPage() {
       {/* DESEO ANTES DE LA OFERTA */}
       <section data-reveal className="border-t border-border bg-background px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Kicker>La diferencia está en el método</Kicker>
+          <Kicker>La diferencia entre improvisar y dirigir con método</Kicker>
           <H2>
             No necesitas entrenar más horas. Necesitas saber exactamente{" "}
             <span className="ecm-highlight">qué hacer en cada sesión.</span>
@@ -1357,11 +1356,11 @@ function LandingPage() {
       {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
-          <H2>Menos de lo que Gastas en una Cena. Una Plataforma Completa Para Siempre.</H2>
+          <Kicker>🔥 OFERTA PARA ENTRENADORES · ACCESO COMPLETO</Kicker>
+          <H2>Tu próxima sesión puede empezar en minutos, no en horas de búsqueda.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para empezar hoy con la
-            plataforma completa: +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
+            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para que planifiques mejor desde hoy:
+            +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1370,9 +1369,9 @@ function LandingPage() {
           <div className="mx-auto mt-6 flex max-w-xl items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
             <div className="text-sm font-semibold">
-              <p>⚡ Promoción exclusiva solo hoy. Si cierras esta página pierdes el precio especial.</p>
+              <p>⚡ Oferta de lanzamiento para entrenadores. Si cierras esta página, puedes perder esta condición especial.</p>
               <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold">
-                Mañana vuelve al valor normal · Stock limitado de lanzamiento
+                Acceso promocional limitado · Pago único · Sin mensualidades
               </p>
             </div>
           </div>
@@ -1521,9 +1520,8 @@ function LandingPage() {
           <Kicker>Compra Protegida</Kicker>
           <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
           <p className="mt-4 text-muted-foreground">
-            Accede hoy a toda la plataforma, aplica los entrenamientos durante{" "}
-            <strong className="text-foreground">7 días completos</strong> y mira el cambio
-            con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
+            Accede hoy a toda la plataforma y aplica las sesiones durante{" "}
+            <strong className="text-foreground">7 días completos</strong> para comprobar si realmente te ayuda a planificar mejor. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
             invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
@@ -1561,10 +1559,9 @@ function LandingPage() {
           <Kicker>Última palabra</Kicker>
           <H2>Solo Queda Una Pregunta: ¿Sigues Improvisando o Empiezas Hoy?</H2>
           <p className="mt-4 text-muted-foreground">
-            Seas <strong className="text-foreground">jugador</strong> o{" "}
-            <strong className="text-foreground">entrenador</strong>, el próximo
-            entrenamiento va a llegar igual. La única diferencia es si llegas a él con un
-            plan profesional en el bolsillo, o improvisando otra vez.
+            Eres <strong className="text-foreground">entrenador</strong>. El próximo
+            entrenamiento va a llegar igual. La diferencia es si llegas al campo con un
+            plan profesional en el bolsillo o improvisando otra vez.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
