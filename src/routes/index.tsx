@@ -893,7 +893,7 @@ function LandingPage() {
             PLATAFORMA CREADA PARA ENTRENADORES
           </span>
 
-          <h1 className="mt-4 font-sans text-[1.65rem] font-black leading-[1.12] tracking-tight sm:text-[3rem]">
+          <h1 className="ecm-hero-title mt-4 font-sans text-[1.5rem] font-black leading-[1.08] tracking-tight sm:text-[3rem]">
             <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES DE ENTRENAMIENTO</span>{" "}
             para que llegues al campo con una sesión lista, clara y profesional.{" "}
             <span className="ecm-highlight">Deja de improvisar. Entrena con dirección.</span>
