@@ -119,12 +119,12 @@ export const Route = createFileRoute("/")({
 /* ---------------------------------- data --------------------------------- */
 
 const dolores = [
-  "Llegas al entrenamiento sin un plan claro y terminas improvisando toda la sesión.",
-  "Entrenas durante semanas, pero cuando llega el partido sigues cometiendo los mismos errores de siempre.",
-  "Pierdes horas buscando ejercicios en YouTube o Internet sin saber cuáles realmente funcionan.",
-  "Repites los mismos entrenamientos una y otra vez porque ya no sabes qué hacer para seguir evolucionando.",
-  "No sabes qué entrenar según la posición, la categoría o la edad, y eso limita el progreso dentro del campo.",
-  "Mientras otros jugadores y equipos evolucionan cada temporada, tú sientes que podrías conseguir mucho más con una metodología profesional.",
+  "Llegas al campo sin un plan claro y terminas improvisando delante de tus jugadores.",
+  "Repites los mismos ejercicios porque ya no sabes cómo renovar tus sesiones.",
+  "Pierdes horas en YouTube e Internet y aun así no consigues estructurar un entrenamiento completo.",
+  "Tus jugadores entrenan, pero la falta de progresión hace que los mismos errores vuelvan en cada partido.",
+  "No sabes qué trabajar según la posición, la categoría o la edad y tu metodología pierde fuerza.",
+  "Mientras otros equipos avanzan con planificación, tú sigues dependiendo de ideas sueltas y de la improvisación.",
 ];
 
 const pasos = [
@@ -140,7 +140,7 @@ const pasos = [
   },
   {
     n: "3",
-    t: "Entrenas con Video",
+    t: "Diriges con Seguridad",
     d: "Mira el video, sigue el diagrama y aplica con seguridad. Llegas al campo sabiendo exactamente qué hacer, cómo y por qué.",
   },
 ];
@@ -217,14 +217,6 @@ const videos = [
   },
 ];
 
-const jugador = [
-  ["Sabes qué entrenar hoy, mañana y el lunes", "Progresión real, semana a semana, en tu propia guía."],
-  ["Llegas al partido con otra pierna", "Circuitos de acondicionamiento físico explicados paso a paso."],
-  ["El técnico empieza a notarte", "Control, pase y definición más limpios, ejercicio por ejercicio."],
-  ["Juegas sin miedo a equivocarte", "Repites la jugada 50 veces con la guía en mano; en el partido te sale sola."],
-  ["No dependes de nadie para evolucionar", "Solo, en el parque o en la cancha del barrio, siempre tienes una sesión lista."],
-];
-
 const entrenador = [
   ["Recuperas 5 horas cada semana", "Abres la plataforma en el móvil y ya tienes la sesión estructurada."],
   ["Nunca repites la misma sesión", "Más de 250 sesiones organizadas por objetivo."],
@@ -252,21 +244,15 @@ const despues = [
 ];
 
 const perfiles = [
-  ["Jugadores cansados de estancarse", "Ganas de mejorar hay. Lo que faltaba era saber qué entrenar."],
   ["Entrenadores sin tiempo para planificar", "Sesión lista en minutos, sin sacrificar la calidad del trabajo."],
-  ["Padres que no quieren que su hijo se quede atrás", "Le das lo que otros niños no tienen: método real desde pequeño."],
   ["Escuelitas y academias", "Un método que justifica cada matrícula que cobras."],
   ["Entrenador de base", "Sub-6 a Sub-15: sesiones adaptadas a cada edad, sin ejercicios copiados de adultos."],
-  ["Jugadores juveniles con ambición", "Sub-13 a Sub-20: entrena hoy lo que te acerca al siguiente nivel."],
   ["Profesores de Ed. Física", "Clases que los alumnos esperan con ganas toda la semana."],
   ["Entrenador amateur", "Poco tiempo, muchos jugadores: llegas con la sesión lista y aprovechas cada minuto."],
   ["Preparador físico", "Circuitos, velocidad, agilidad y resistencia con balón integrados a la sesión."],
   ["Entrenador de porteros", "Trabajo específico de reacción, salidas y juego con los pies para tus arqueros."],
   ["Coordinador deportivo", "Estandariza la metodología del club y guía a todo tu cuerpo técnico con un solo recurso."],
-  ["Quien entrena por su cuenta", "Sin equipo, sin cancha grande: sesiones que funcionan en poco espacio."],
-  ["Quien solo tiene 30 minutos al día", "Sesiones cortas y bien dirigidas valen más que horas sin rumbo."],
   ["Equipos y clubes de barrio", "Un plan serio para todo el plantel, sin gastar en consultoría."],
-  ["Quien vive por el fútbol", "Y está harto de entrenar sin ver que nada cambia."],
 ];
 
 const incluye = [
@@ -293,15 +279,15 @@ const bonos = [
 
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
-  ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
+  ["¿Para quién está diseñada la Plataforma?", "Fue creada para entrenadores, profesores, academias y cuerpos técnicos de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
   ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: +2.000 ejercicios, +250 sesiones completas en video, organización por posición y categoría y bonos exclusivos. Todo en una sola herramienta."],
-  ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
+  ["¿Puedo aplicar las sesiones con grupos pequeños?", "Sí. Encontrarás ejercicios para equipos completos, grupos pequeños, espacios reducidos y diferentes cantidades de material."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
   ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
   ["¿Necesito experiencia para aprovechar el contenido?", "No. Todos los ejercicios están explicados paso a paso con diagramas y videos, para que cualquier nivel pueda aplicarlos."],
   ["¿Y si tengo poco espacio, poco material o faltan jugadores?", "Hay sesiones pensadas exactamente para eso: espacios reducidos, poco material y grupos pequeños."],
   ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Entras a la plataforma, eliges posición y objetivo, miras el video y ya puedes ir al campo con todo claro."],
-  ["¿Sirve tanto para jugadores como para entrenadores?", "Sí. El jugador encuentra sesiones individuales para evolucionar por su cuenta y el entrenador encuentra sesiones completas de equipo."],
+  ["¿Puedo usar el contenido con diferentes categorías?", "Sí. Puedes adaptar los ejercicios y las sesiones por edad, posición, objetivo y nivel de tus jugadores."],
 ];
 
 /* -------------------------------- helpers -------------------------------- */
@@ -576,25 +562,8 @@ function LazyVideo({
   poster: string;
   buttonLabel?: string;
 }) {
-  const ref = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [load, setLoad] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || load) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setLoad(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "200px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [load]);
 
   const openFullscreen = () => {
     const video = videoRef.current as (HTMLVideoElement & {
@@ -624,7 +593,7 @@ function LazyVideo({
   };
 
   return (
-    <div ref={ref} className="w-full">
+    <div className="w-full">
       <div className="flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-xl bg-ink sm:min-h-[320px]">
         {load ? (
           <video
@@ -633,14 +602,15 @@ function LazyVideo({
             poster={poster}
             playsInline
             controls
-            preload="metadata"
+            preload="none"
             className="block max-h-[78vh] max-w-full object-contain"
           />
         ) : (
           <img
             src={poster}
             alt="Vista previa del video de entrenamiento"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="block max-h-[78vh] max-w-full object-contain"
           />
@@ -882,7 +852,7 @@ function LandingPage() {
       <ComprasRecientes />
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 ENTRENADOR: DEJA DE IMPROVISAR · PLANIFICA CADA SESIÓN CON MÉTODO
+        🔥 ENTRENADOR: DEJA DE IMPROVISAR HOY · LLEGA AL CAMPO CON LA SESIÓN LISTA
       </div>
 
       {/* HERO */}
@@ -894,9 +864,9 @@ function LandingPage() {
           </span>
 
           <h1 className="ecm-hero-title mt-4 font-sans text-[1.5rem] font-black leading-[1.08] tracking-tight sm:text-[3rem]">
-            <span className="ecm-highlight">+2.000 EJERCICIOS +250 SESIONES DE ENTRENAMIENTO</span>{" "}
-            para que llegues al campo con una sesión lista, clara y profesional.{" "}
-            <span className="ecm-highlight">Deja de improvisar. Entrena con dirección.</span>
+            <span className="ecm-highlight">DEJA DE PERDER HORAS PLANIFICANDO:</span>{" "}
+            ten +2.000 ejercicios y +250 sesiones listas para dirigir entrenamientos más profesionales.{" "}
+            <span className="ecm-highlight">Abre. Elige. Aplica.</span>
           </h1>
 
           <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
@@ -930,7 +900,7 @@ function LandingPage() {
           </div>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            No son PDFs sueltos ni ejercicios perdidos en Internet. Es una plataforma creada para entrenadores: sesiones, videos y ejercicios organizados por posición, categoría y objetivo para que prepares tu entrenamiento en menos de 5 minutos.
+            No compres otro PDF que terminará olvidado. Esta es una plataforma creada para entrenadores, con sesiones, videos y ejercicios organizados por posición, categoría y objetivo para que prepares tu entrenamiento en menos de 5 minutos.
           </p>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
@@ -952,7 +922,7 @@ function LandingPage() {
           </div>
 
           <div className="mt-5">
-            <Cta>Quiero Planificar como un Entrenador Profesional</Cta>
+            <Cta>Quiero Dejar de Improvisar Ahora</Cta>
           </div>
         </div>
       </section>
@@ -970,7 +940,7 @@ function LandingPage() {
               <p className="text-lg font-semibold leading-relaxed">
                 Deja de perder tiempo con archivos sueltos. Al unirte, recibes acceso a una
                 <strong className="text-foreground"> plataforma web completa</strong> diseñada
-                para organizar, acelerar y potenciar tu evolución: +2.000 ejercicios +250 sesiones completas en video + herramientas de planificación, todo organizado dentro de una sola plataforma.
+                para elevar tu planificación y tu autoridad como entrenador: +2.000 ejercicios, +250 sesiones completas en video y herramientas de planificación dentro de una sola plataforma.
               </p>
               <ul className="mt-6 space-y-4">
                 {[
@@ -1211,13 +1181,13 @@ function LandingPage() {
         className="overflow-hidden border-t border-border bg-card px-0 py-16"
       >
         <div className="px-4 sm:px-6">
-          <Kicker>⚡ Lo que dicen quienes ya entrenan con método</Kicker>
+          <Kicker>⚡ Lo que dicen entrenadores que ya aplican el método</Kicker>
           <H2>
             Ellos Dejaron de Improvisar.{" "}
-            <span className="ecm-highlight">Ahora Entrenan con un Plan.</span>
+            <span className="ecm-highlight">Ahora Llegan al Campo Preparados.</span>
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
-            Entrenadores y jugadores ya usan la plataforma para organizar mejor sus sesiones. Mira lo que cuentan quienes empezaron a entrenar con método.
+            Entrenadores ya usan la plataforma para organizar sus sesiones, ganar tiempo y dirigir con más seguridad. Mira lo que cuentan quienes empezaron a aplicar el método.
           </p>
         </div>
 
@@ -1255,8 +1225,8 @@ function LandingPage() {
         <div className="mx-auto max-w-5xl">
           <Kicker>La diferencia entre improvisar y dirigir con método</Kicker>
           <H2>
-            No necesitas entrenar más horas. Necesitas saber exactamente{" "}
-            <span className="ecm-highlight">qué hacer en cada sesión.</span>
+            Tus jugadores no necesitan otra sesión improvisada. Necesitan un entrenador que sepa exactamente{" "}
+            <span className="ecm-highlight">qué hacer, cómo hacerlo y por qué.</span>
           </H2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">
             Imagínate llegar al campo sin perder tiempo buscando ejercicios, sin repetir
@@ -1267,16 +1237,16 @@ function LandingPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               [
-                "Dejas de entrenar a ciegas",
-                "Cada ejercicio tiene un propósito. Sabes qué trabajar, en qué orden y cómo aplicar la sesión.",
+                "Dejas de dirigir a ciegas",
+                "Cada ejercicio tiene un propósito. Sabes qué trabajar, en qué orden y cómo conducir la sesión.",
               ],
               [
                 "Aprovechas cada minuto",
                 "En menos de 5 minutos encuentras una sesión lista para llevar al campo, con videos y diagramas claros.",
               ],
               [
-                "Construyes constancia",
-                "Cuando el próximo entrenamiento ya está organizado, es mucho más fácil mantener el ritmo y seguir evolucionando.",
+                "Tu trabajo gana autoridad",
+                "Cuando cada sesión tiene estructura, tus jugadores y los padres perciben que existe un método detrás de tu trabajo.",
               ],
             ].map(([title, description], index) => (
               <div
@@ -1299,7 +1269,7 @@ function LandingPage() {
               Tu próximo entrenamiento puede ser otra sesión improvisada...
             </p>
             <p className="mt-2 text-lg font-black leading-tight text-primary sm:text-2xl">
-              o puede ser el primero de una evolución con dirección.
+              o puede ser el día en que empiezas a dirigir con método y autoridad.
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               La plataforma ya está preparada. Todo lo que necesitas está organizado:
@@ -1319,8 +1289,8 @@ function LandingPage() {
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
             No son archivos sueltos. Son materiales adicionales incluidos dentro de tu
-            Plataforma Completa para acelerar tu evolución y ayudarte a entrenar con más
-            dirección desde el primer día.
+            Plataforma Completa para acelerar tu planificación y ayudarte a dirigir con más
+            seguridad desde el primer día.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -1357,9 +1327,9 @@ function LandingPage() {
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <Kicker>🔥 OFERTA PARA ENTRENADORES · ACCESO COMPLETO</Kicker>
-          <H2>Tu próxima sesión puede empezar en minutos, no en horas de búsqueda.</H2>
+          <H2>Por menos de lo que cuesta una comida, elimina horas de búsqueda y ten sesiones listas de por vida.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para que planifiques mejor desde hoy:
+            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para dejar de improvisar desde hoy:
             +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1518,13 +1488,13 @@ function LandingPage() {
             <Shield className="h-11 w-11 text-primary" />
           </div>
           <Kicker>Compra Protegida</Kicker>
-          <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
+          <H2>Pruébala Durante 7 Días. El Riesgo Es Todo Mío.</H2>
           <p className="mt-4 text-muted-foreground">
             Accede hoy a toda la plataforma y aplica las sesiones durante{" "}
             <strong className="text-foreground">7 días completos</strong> para comprobar si realmente te ayuda a planificar mejor. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $6,50 es seguir perdiendo horas, repitiendo ejercicios e improvisando mientras otros entrenadores avanzan con método.
           </p>
           <div className="mt-8">
           </div>
@@ -1557,7 +1527,7 @@ function LandingPage() {
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <Kicker>Última palabra</Kicker>
-          <H2>Solo Queda Una Pregunta: ¿Sigues Improvisando o Empiezas Hoy?</H2>
+          <H2>El Próximo Entrenamiento Va a Llegar. ¿Vas a Improvisar Otra Vez?</H2>
           <p className="mt-4 text-muted-foreground">
             Eres <strong className="text-foreground">entrenador</strong>. El próximo
             entrenamiento va a llegar igual. La diferencia es si llegas al campo con un
