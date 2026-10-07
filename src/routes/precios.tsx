@@ -9,12 +9,12 @@ export const Route = createFileRoute("/precios")({
       {
         name: "description",
         content:
-          "Elige el Paquete Completo por $6,50 o el Paquete Básico por $4,50. Accede a tus entrenamientos con método.",
+          "Planes simples: Gratis, Lifetime $9.99 y Mensual $5. Accede a la biblioteca completa y al Coach IA.",
       },
       { property: "og:title", content: "Precios — Elite Football Training" },
       {
         property: "og:description",
-        content: "Paquetes de entrenamiento desde $4,50 con acceso inmediato y contenido organizado.",
+        content: "Planes desde $0. Oferta Lifetime de lanzamiento a $9.99.",
       },
     ],
   }),
@@ -37,10 +37,10 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Paquete Completo",
-    price: "$6,50",
+    name: "Lifetime",
+    price: "$9.99",
     period: "pago único",
-    desc: "La plataforma completa con todo el contenido y acceso de por vida.",
+    desc: "Oferta de lanzamiento. Acceso de por vida.",
     features: [
       "Biblioteca completa",
       "Coach IA ilimitado",
@@ -52,22 +52,20 @@ const plans = [
     cta: "Obtener Lifetime",
     highlight: true,
     badge: "Recomendado",
-    href: "https://pay.hotmart.com/G107438250J?checkoutMode=10",
   },
   {
-    name: "Paquete Básico",
-    price: "$4,50",
-    period: "pago único",
-    desc: "Una selección completa para empezar a entrenar con método.",
+    name: "Mensual",
+    price: "$5",
+    period: "por mes",
+    desc: "Flexibilidad total, cancela cuando quieras.",
     features: [
       "Biblioteca completa",
       "Coach IA ilimitado",
       "Nuevos ejercicios cada semana",
       "Cancela cuando quieras",
     ],
-    cta: "Elegir Paquete Básico",
+    cta: "Suscribirme",
     highlight: false,
-    href: "https://pay.hotmart.com/A107783439V?checkoutMode=10",
   },
 ];
 
@@ -145,7 +143,7 @@ function PricingPage() {
                   ))}
                 </ul>
                 <a
-                  href={plan.href ?? "#"}
+                  href="#"
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-all ${
                     plan.highlight
                       ? "bg-primary text-primary-foreground hover:bg-primary/90"

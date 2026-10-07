@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import {
   AlertTriangle,
   ArrowRight,
@@ -25,8 +24,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroImg from "@/assets/hero-biblioteca-pdf.webp";
+import paginasImg from "@/assets/paginas-ejercicios.webp";
 import coachImgAsset from "@/assets/coach-martinez.jpg.asset.json";
 const coachImg = coachImgAsset.url;
+import testi1 from "@/assets/testi-1.jpg.asset.json";
+import testi2 from "@/assets/testi-2.jpg.asset.json";
+import testi3 from "@/assets/testi-3.jpg.asset.json";
+import testi4 from "@/assets/testi-4.jpg.asset.json";
 import modLaterales from "@/assets/mod-laterales.webp";
 import modPorteros from "@/assets/mod-porteros.webp";
 import modDefensas from "@/assets/mod-defensas.webp";
@@ -38,7 +42,7 @@ import modTecnica from "@/assets/mod-tecnica.webp";
 import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
-const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-30%20at%2000.09.40.mp4";
+import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
 
 const feedbacksTop = [
   {
@@ -91,22 +95,22 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "+2.000 Ejercicios +250 Sesiones | Plataforma para Entrenadores de Fútbol",
+          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
       },
       {
         name: "description",
         content:
-          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma para planificar, aplicar y dirigir sesiones con método profesional. Acceso inmediato y garantía de 7 días.",
+          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       {
         property: "og:title",
         content:
-          "Entrena con Método: Plataforma Completa de Entrenamiento de Fútbol",
+          "Entrena con Método: Biblioteca Completa de Entrenamientos de Fútbol",
       },
       {
         property: "og:description",
         content:
-          "+2.000 ejercicios y +250 sesiones de entrenamiento en una sola plataforma para planificar, aplicar y dirigir sesiones con método profesional. Acceso inmediato y garantía de 7 días.",
+          "Deja de improvisar. Descarga la biblioteca completa, elige la sesión según posición y categoría, y entrena hoy mismo con método profesional. Acceso inmediato y garantía de 7 días.",
       },
       { property: "og:type", content: "product" },
       { property: "og:url", content: "/" },
@@ -119,12 +123,12 @@ export const Route = createFileRoute("/")({
 /* ---------------------------------- data --------------------------------- */
 
 const dolores = [
-  "Llegas al campo sin un plan claro y terminas improvisando delante de tus jugadores.",
-  "Repites los mismos ejercicios porque ya no sabes cómo renovar tus sesiones.",
-  "Pierdes horas en YouTube e Internet y aun así no consigues estructurar un entrenamiento completo.",
-  "Tus jugadores entrenan, pero la falta de progresión hace que los mismos errores vuelvan en cada partido.",
-  "No sabes qué trabajar según la posición, la categoría o la edad y tu metodología pierde fuerza.",
-  "Mientras otros equipos avanzan con planificación, tú sigues dependiendo de ideas sueltas y de la improvisación.",
+  "Llegas al entrenamiento sin un plan claro y terminas improvisando toda la sesión.",
+  "Entrenas durante semanas, pero cuando llega el partido sigues cometiendo los mismos errores de siempre.",
+  "Pierdes horas buscando ejercicios en YouTube o Internet sin saber cuáles realmente funcionan.",
+  "Repites los mismos entrenamientos una y otra vez porque ya no sabes qué hacer para seguir evolucionando.",
+  "No sabes qué entrenar según la posición, la categoría o la edad, y eso limita el progreso dentro del campo.",
+  "Mientras otros jugadores y equipos evolucionan cada temporada, tú sientes que podrías conseguir mucho más con una metodología profesional.",
 ];
 
 const pasos = [
@@ -140,7 +144,7 @@ const pasos = [
   },
   {
     n: "3",
-    t: "Diriges con Seguridad",
+    t: "Entrenas con Video",
     d: "Mira el video, sigue el diagrama y aplica con seguridad. Llegas al campo sabiendo exactamente qué hacer, cómo y por qué.",
   },
 ];
@@ -206,7 +210,7 @@ const videos = [
   {
     src: video2,
     alt: "Video de finalización en tablet con miniaturas de sesiones",
-    title: "Plataforma de videos",
+    title: "Biblioteca de videos",
     desc: "Más de 120 videos cortos organizados por posición, nivel y objetivo.",
   },
   {
@@ -215,6 +219,14 @@ const videos = [
     title: "Acceso desde cualquier dispositivo",
     desc: "Mira desde el móvil en el campo o desde la laptop cuando planifiques.",
   },
+];
+
+const jugador = [
+  ["Sabes qué entrenar hoy, mañana y el lunes", "Progresión real, semana a semana, en tu propia guía."],
+  ["Llegas al partido con otra pierna", "Circuitos de acondicionamiento físico explicados paso a paso."],
+  ["El técnico empieza a notarte", "Control, pase y definición más limpios, ejercicio por ejercicio."],
+  ["Juegas sin miedo a equivocarte", "Repites la jugada 50 veces con la guía en mano; en el partido te sale sola."],
+  ["No dependes de nadie para evolucionar", "Solo, en el parque o en la cancha del barrio, siempre tienes una sesión lista."],
 ];
 
 const entrenador = [
@@ -244,19 +256,48 @@ const despues = [
 ];
 
 const perfiles = [
+  ["Jugadores cansados de estancarse", "Ganas de mejorar hay. Lo que faltaba era saber qué entrenar."],
   ["Entrenadores sin tiempo para planificar", "Sesión lista en minutos, sin sacrificar la calidad del trabajo."],
+  ["Padres que no quieren que su hijo se quede atrás", "Le das lo que otros niños no tienen: método real desde pequeño."],
   ["Escuelitas y academias", "Un método que justifica cada matrícula que cobras."],
   ["Entrenador de base", "Sub-6 a Sub-15: sesiones adaptadas a cada edad, sin ejercicios copiados de adultos."],
+  ["Jugadores juveniles con ambición", "Sub-13 a Sub-20: entrena hoy lo que te acerca al siguiente nivel."],
   ["Profesores de Ed. Física", "Clases que los alumnos esperan con ganas toda la semana."],
   ["Entrenador amateur", "Poco tiempo, muchos jugadores: llegas con la sesión lista y aprovechas cada minuto."],
   ["Preparador físico", "Circuitos, velocidad, agilidad y resistencia con balón integrados a la sesión."],
   ["Entrenador de porteros", "Trabajo específico de reacción, salidas y juego con los pies para tus arqueros."],
   ["Coordinador deportivo", "Estandariza la metodología del club y guía a todo tu cuerpo técnico con un solo recurso."],
+  ["Quien entrena por su cuenta", "Sin equipo, sin cancha grande: sesiones que funcionan en poco espacio."],
+  ["Quien solo tiene 30 minutos al día", "Sesiones cortas y bien dirigidas valen más que horas sin rumbo."],
   ["Equipos y clubes de barrio", "Un plan serio para todo el plantel, sin gastar en consultoría."],
+  ["Quien vive por el fútbol", "Y está harto de entrenar sin ver que nada cambia."],
+];
+
+const testimonios = [
+  {
+    q: "Llegué al entrenamiento con la sesión ya lista en mi plataforma. Los chicos entendieron todo en minutos. Nunca vi un grupo tan enfocado.",
+    n: "Andrés M.",
+    r: "Formador Sub-12 · Vancouver",
+  },
+  {
+    q: "Los ejercicios de pase y control cambiaron completamente el ritmo del equipo. En 3 semanas ya se notó en los partidos.",
+    n: "Diego R.",
+    r: "Categoría Sub-15 · Madrid",
+  },
+  {
+    q: "Entreno solo en la cancha del barrio con la plataforma en el celular. Mi drible mejoró muchísimo y el DT me puso de titular.",
+    n: "Mateo S.",
+    r: "Jugador Sub-17 · Buenos Aires",
+  },
+  {
+    q: "Ya no gasto horas armando entrenamientos. Abro la plataforma, miro el video y listo. Los padres notaron la diferencia.",
+    n: "Luis F.",
+    r: "Escuela Sub-9 · Bogotá",
+  },
 ];
 
 const incluye = [
-  "Acceso a la Plataforma Web Completa y Organizada",
+  "Acceso a la Plataforma Web Completa y Personalizada",
   "+250 sesiones y +2.000 ejercicios organizados",
   "Módulos por posición: Laterales, Porteros, Defensas, Delanteros",
   "Fútbol 360°: femenino, infantil y acondicionamiento físico",
@@ -267,33 +308,39 @@ const incluye = [
   "Garantía incondicional de 7 días",
 ];
 
-
+const incluyeBasico = [
+  "Plataforma Web: Módulo de Fútbol Femenino",
+  "Plataforma Web: Módulo de Fútbol Infantil",
+  "Plataforma Web: Acondicionamiento Físico",
+  "Diagramas de campo con pasos numerados",
+  "Acceso inmediato y vitalicio",
+  "Garantía incondicional de 7 días",
+];
 
 const bonos = [
   ["BONO 01", "Guía de Entrenamiento", "$47"],
   ["BONO 02", "50 Ejercicios de Técnica Individual", "$39"],
   ["BONO 03", "Pack de Circuitos de Preparación Física", "$49"],
-  ["BONO 04", "Entrenamientos de Dribles, Fuerza y Técnica", "$49,90"],
 ];
 
 
 const faqs = [
   ["¿Cómo y cuándo recibiré mi acceso?", "Una vez confirmado tu pago, recibirás un correo electrónico con tus datos de acceso (usuario y contraseña) para entrar a tu plataforma personal. En la mayoría de los casos, en menos de 2 minutos."],
-  ["¿Para quién está diseñada la Plataforma?", "Fue creada para entrenadores, profesores, academias y cuerpos técnicos de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
-  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: +2.000 ejercicios, +250 sesiones completas en video, organización por posición y categoría y bonos exclusivos. Todo en una sola herramienta."],
-  ["¿Puedo aplicar las sesiones con grupos pequeños?", "Sí. Encontrarás ejercicios para equipos completos, grupos pequeños, espacios reducidos y diferentes cantidades de material."],
+  ["¿Para quién está diseñada la Plataforma?", "Fue creada para jugadores y entrenadores de todos los niveles. Encontrarás más de 250 sesiones organizadas por posición, categoría y objetivo, desde Sub-8 hasta adultos."],
+  ["¿Qué incluye exactamente la oferta?", "Acceso vitalicio a la plataforma web completa: biblioteca organizada por posición y categoría, materiales en video didácticos integrados y bonos exclusivos. Todo en una sola herramienta."],
+  ["¿Puedo entrenar aunque esté solo?", "Sí. Muchos ejercicios pueden realizarse de forma individual, mientras que otros están pensados para entrenar con compañeros o equipos."],
   ["¿El pago es único y completamente seguro?", "Sí. Un único pago, sin mensualidades, procesado en plataformas seguras."],
   ["¿Qué pasa si la Plataforma no cumple mis expectativas?", "Tienes 7 días de garantía. Si no estás conforme, solicitas el reembolso y recibes el 100% de tu dinero."],
   ["¿Necesito experiencia para aprovechar el contenido?", "No. Todos los ejercicios están explicados paso a paso con diagramas y videos, para que cualquier nivel pueda aplicarlos."],
   ["¿Y si tengo poco espacio, poco material o faltan jugadores?", "Hay sesiones pensadas exactamente para eso: espacios reducidos, poco material y grupos pequeños."],
   ["¿Cuánto tiempo necesito para preparar un entrenamiento?", "Menos de 5 minutos. Entras a la plataforma, eliges posición y objetivo, miras el video y ya puedes ir al campo con todo claro."],
-  ["¿Puedo usar el contenido con diferentes categorías?", "Sí. Puedes adaptar los ejercicios y las sesiones por edad, posición, objetivo y nivel de tus jugadores."],
+  ["¿Sirve tanto para jugadores como para entrenadores?", "Sí. El jugador encuentra sesiones individuales para evolucionar por su cuenta y el entrenador encuentra sesiones completas de equipo."],
 ];
 
 /* -------------------------------- helpers -------------------------------- */
 
-export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
-export const BASIC_CHECKOUT_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
+export const CHECKOUT_URL = "https://pay.hotmart.com/P107284207G?checkoutMode=10";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -304,233 +351,76 @@ function trackCheckout() {
   }
 }
 
-function redirectToCheckout(url: string) {
+const CHECKOUT_MODAL_EVENT = "ecm:open-checkout-modal";
+
+function openCheckoutModal(url: string) {
   if (typeof window !== "undefined") {
     trackCheckout();
-
+    
     let finalUrl = url;
     try {
       const searchParams = new URLSearchParams(window.location.search);
       const utms = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
       const urlObj = new URL(url);
-
-      utms.forEach((utm) => {
+      
+      utms.forEach(utm => {
         const value = searchParams.get(utm);
         if (value) {
           urlObj.searchParams.set(utm, value);
         }
       });
-
+      
       finalUrl = urlObj.toString();
-    } catch {
-      // Mantiene el checkout original si no hay parámetros válidos.
+    } catch (e) {
+      // fallback to original url if anything fails
     }
 
     window.open(finalUrl, "_blank", "noopener,noreferrer");
   }
 }
 
-function CheckoutModal({
-  open,
-  onClose,
-  href,
-  plan = "complete",
-  exitOffer = false,
-}: {
-  open: boolean;
-  onClose: () => void;
-  href: string;
-  plan?: "complete" | "basic";
-  exitOffer?: boolean;
-}) {
-  const isBasic = plan === "basic";
-  const price = isBasic ? "$4,50" : "$6,50";
-  const planName = isBasic ? "Paquete Básico" : "Paquete Completo";
-  const kicker = exitOffer ? "⏳ Antes de irte" : isBasic ? "⚽ Opción esencial" : "🔥 Oferta de lanzamiento";
-  const modalTitle = exitOffer
-    ? "Espera: todavía puedes empezar por solo $4,50"
-    : isBasic
-      ? "Empieza con una base clara para dejar de improvisar"
-      : "Estás a un paso de dejar de improvisar";
-  const modalIntro = exitOffer
-    ? "Si la plataforma completa no es el momento adecuado, tienes una alternativa más accesible para comenzar hoy con una biblioteca organizada y avanzar sin seguir buscando ejercicios al azar."
-    : isBasic
-      ? "Una opción directa para comenzar a entrenar con una biblioteca organizada, elegir mejores sesiones y avanzar con más claridad desde el primer día."
-      : "Antes de salir, mira lo que estás asegurando: una plataforma completa para entrenar con método, encontrar tu sesión en minutos y evolucionar con videos y progresión organizada.";
-  const modalItems = isBasic
-    ? [
-        "+2.000 ejercicios de fútbol organizados por posición y categoría",
-        "Acceso vitalicio a la biblioteca básica",
-        "Contenido práctico para planificar mejor cada entrenamiento",
-        "Pago único y acceso inmediato después de la confirmación",
-      ]
-    : [
-        "+2.000 ejercicios organizados por posición y categoría",
-        "+250 sesiones completas con material en video",
-        "4 bonos exclusivos incluidos sin pagar más",
-        "Acceso vitalicio, pago único y garantía de 7 días",
-      ];
-
-  useEffect(() => {
-    if (!open) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-
-  const dialog = (
-    <div
-      className="fixed inset-0 z-[9999] flex items-end justify-center bg-ink/75 p-2 backdrop-blur-sm sm:items-center sm:p-4"
-      role="presentation"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
-    >
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="checkout-modal-title"
-        className="relative max-h-[calc(100dvh-1rem)] w-full max-w-lg overflow-y-auto overscroll-contain rounded-3xl border border-primary/30 bg-card p-5 shadow-2xl sm:max-h-[94vh] sm:p-8"
-      >
-        <button
-          type="button"
-          aria-label="Cerrar"
-          onClick={onClose}
-          className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground"
-        >
-          <X className="h-5 w-5" />
-        </button>
-
-        <div className="pr-9">
-          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">
-            {kicker}
-          </p>
-          <h2 id="checkout-modal-title" className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-            {modalTitle}
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {modalIntro}
-          </p>
-        </div>
-
-        <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4">
-          <p className="text-sm font-extrabold text-foreground">
-            Lo que recibes en {planName}:
-          </p>
-          <ul className="mt-3 space-y-2 text-sm">
-            {modalItems.map((item) => (
-              <li key={item} className="flex gap-2">
-                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-4 rounded-2xl border border-gold/40 bg-gold/10 p-4 text-center">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-gold">
-            {exitOffer ? "Alternativa especial para ti" : "Precio especial por tiempo limitado"}
-          </p>
-          {!isBasic ? (
-            <p className="mt-1 text-sm text-muted-foreground">
-              Valor normal <s>$49,90</s>
-            </p>
-          ) : (
-            <p className="mt-1 text-sm text-muted-foreground">
-              Acceso directo a la biblioteca esencial
-            </p>
-          )}
-          <p className="mt-1 font-display text-4xl text-primary">
-            {price} <span className="text-lg text-foreground">USD</span>
-          </p>
-          <p className="mt-1 text-xs font-bold text-gold">
-            ⚡ {exitOffer ? "Esta condición aparece ahora para que no te vayas sin una opción." : "Asegura tu acceso antes de cerrar esta página."}
-          </p>
-        </div>
-
-        <button
-          type="button"
-          onClick={() => redirectToCheckout(href)}
-          className="ecm-cta mt-5 w-full justify-center text-center"
-        >
-          {isBasic ? "Sí, quiero empezar por $4,50" : "Sí, quiero la plataforma completa — $6,50"}
-          <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </button>
-
-        <div className="mt-4 space-y-1 text-center text-xs font-semibold text-muted-foreground">
-          <p>🔒 Pago seguro procesado por Hotmart</p>
-          <p>✅ Acceso inmediato · {isBasic ? "Acceso vitalicio" : "7 días de garantía · pago único"}</p>
-        </div>
-      </div>
-    </div>
-  );
-
-  return createPortal(dialog, document.body);
+function CheckoutModal() {
+  return null;
 }
 
 function CheckoutButton({
   href,
   children,
   variant = "solid",
-  plan = "complete",
+  direct = false,
 }: {
   href: string;
   children: string;
   variant?: "solid" | "outline";
-  plan?: "complete" | "basic";
+  /** true = va directo al checkout (usado dentro del pop-up de oferta) */
+  direct?: boolean;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isExitOfferOpen, setIsExitOfferOpen] = useState(false);
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
 
-  const handleClose = () => {
-    setIsOpen(false);
-    if (plan === "complete") setIsExitOfferOpen(true);
-  };
-
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() => {
-          setIsExitOfferOpen(false);
-          setIsOpen(true);
-        }}
-        className={className}
-      >
+  if (!direct) {
+    return (
+      <button type="button" onClick={openOfferModal} className={className}>
         {children}
         <ArrowRight className="h-5 w-5 flex-shrink-0" />
       </button>
-      <CheckoutModal
-        open={isOpen}
-        onClose={handleClose}
-        href={href}
-        plan={plan}
-      />
-      {plan === "complete" ? (
-        <CheckoutModal
-          open={isExitOfferOpen}
-          onClose={() => setIsExitOfferOpen(false)}
-          href={BASIC_CHECKOUT_URL}
-          plan="basic"
-          exitOffer
-        />
-      ) : null}
-    </>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        openCheckoutModal(href);
+      }}
+      className={className}
+    >
+      {children}
+      <ArrowRight className="h-5 w-5 flex-shrink-0" />
+    </button>
   );
 }
+
 
 function PaySafety() {
   return (
@@ -553,122 +443,309 @@ function PaySafety() {
 
 
 
-function LazyVideo({
-  src,
-  poster,
-  buttonLabel,
-}: {
-  src: string;
-  poster: string;
-  buttonLabel?: string;
-}) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+function LazyVideo({ src, poster }: { src: string; poster: string }) {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [load, setLoad] = useState(false);
 
-  const openFullscreen = () => {
-    const video = videoRef.current as (HTMLVideoElement & {
-      webkitEnterFullscreen?: () => void;
-    }) | null;
-
-    if (!video) {
-      setLoad(true);
-      window.setTimeout(() => {
-        const loadedVideo = videoRef.current as (HTMLVideoElement & {
-          webkitEnterFullscreen?: () => void;
-        }) | null;
-        if (loadedVideo?.requestFullscreen) {
-          void loadedVideo.requestFullscreen();
-        } else {
-          loadedVideo?.webkitEnterFullscreen?.();
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || load) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setLoad(true);
+          io.disconnect();
         }
-      }, 80);
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [load]);
+
+  return (
+    <div ref={ref} className="aspect-video w-full bg-ink">
+      {load ? (
+        <video
+          src={src}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+          preload="none"
+          className="aspect-video h-full w-full bg-ink object-cover"
+        />
+      ) : (
+        <img
+          src={poster}
+          alt="Vista previa del video de entrenamiento"
+          loading="lazy"
+          decoding="async"
+          className="aspect-video h-full w-full object-cover"
+        />
+      )}
+    </div>
+  );
+}
+
+const OFFER_EVENT = "ecm:open-offer";
+
+
+function openOfferModal() {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event(OFFER_EVENT));
+  }
+}
+
+const OFFER_PAINS = [
+  "Llegar al campo sin saber qué entrenar y improvisar delante del equipo",
+  "Repetir siempre los mismos ejercicios y ver el estancamiento",
+  "Perder horas buscando sesiones sueltas en YouTube que no sirven",
+  "Entrenar sin objetivo claro por posición, edad o nivel",
+];
+
+function OfferModal() {
+  const [step, setStep] = useState<null | "main" | "down">(null);
+  const [downUsed, setDownUsed] = useState(false);
+  const [left, setLeft] = useState(15 * 60);
+
+  useEffect(() => {
+    const onOpen = () => setStep("main");
+    window.addEventListener(OFFER_EVENT, onOpen);
+    return () => window.removeEventListener(OFFER_EVENT, onOpen);
+  }, []);
+
+  const close = () => {
+    if (step === "main" && !downUsed) {
+      setDownUsed(true);
+      setStep("down");
       return;
     }
-
-    if (video.requestFullscreen) {
-      void video.requestFullscreen();
-    } else {
-      video.webkitEnterFullscreen?.();
-    }
+    setStep(null);
   };
 
-  return (
-    <div className="w-full">
-      <div className="flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-xl bg-ink sm:min-h-[320px]">
-        {load ? (
-          <video
-            ref={videoRef}
-            src={src}
-            poster={poster}
-            playsInline
-            controls
-            preload="none"
-            className="block max-h-[78vh] max-w-full object-contain"
-          />
-        ) : (
-          <img
-            src={poster}
-            alt="Vista previa del video de entrenamiento"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="block max-h-[78vh] max-w-full object-contain"
-          />
-        )}
-      </div>
-      {buttonLabel ? (
+  useEffect(() => {
+    if (!step) return;
+    document.body.style.overflow = "hidden";
+    const id = setInterval(() => setLeft((v) => (v > 0 ? v - 1 : 0)), 1000);
+    return () => {
+      document.body.style.overflow = "";
+      clearInterval(id);
+    };
+  }, [step]);
+
+  if (!step) return null;
+
+  const mm = String(Math.floor(left / 60)).padStart(2, "0");
+  const ss = String(left % 60).padStart(2, "0");
+
+  const shell = (label: string, children: ReactNode) => (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={label}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/60 p-6 backdrop-blur-sm sm:p-8"
+      onClick={close}
+    >
+      <div
+        className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-primary/30 bg-card p-5 shadow-2xl sm:p-7 transition-all duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           type="button"
-          onClick={openFullscreen}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-primary-foreground shadow-lg transition hover:brightness-110"
+          onClick={close}
+          aria-label="Cerrar"
+          className="absolute right-3 top-3 rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          <ArrowRight className="h-4 w-4" />
-          {buttonLabel}
+          <X className="h-5 w-5" />
         </button>
-      ) : null}
+        {children}
+      </div>
     </div>
+  );
+
+  if (step === "down") {
+    return shell(
+      "Oferta alternativa",
+      <>
+        <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-foreground">
+          <Gift className="h-3.5 w-3.5 text-primary" /> Espera · última oportunidad
+        </span>
+
+        <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
+          ¿El precio te frenó? Empieza hoy con el{" "}
+          <span className="ecm-highlight">Paquete Básico</span>
+        </h2>
+
+        <p className="mt-3 text-sm text-muted-foreground">
+          No te vayas con las manos vacías: sigue improvisando entrenamientos sin objetivo
+          o empieza hoy mismo con las sesiones esenciales por menos de lo que cuesta un
+          café doble.
+        </p>
+
+        <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
+          <ul className="space-y-2">
+            {[
+              "Sesiones esenciales listas para imprimir",
+              "Ejercicios ilustrados paso a paso",
+              "Acceso inmediato y de por vida",
+              "Garantía de 7 días o te devolvemos el dinero",
+            ].map((b) => (
+              <li
+                key={b}
+                className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
+              >
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-5 text-center">
+          <p className="text-4xl font-black text-foreground">$9,99 USD</p>
+          <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
+          <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
+            <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
+          </p>
+        </div>
+
+        <div className="mt-5 flex flex-col items-center">
+          <button
+            type="button"
+            onClick={() => {
+              trackCheckout();
+              openCheckoutModal(CHECKOUT_BASICO_URL);
+            }}
+            className="ecm-cta ecm-cta-breathe w-full justify-center"
+          >
+            Quiero empezar por $9,99
+            <ArrowRight className="h-5 w-5 flex-shrink-0" />
+          </button>
+          <Badges />
+          <button
+            type="button"
+            onClick={() => setStep("main")}
+            className="mt-4 text-sm font-semibold text-muted-foreground underline"
+          >
+            Prefiero el Paquete Completo ($17,99)
+          </button>
+        </div>
+      </>,
+    );
+  }
+
+  return shell(
+    "Oferta principal",
+    <>
+      <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
+        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss} · solo hoy
+      </span>
+
+      <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
+        Paquete Completo: tu{" "}
+        <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
+      </h2>
+      <p className="mt-2 text-xs font-extrabold uppercase tracking-wider text-destructive">
+        ⚠️ Si cierras esta ventana pierdes el precio especial de lanzamiento
+      </p>
+
+      <p className="mt-3 text-sm font-semibold text-muted-foreground">
+        Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
+      </p>
+      <ul className="mt-3 space-y-2">
+        {OFFER_PAINS.map((p) => (
+          <li key={p} className="flex items-start gap-2 text-sm text-foreground">
+            <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+            <span>{p}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
+        <ul className="space-y-2">
+          {[
+            "+250 sesiones y +2.000 ejercicios en tu plataforma personal",
+            "Materiales en video integrados en cada ejercicio",
+            "Todo organizado por posición, categoría, edad y objetivo",
+            "Acceso inmediato y de por vida, un solo pago",
+          ].map((b) => (
+            <li
+              key={b}
+              className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
+            >
+              <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-5 text-center">
+        <p className="text-sm font-semibold text-muted-foreground line-through">
+          Valor real $97 USD
+        </p>
+        <p className="mt-1 text-4xl font-black text-foreground">$17,99 USD</p>
+        <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
+        <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
+          <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
+        </p>
+      </div>
+
+      <div className="mt-5 flex flex-col items-center">
+        <button
+          type="button"
+          onClick={() => {
+            trackCheckout();
+            openCheckoutModal(CHECKOUT_URL);
+          }}
+          className="ecm-cta ecm-cta-breathe w-full justify-center"
+        >
+          Sí, quiero el Paquete Completo
+          <ArrowRight className="h-5 w-5 flex-shrink-0" />
+        </button>
+        <Badges />
+        <PaySafety />
+      </div>
+    </>,
   );
 }
 
-function Cta({ children }: { children: string }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isExitOfferOpen, setIsExitOfferOpen] = useState(false);
-
-  const handleClose = () => {
-    setIsOpen(false);
-    setIsExitOfferOpen(true);
-  };
-
+function Cta({
+  children,
+  checkout = false,
+}: {
+  children: string;
+  checkout?: boolean;
+}) {
   return (
     <div className="flex flex-col items-center">
-      <button
-        type="button"
-        onClick={() => {
-          setIsExitOfferOpen(false);
-          setIsOpen(true);
-        }}
-        className="ecm-cta"
-      >
-        {children}
-        <ArrowRight className="h-5 w-5 flex-shrink-0" />
-      </button>
+      {checkout ? (
+        <button
+          type="button"
+          onClick={() => {
+            trackCheckout();
+            openCheckoutModal(CHECKOUT_URL);
+          }}
+          className="ecm-cta"
+        >
+          {children}
+          <ArrowRight className="h-5 w-5 flex-shrink-0" />
+        </button>
+      ) : (
+        <button type="button" onClick={openOfferModal} className="ecm-cta">
+          {children}
+          <ArrowRight className="h-5 w-5 flex-shrink-0" />
+        </button>
+      )}
       <Badges />
-      <CheckoutModal
-        open={isOpen}
-        onClose={handleClose}
-        href={CHECKOUT_URL}
-        plan="complete"
-      />
-      <CheckoutModal
-        open={isExitOfferOpen}
-        onClose={() => setIsExitOfferOpen(false)}
-        href={BASIC_CHECKOUT_URL}
-        plan="basic"
-        exitOffer
-      />
     </div>
   );
 }
+
+
 
 function Badges() {
   return (
@@ -769,13 +846,13 @@ function TestimonialCard({
 
 const compras = [
   { nombre: "Lucas M.", ciudad: "Buenos Aires", plan: "Paquete Completo" },
-  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Completo" },
+  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Básico" },
   { nombre: "Diego R.", ciudad: "Ciudad de México", plan: "Paquete Completo" },
   { nombre: "Javier S.", ciudad: "Madrid", plan: "Paquete Completo" },
-  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Completo" },
+  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Básico" },
   { nombre: "Bruno F.", ciudad: "Lima", plan: "Paquete Completo" },
   { nombre: "Carlos V.", ciudad: "Montevideo", plan: "Paquete Completo" },
-  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Completo" },
+  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Básico" },
 ];
 
 function ComprasRecientes() {
@@ -850,79 +927,69 @@ function LandingPage() {
 
     <div className="bg-background">
       <ComprasRecientes />
+      <OfferModal />
+      <CheckoutModal />
+
+
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 ENTRENADOR: DEJA DE IMPROVISAR HOY · LLEGA AL CAMPO CON LA SESIÓN LISTA
+        🔥 Promoción solo hoy · Si cierras esta página pierdes el precio especial · Cierra pronto
       </div>
 
       {/* HERO */}
-      <section data-reveal className="px-4 pb-8 pt-7 sm:px-6 sm:pt-10">
+      <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
-            PLATAFORMA CREADA PARA ENTRENADORES
+            +2146 jugadores y entrenadores ya evolucionando
           </span>
 
-          <h1 className="ecm-hero-title mt-4 font-sans text-[1.5rem] font-black leading-[1.08] tracking-tight sm:text-[3rem]">
-            <span className="ecm-highlight">DEJA DE PERDER HORAS PLANIFICANDO:</span>{" "}
-            ten +2.000 ejercicios y +250 sesiones listas para dirigir entrenamientos más profesionales.{" "}
-            <span className="ecm-highlight">Abre. Elige. Aplica.</span>
+          <h1 className="mt-6 text-[2.1rem] leading-[1.18] sm:text-[3.4rem]">
+            Descubre el <span className="ecm-highlight">Método Profesional</span>{" "}
+            para Dejar de Improvisar Tus Entrenamientos y Evolucionar Más Rápido
           </h1>
 
-          <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
-            <div className="text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
-                🎬 Mira lo que vas a recibir por dentro
-              </span>
-              <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
-                Mira la plataforma que vas a recibir por dentro
-              </h2>
-              <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Mira cómo un entrenador puede encontrar una sesión, organizar el trabajo y aplicarlo en el campo sin perder horas buscando ejercicios.
-              </p>
-            </div>
-
-            <div className="mt-4">
-              <div className="overflow-hidden rounded-2xl border border-primary/30 bg-background p-2 shadow-lg sm:p-3">
-                <div className="p-3 text-center sm:p-4">
-                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Demostración real de la plataforma</p>
-                  <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usarla</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    Entra, elige la posición o el objetivo y sal con una sesión lista para aplicar.
-                  </p>
-                </div>
-                <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
-              </div>
-            </div>
-
-
-
-          </div>
-
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            No compres otro PDF que terminará olvidado. Esta es una plataforma creada para entrenadores, con sesiones, videos y ejercicios organizados por posición, categoría y objetivo para que prepares tu entrenamiento en menos de 5 minutos.
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            Accede a una <strong className="text-foreground">Plataforma Completa</strong>{" "}
+            de entrenamiento profesional: biblioteca organizada con{" "}
+            <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
+            más <strong className="text-foreground">materiales en video</strong> integrados
+            que te muestran exactamente cómo ejecutar cada ejercicio. Todo por{" "}
+            <strong className="text-foreground">posición, categoría y objetivo</strong>: en
+            menos de 5 minutos tienes la sesión de hoy lista para aplicar en el campo.{" "}
+            <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
           </p>
+
+          <img
+            src={heroImg}
+            fetchPriority="high"
+            decoding="async"
+            alt="Biblioteca de entrenamientos por posición: Laterales, Porteros, Defensas y Delanteros"
+            width={1200}
+            height={1200}
+            className="mx-auto mt-8 w-full max-w-xl rounded-2xl"
+          />
+
+          <div className="mt-8">
+            {/* Botón eliminado según instrucción */}
+          </div>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
             <span className="text-gold">★★★★★</span>
             <span className="text-muted-foreground">4.9/5 · +2146 evaluaciones</span>
           </div>
 
-          <div className="mt-5 grid gap-2 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {[
               ["+250", "sesiones listas"],
               ["+2.000", "ejercicios ilustrados"],
               ["5 min", "para armar tu sesión"],
             ].map(([n, d]) => (
-              <div key={d} className="ecm-card px-3 py-3 text-center">
+              <div key={d} className="ecm-card px-4 py-4 text-center">
                 <p className="font-display text-2xl text-primary sm:text-3xl">{n}</p>
                 <p className="mt-1 text-sm font-semibold text-muted-foreground">{d}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-5">
-            <Cta>Quiero Dejar de Improvisar Ahora</Cta>
           </div>
         </div>
       </section>
@@ -938,9 +1005,10 @@ function LandingPage() {
           <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
             <div>
               <p className="text-lg font-semibold leading-relaxed">
-                Deja de perder tiempo con archivos sueltos. Al unirte, recibes acceso a una
+                Olvídate de buscar archivos sueltos. Al unirte, recibes acceso a una
                 <strong className="text-foreground"> plataforma web completa</strong> diseñada
-                para elevar tu planificación y tu autoridad como entrenador: +2.000 ejercicios, +250 sesiones completas en video y herramientas de planificación dentro de una sola plataforma.
+                para organizar, acelerar y potenciar tu evolución: biblioteca + videos didácticos
+                + herramientas de planificación, todo en un solo lugar.
               </p>
               <ul className="mt-6 space-y-4">
                 {[
@@ -961,15 +1029,13 @@ function LandingPage() {
               </ul>
             </div>
             <div className="ecm-card overflow-hidden shadow-2xl ring-1 ring-primary/10">
-              <img
-                src={heroImg}
-                alt="Vista previa de la plataforma"
-                loading="lazy"
-                decoding="async" 
+              <img 
+                src={heroImg} 
+                alt="Vista previa de la plataforma" 
                 className="w-full h-auto object-cover"
               />
               <div className="bg-primary/5 p-4 text-center border-t border-border">
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">+2.000 ejercicios, +250 sesiones completas en video y 4 bonos dentro de tu plataforma</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">Más de 2.000 contenidos listos para ti</p>
               </div>
             </div>
           </div>
@@ -979,7 +1045,7 @@ function LandingPage() {
       {/* VIDEOS EXPLICATIVOS */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
-          <Kicker>Antes de llegar al campo, mira cómo funciona</Kicker>
+          <Kicker>Mira esto antes de seguir</Kicker>
           <H2>
             Todo con <span className="ecm-highlight">video streaming</span> integrado
           </H2>
@@ -990,10 +1056,16 @@ function LandingPage() {
             seguridad desde el primer minuto.
           </p>
 
-          <div className="mx-auto mt-8 max-w-2xl rounded-xl border border-border bg-secondary/50 p-5 text-center">
-            <p className="text-sm font-bold text-foreground">
-              Cada sesión cuenta con videos y explicaciones claras para que entiendas la técnica y la apliques correctamente.
-            </p>
+          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
+            <LazyVideo src={demoVideo.url} poster={video1} />
+            <div className="p-5 text-center">
+              <p className="text-base font-bold text-foreground">
+                Experiencia fluida en cualquier dispositivo
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ejemplo del reproductor integrado que encontrarás en cada sesión.
+              </p>
+            </div>
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -1025,67 +1097,93 @@ function LandingPage() {
           </div>
 
           <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
-            ✅ Todo el contenido está dentro de tu plataforma con un solo pago
+            ✅ Acceso a todos los videos incluido en el mismo pago único
           </p>
         </div>
       </section>
 
 
-      {/* QUIÉN SOY */}
+      {/* DOLOR */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
-          <img
-            src={coachImg}
-            alt="Coach Martínez, Entrenador Profesional"
-            loading="lazy"
-            decoding="async"
-            width={912}
-            height={1104}
-            className="w-full rounded-2xl object-cover"
-          />
-          <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
-              Quién soy · +15 años en el campo
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">
-              Coach Martínez: Metodología que Forma Jugadores de Verdad
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Llevo más de <strong className="text-foreground">15 años</strong> como
-              entrenador profesional trabajando con academias, canteras y jugadores
-              amateur en toda Latinoamérica y España. He formado a más de{" "}
-              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
-              de 6 años hasta adultos en clubes semiprofesionales.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Esta plataforma reúne{" "}
-              <strong className="text-foreground">toda mi metodología</strong> en un solo
-              lugar: los mismos ejercicios, la misma progresión y las mismas guías
-              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
-              Solo lo que funciona.
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">+2.000</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Jugadores formados
-                </p>
-              </div>
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">15</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Años en el campo
-                </p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <Cta>Quiero Entrenar con el Método del Coach</Cta>
-            </div>
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Seamos honestos</Kicker>
+          <H2>¿Te Identificas con Alguna de Estas Situaciones?</H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Si respondes "sí" a dos o más de estas situaciones, probablemente el problema
+            no sea tu esfuerzo... sino la falta de un método claro para entrenar.
+          </p>
 
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {dolores.map((d) => (
+              <div key={d} className="ecm-card flex gap-3 p-5">
+                <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-destructive" />
+                <p className="text-sm font-semibold leading-relaxed">{d}</p>
+              </div>
+            ))}
           </div>
+
+          <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-secondary p-6 text-center text-sm leading-relaxed text-muted-foreground">
+            El talento sin dirección se pierde. Cada semana entrenando a ciegas es una
+            semana que no vuelve, para ti o para los chicos que dependen de ti. Y nadie
+            se estanca por falta de ganas: se estanca por no saber qué entrenar hoy. Eso
+            se resuelve en 5 minutos, a partir de hoy.
+          </p>
+
+          <div className="mt-8">
+            <Cta>Quiero Salir de Esto Hoy Mismo</Cta>
+          </div>
+
         </div>
       </section>
 
+      {/* CÓMO FUNCIONA */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Mira la biblioteca por dentro</Kicker>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+              Accede a tu <strong>Área de Miembros</strong> profesional. Navega por categorías,
+              mira los videos y ten todo tu arsenal de entrenamiento organizado en un solo
+              lugar. Sin PDFs sueltos, todo en tu plataforma personal.
+            </p>
+
+
+          <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
+            {[
+              { src: paginasImg, alt: "Páginas reales de la biblioteca con diagramas de campo" },
+              { src: heroImg, alt: "Módulos de la biblioteca organizados por posición" },
+              { src: paginasImg, alt: "Ejercicios con pasos numerados y flechas de movimiento" },
+            ].map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="w-[85%] flex-shrink-0 snap-center rounded-2xl border border-border object-cover sm:w-[48%]"
+              />
+            ))}
+          </div>
+
+          <h3 className="mt-10 text-center text-2xl sm:text-3xl">
+            De la duda al campo en 3 pasos
+          </h3>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {pasos.map((p) => (
+              <div key={p.n} className="ecm-card p-6 text-center">
+                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary font-display text-xl text-primary-foreground">
+                  {p.n}
+                </div>
+                <h4 className="mt-4 font-extrabold">{p.t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Cta>Quiero Acceso Inmediato</Cta>
+          </div>
+        </div>
+      </section>
 
       {/* GALERÍA CONTENIDO */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
@@ -1093,7 +1191,7 @@ function LandingPage() {
           <Kicker>Esto es lo que vas a tener</Kicker>
           <H2>Nunca más vuelvas a preguntarte "¿qué entreno hoy?"</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Dentro de la plataforma encuentras todo esto organizado por posición, edad
+            Dentro de la biblioteca encuentras todo esto organizado por posición, edad
             y objetivo. Eliges el área que quieres trabajar hoy, abres la sesión y
             aplicas. Así de simple.
           </p>
@@ -1109,7 +1207,7 @@ function LandingPage() {
                   <div className="relative h-40 overflow-hidden">
                     <img
                       src={m.img}
-                      alt={`Entrenamiento de ${m.t} en la plataforma`}
+                      alt={`Entrenamiento de ${m.t} en la biblioteca`}
                       loading="lazy"
                       width={640}
                       height={640}
@@ -1125,7 +1223,7 @@ function LandingPage() {
                   </div>
                   <div className="p-4">
                     <p className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Incluido en la plataforma
+                      Incluido en la biblioteca
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">{m.d}</p>
                   </div>
@@ -1135,7 +1233,7 @@ function LandingPage() {
           </div>
 
           <p className="mt-6 text-center text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Y muchas áreas más dentro de la plataforma
+            Y muchas áreas más dentro de la biblioteca
           </p>
 
 
@@ -1149,7 +1247,7 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <Kicker>Todo en una sola herramienta</Kicker>
           <H2>
-            No son materiales sueltos: es tu{" "}
+            No es solo una biblioteca: es tu{" "}
             <span className="ecm-highlight">Plataforma Completa</span> de Entrenamiento
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -1175,19 +1273,172 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* PERFILES */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Antes y después de la biblioteca</Kicker>
+          <H2>Elige tu Perfil y Mira lo que Cambia en Ti</H2>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-semibold text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-4 w-4 text-primary" /> Sesión lista en 5 minutos
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Smartphone className="h-4 w-4 text-primary" /> Todo desde el móvil, en el campo
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Target className="h-4 w-4 text-primary" /> Progresión clara, semana a semana
+            </span>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              { emoji: "⚽", tag: "Si eres jugador", title: "Dejas de Entrenar Sin Rumbo", items: jugador },
+              { emoji: "👨‍🏫", tag: "Si eres entrenador", title: "Recuperas tu Tiempo y tu Autoridad", items: entrenador },
+            ].map((col) => (
+              <div key={col.tag} className="ecm-card p-6">
+                <p className="text-sm font-bold text-primary">
+                  {col.emoji} {col.tag}
+                </p>
+                <h3 className="mt-2 text-2xl">{col.title}</h3>
+                <ul className="mt-5 space-y-4">
+                  {col.items.map(([t, d]) => (
+                    <li key={t} className="flex gap-3">
+                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                      <div>
+                        <p className="text-sm font-bold">{t}</p>
+                        <p className="mt-0.5 text-sm text-muted-foreground">{d}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+          </div>
+        </div>
+      </section>
+
+      {/* ANTES VS DESPUÉS */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Antes vs Después</Kicker>
+          <H2>Dentro de 30 Días Vas a Estar en Uno de los Dos</H2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            El tiempo va a pasar igual. Lo único que cambia es si lo aprovechas con
+            método o lo sigues perdiendo.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-destructive/25 bg-destructive/5 p-6">
+              <h3 className="text-xl text-destructive">Si Sigues Como Hasta Hoy</h3>
+              <ul className="mt-4 space-y-3">
+                {antes.map((a) => (
+                  <li key={a} className="flex gap-3 text-sm">
+                    <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+                    <span>{a}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-primary/30 bg-accent p-6">
+              <h3 className="text-xl text-primary">Si Empiezas Hoy con la Biblioteca</h3>
+              <ul className="mt-4 space-y-3">
+                {despues.map((a) => (
+                  <li key={a} className="flex gap-3 text-sm">
+                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>{a}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10">
+          </div>
+        </div>
+      </section>
+
+      {/* PARA QUIÉN */}
+      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <Kicker>Para quién es</Kicker>
+          <H2>Hecho para Alguien Como Tú</H2>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {perfiles.map(([t, d]) => (
+              <div key={t} className="ecm-card p-5">
+                <div className="flex items-center gap-2">
+                  <BadgeCheck className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <p className="text-sm font-extrabold">{t}</p>
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Cta>Sí, Ese Soy Yo, Quiero Mi Acceso</Cta>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <Kicker>Resultados reales</Kicker>
+          <H2>Lo que Pasa Cuando Dejas de Improvisar</H2>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {testimonios.map((t) => (
+              <figure key={t.n} className="ecm-card p-6">
+                <div className="flex gap-0.5 text-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-3 text-sm leading-relaxed">"{t.q}"</blockquote>
+                <figcaption className="mt-4 flex items-center gap-3 border-t border-border pt-4">
+                  {(() => {
+                    const initials = t.n.split(" ").map(n => n[0]).join("").slice(0, 2);
+                    const colors = ["bg-primary/20 text-primary", "bg-gold/20 text-gold", "bg-blue-500/20 text-blue-500"];
+                    const colorIndex = t.n.charCodeAt(0) % colors.length;
+                    return (
+                      <div className={`grid h-10 w-10 place-items-center rounded-full text-xs font-bold ${colors[colorIndex]}`}>
+                        {initials}
+                      </div>
+                    );
+                  })()}
+                  <div>
+                    <p className="text-sm font-bold">{t.n}</p>
+                    <p className="text-sm text-muted-foreground">{t.r}</p>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-10">
+          </div>
+        </div>
+      </section>
+
       {/* FEEDBACKS DINÁMICOS */}
       <section
         data-reveal
         className="overflow-hidden border-t border-border bg-card px-0 py-16"
       >
         <div className="px-4 sm:px-6">
-          <Kicker>⚡ Lo que dicen entrenadores que ya aplican el método</Kicker>
+          <Kicker>⚡ Lo que dicen quienes ya entrenan con método</Kicker>
           <H2>
             Ellos Dejaron de Improvisar.{" "}
-            <span className="ecm-highlight">Ahora Llegan al Campo Preparados.</span>
+            <span className="ecm-highlight">Ahora Entrenan con un Plan.</span>
           </H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-muted-foreground">
-            Entrenadores ya usan la plataforma para organizar sus sesiones, ganar tiempo y dirigir con más seguridad. Mira lo que cuentan quienes empezaron a aplicar el método.
+            Más de <strong className="text-foreground">2.146 jugadores y entrenadores</strong>{" "}
+            ya usan la biblioteca cada semana. Estos son algunos de sus mensajes.
           </p>
         </div>
 
@@ -1219,118 +1470,15 @@ function LandingPage() {
 
 
 
-
-      {/* DESEO ANTES DE LA OFERTA */}
-      <section data-reveal className="border-t border-border bg-background px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>La diferencia entre improvisar y dirigir con método</Kicker>
-          <H2>
-            Tus jugadores no necesitan otra sesión improvisada. Necesitan un entrenador que sepa exactamente{" "}
-            <span className="ecm-highlight">qué hacer, cómo hacerlo y por qué.</span>
-          </H2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">
-            Imagínate llegar al campo sin perder tiempo buscando ejercicios, sin repetir
-            siempre lo mismo y sin improvisar la sesión sobre la marcha. Abres tu
-            plataforma, eliges el objetivo y empiezas con una guía clara delante de ti.
-          </p>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              [
-                "Dejas de dirigir a ciegas",
-                "Cada ejercicio tiene un propósito. Sabes qué trabajar, en qué orden y cómo conducir la sesión.",
-              ],
-              [
-                "Aprovechas cada minuto",
-                "En menos de 5 minutos encuentras una sesión lista para llevar al campo, con videos y diagramas claros.",
-              ],
-              [
-                "Tu trabajo gana autoridad",
-                "Cuando cada sesión tiene estructura, tus jugadores y los padres perciben que existe un método detrás de tu trabajo.",
-              ],
-            ].map(([title, description], index) => (
-              <div
-                key={title}
-                className="ecm-card relative overflow-hidden border-primary/20 bg-card p-6"
-              >
-                <span className="font-display text-4xl text-primary/30">
-                  0{index + 1}
-                </span>
-                <h3 className="mt-3 text-lg font-black">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-primary/25 bg-primary/5 p-6 text-center shadow-lg">
-            <p className="text-lg font-black leading-tight sm:text-2xl">
-              Tu próximo entrenamiento puede ser otra sesión improvisada...
-            </p>
-            <p className="mt-2 text-lg font-black leading-tight text-primary sm:text-2xl">
-              o puede ser el día en que empiezas a dirigir con método y autoridad.
-            </p>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              La plataforma ya está preparada. Todo lo que necesitas está organizado:
-              ejercicios, sesiones, videos y categorías para que dejes de buscar y
-              empieces a aplicar.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* BONOS DESTACADOS */}
-      <section id="bonos" data-reveal className="border-t border-border bg-accent px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>🎁 Valor extra incluido</Kicker>
-          <H2>
-            Recibe estos <span className="ecm-highlight">4 bonos exclusivos</span> sin pagar más
-          </H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            No son archivos sueltos. Son materiales adicionales incluidos dentro de tu
-            Plataforma Completa para acelerar tu planificación y ayudarte a dirigir con más
-            seguridad desde el primer día.
-          </p>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {bonos.map(([n, t, p]) => (
-              <div key={n} className="ecm-card flex items-center gap-4 p-5">
-                <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg">
-                  <Gift className="h-6 w-6" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-primary">{n}</p>
-                  <h3 className="mt-1 text-base font-extrabold leading-tight">{t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Valor: <s>{p}</s> · <strong className="text-primary">GRATIS</strong>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-8 max-w-xl rounded-2xl border-2 border-primary bg-card p-6 text-center shadow-xl">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-primary">Valor total de los 4 bonos</p>
-            <p className="mt-2 font-display text-4xl text-foreground">US$ 184,90</p>
-            <p className="mt-2 text-sm font-bold text-primary">Incluidos GRATIS en la Plataforma Completa</p>
-            <p className="mt-1 text-xs text-muted-foreground">Accede a todo por solo US$ 6,50 · pago único · acceso vitalicio</p>
-          </div>
-
-          <div className="mt-8">
-            <Cta>Quiero recibir los 4 bonos gratis</Cta>
-          </div>
-        </div>
-      </section>
-
       {/* OFERTA / DOS PLANES */}
       <section id="oferta" data-reveal className="scroll-mt-16 border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>🔥 OFERTA PARA ENTRENADORES · ACCESO COMPLETO</Kicker>
-          <H2>Por menos de lo que cuesta una comida, elimina horas de búsqueda y ten sesiones listas de por vida.</H2>
+        <div className="mx-auto max-w-6xl">
+          <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
+          <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Acceso completo por solo $6,50 USD</strong> para dejar de improvisar desde hoy:
-            +2.000 ejercicios, +250 sesiones completas en video y todos los bonos.
+            <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
+            plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1339,14 +1487,14 @@ function LandingPage() {
           <div className="mx-auto mt-6 flex max-w-xl items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <AlertTriangle className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
             <div className="text-sm font-semibold">
-              <p>⚡ Oferta de lanzamiento para entrenadores. Si cierras esta página, puedes perder esta condición especial.</p>
+              <p>⚡ Promoción exclusiva solo hoy. Si cierras esta página pierdes el precio especial.</p>
               <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold">
-                Acceso promocional limitado · Pago único · Sin mensualidades
+                Mañana vuelve al valor normal · Stock limitado de lanzamiento
               </p>
             </div>
           </div>
 
-          <div className="mt-10 grid items-start gap-6 lg:grid-cols-[1.18fr_0.82fr]">
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
             {/* PLAN COMPLETO */}
             <div className="ecm-card relative overflow-hidden border-primary/40">
               <div className="bg-primary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-primary-foreground">
@@ -1356,27 +1504,28 @@ function LandingPage() {
                 <h3 className="text-center text-2xl">Paquete Completo</h3>
                 <img
                   src={heroImg}
-                  decoding="async"
-                  alt="Plataforma completa de entrenamientos"
+            fetchPriority="high"
+            decoding="async"
+                  alt="Biblioteca completa de entrenamientos"
                   loading="lazy"
                   className="mx-auto mt-5 w-full max-w-xs rounded-xl"
                 />
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
-                    De <s>$49,90</s> · precio promocional por tiempo limitado
+                    De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $6,50 <span className="text-2xl text-foreground">USD</span>
+                    $17,99 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    90% DESCUENTO · Ahorras $43,40
+                    64% DESCUENTO · Ahorras $31,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
                   </p>
                   <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
-                    <Clock className="h-3 w-3" /> Precio promocional · tiempo limitado
+                    <Clock className="h-3 w-3" /> Precio de lanzamiento · últimas horas
                   </p>
                 </div>
 
@@ -1392,7 +1541,7 @@ function LandingPage() {
 
                 <div className="mt-6 rounded-xl bg-secondary p-5">
                   <p className="flex items-center gap-2 text-sm font-extrabold">
-                    <Gift className="h-4 w-4 text-primary" /> 4 bonos exclusivos incluidos
+                    <Gift className="h-4 w-4 text-primary" /> Bonos exclusivos incluidos
                   </p>
                   <ul className="mt-3 space-y-2">
                     {bonos.map(([n, t, p]) => (
@@ -1408,15 +1557,11 @@ function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-4 rounded-lg border border-primary/20 bg-primary/5 px-3 py-3 text-center">
-                    <p className="text-xs font-extrabold uppercase tracking-wider text-primary">Valor total de los 4 bonos: US$ 184,90</p>
-                    <p className="mt-1 text-xs text-muted-foreground">Incluidos GRATIS dentro de la Plataforma Completa.</p>
-                  </div>
                 </div>
 
                 <div className="mt-8 flex flex-col items-center">
                   <CheckoutButton href={CHECKOUT_URL}>
-                    Quiero Acceder a la Plataforma — $6,50
+                    Quiero el Paquete Completo
                   </CheckoutButton>
                   <PaySafety />
                 </div>
@@ -1424,53 +1569,44 @@ function LandingPage() {
             </div>
 
             {/* PLAN BÁSICO */}
-            <div className="ecm-card relative overflow-hidden border-border/80 bg-card/80 lg:sticky lg:top-6">
+            <div className="ecm-card overflow-hidden">
               <div className="bg-secondary py-2 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-muted-foreground">
-                Opción esencial
+                Para empezar hoy
               </div>
-              <div className="p-6 sm:p-7">
+              <div className="p-6 sm:p-8">
                 <h3 className="text-center text-2xl">Paquete Básico</h3>
-                <p className="mx-auto mt-3 max-w-sm text-center text-sm text-muted-foreground">
-                  Para comenzar con una biblioteca organizada y dejar de perder tiempo buscando qué entrenar.
-                </p>
 
                 <div className="mt-6 text-center">
-                  <p className="text-xs font-extrabold uppercase tracking-widest text-primary">
-                    Acceso vitalicio
+                  <p className="text-sm text-muted-foreground">
+                    De <s>$37,50</s> sólo por hoy
                   </p>
-                  <p className="mt-1 font-display text-5xl text-primary">
-                    $4,50 <span className="text-xl text-foreground">USD</span>
+                  <p className="mt-1 font-display text-6xl text-foreground">
+                    $9,99 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
-                  <p className="mt-2 text-xs font-bold text-muted-foreground">
-                    Pago único · sin mensualidades
+                  <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
+                    73% DESCUENTO · Ahorras $27,51
+                  </p>
+                  <p className="mt-3 text-sm font-bold text-primary">
+                    ✅ Pago único · Acceso vitalicio
+                  </p>
+                  <p className="mt-2 inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-destructive">
+                    <Clock className="h-3 w-3" /> Solo hoy a este precio
                   </p>
                 </div>
 
+
                 <ul className="mt-6 space-y-3 border-t border-border pt-6">
-                  {[
-                    "+2.000 ejercicios de fútbol",
-                    "Organizados por posición y categoría",
-                    "Acceso vitalicio a la biblioteca básica",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3 text-sm">
+                  {incluyeBasico.map((i) => (
+                    <li key={i} className="flex gap-3 text-sm">
                       <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                      <span>{item}</span>
+                      <span>{i}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-6 rounded-xl border border-border bg-secondary/60 p-4 text-center">
-                  <p className="text-sm font-bold text-foreground">
-                    Ideal para empezar con lo esencial
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Si quieres la experiencia completa con videos, sesiones y bonos, el plan recomendado es el Paquete Completo.
-                  </p>
-                </div>
-
                 <div className="mt-8 flex flex-col items-center">
-                  <CheckoutButton href={BASIC_CHECKOUT_URL} plan="basic">
-                    Quiero el Paquete Básico — $4,50
+                  <CheckoutButton href={CHECKOUT_BASICO_URL} variant="outline">
+                    Elegir Paquete Básico
                   </CheckoutButton>
                   <PaySafety />
                 </div>
@@ -1481,6 +1617,60 @@ function LandingPage() {
       </section>
 
 
+      {/* QUIÉN SOY */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
+          <img
+            src={coachImg}
+            alt="Coach Martínez, Entrenador Profesional"
+            loading="lazy"
+            width={912}
+            height={1104}
+            className="w-full rounded-2xl object-cover"
+          />
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
+              Quién soy · +15 años en el campo
+            </p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Coach Martínez: Metodología que Forma Jugadores de Verdad
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Llevo más de <strong className="text-foreground">15 años</strong> como
+              entrenador profesional trabajando con academias, canteras y jugadores
+              amateur en toda Latinoamérica y España. He formado a más de{" "}
+              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
+              de 6 años hasta adultos en clubes semiprofesionales.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Esta biblioteca reúne{" "}
+              <strong className="text-foreground">toda mi metodología</strong> en un solo
+              lugar: los mismos ejercicios, la misma progresión y las mismas guías
+              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
+              Solo lo que funciona.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">+2.000</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Jugadores formados
+                </p>
+              </div>
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">15</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Años en el campo
+                </p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Cta>Quiero Entrenar con el Método del Coach</Cta>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* GARANTÍA */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
@@ -1488,13 +1678,14 @@ function LandingPage() {
             <Shield className="h-11 w-11 text-primary" />
           </div>
           <Kicker>Compra Protegida</Kicker>
-          <H2>Pruébala Durante 7 Días. El Riesgo Es Todo Mío.</H2>
+          <H2>El Riesgo Es Todo Mío, No Tuyo</H2>
           <p className="mt-4 text-muted-foreground">
-            Accede hoy a toda la plataforma y aplica las sesiones durante{" "}
-            <strong className="text-foreground">7 días completos</strong> para comprobar si realmente te ayuda a planificar mejor. Si sientes que no es para ti, por cualquier motivo y
+            Accede hoy a toda la plataforma, aplica los entrenamientos durante{" "}
+            <strong className="text-foreground">7 días completos</strong> y mira el cambio
+            con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $6,50 es seguir perdiendo horas, repitiendo ejercicios e improvisando mientras otros entrenadores avanzan con método.
+            invertir $9,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
@@ -1527,11 +1718,12 @@ function LandingPage() {
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <Kicker>Última palabra</Kicker>
-          <H2>El Próximo Entrenamiento Va a Llegar. ¿Vas a Improvisar Otra Vez?</H2>
+          <H2>Solo Queda Una Pregunta: ¿Sigues Improvisando o Empiezas Hoy?</H2>
           <p className="mt-4 text-muted-foreground">
-            Eres <strong className="text-foreground">entrenador</strong>. El próximo
-            entrenamiento va a llegar igual. La diferencia es si llegas al campo con un
-            plan profesional en el bolsillo o improvisando otra vez.
+            Seas <strong className="text-foreground">jugador</strong> o{" "}
+            <strong className="text-foreground">entrenador</strong>, el próximo
+            entrenamiento va a llegar igual. La única diferencia es si llegas a él con un
+            plan profesional en el bolsillo, o improvisando otra vez.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">

@@ -92,7 +92,7 @@
 
   /* Amarillo destacado (highlight de titulares) */
   --highlight: #facc15;
-  --highlight-foreground: #ffffff;
+  --highlight-foreground: #0f172a;
 
   --gold: #f59e0b;
   --gold-foreground: #0f172a;
@@ -159,19 +159,13 @@
 
 /* Utilities */
 @utility ecm-highlight {
-  /* Marca-texto fino: amarillo acompaña las palabras sem alterar o tamanho da fonte. */
-  background: linear-gradient(
-    to bottom,
-    transparent 62%,
-    color-mix(in srgb, var(--highlight) 55%, transparent) 62%,
-    color-mix(in srgb, var(--highlight) 55%, transparent) 88%,
-    transparent 88%
-  );
-  color: #0f172a;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  /* Resaltado sin padding vertical: usa box-shadow para no solaparse
+     con la línea de arriba/abajo en títulos multilínea. */
+  background-color: var(--highlight);
+  color: var(--highlight-foreground);
+  border-radius: 0.2rem;
+  padding: 0 0.22em;
+  box-shadow: 0 0 0 0.06em var(--highlight);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -358,25 +352,4 @@ div[style*="Edit with Lovable"],
 @keyframes ecm-float-y {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
-}
-
-
-/* Mobile-first conversion safeguards */
-@media (max-width: 640px) {
-  .ecm-hero-title {
-    font-size: clamp(1.35rem, 7.2vw, 1.85rem);
-    line-height: 1.08;
-    overflow-wrap: anywhere;
-  }
-
-  .ecm-hero-title .ecm-highlight {
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-  }
-
-  .ecm-cta {
-    min-height: 3.35rem;
-    padding-inline: 1rem;
-    font-size: 0.95rem;
-  }
 }
