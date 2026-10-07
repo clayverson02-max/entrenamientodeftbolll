@@ -42,7 +42,7 @@ import modTecnica from "@/assets/mod-tecnica.webp";
 import video1 from "@/assets/video-entrenamiento-1.webp";
 import video2 from "@/assets/video-entrenamiento-2.webp";
 import video3 from "@/assets/video-entrenamiento-3.webp";
-import demoVideo from "@/assets/hero-entrenamiento.mp4.asset.json";
+const uploadedVslEspanol = "https://raw.githubusercontent.com/clayverson02-max/entrenamientodeftbolll/main/WhatsApp%20Video%202026-09-20%20at%2001.55.51.mp4";
 
 const feedbacksTop = [
   {
@@ -351,8 +351,6 @@ function trackCheckout() {
   }
 }
 
-const CHECKOUT_MODAL_EVENT = "ecm:open-checkout-modal";
-
 function openCheckoutModal(url: string) {
   if (typeof window !== "undefined") {
     trackCheckout();
@@ -387,32 +385,18 @@ function CheckoutButton({
   href,
   children,
   variant = "solid",
-  direct = false,
 }: {
   href: string;
   children: string;
   variant?: "solid" | "outline";
-  /** true = va directo al checkout (usado dentro del pop-up de oferta) */
-  direct?: boolean;
 }) {
   const className =
     variant === "outline" ? "ecm-cta ecm-cta-outline" : "ecm-cta";
 
-  if (!direct) {
-    return (
-      <button type="button" onClick={openOfferModal} className={className}>
-        {children}
-        <ArrowRight className="h-5 w-5 flex-shrink-0" />
-      </button>
-    );
-  }
-
   return (
     <button
       type="button"
-      onClick={() => {
-        openCheckoutModal(href);
-      }}
+      onClick={() => openCheckoutModal(href)}
       className={className}
     >
       {children}
@@ -420,7 +404,6 @@ function CheckoutButton({
     </button>
   );
 }
-
 
 function PaySafety() {
   return (
@@ -443,8 +426,17 @@ function PaySafety() {
 
 
 
-function LazyVideo({ src, poster }: { src: string; poster: string }) {
+function LazyVideo({
+  src,
+  poster,
+  buttonLabel,
+}: {
+  src: string;
+  poster: string;
+  buttonLabel?: string;
+}) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
@@ -463,289 +455,85 @@ function LazyVideo({ src, poster }: { src: string; poster: string }) {
     return () => io.disconnect();
   }, [load]);
 
-  return (
-    <div ref={ref} className="aspect-video w-full bg-ink">
-      {load ? (
-        <video
-          src={src}
-          poster={poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls
-          preload="none"
-          className="aspect-video h-full w-full bg-ink object-cover"
-        />
-      ) : (
-        <img
-          src={poster}
-          alt="Vista previa del video de entrenamiento"
-          loading="lazy"
-          decoding="async"
-          className="aspect-video h-full w-full object-cover"
-        />
-      )}
-    </div>
-  );
-}
+  const openFullscreen = () => {
+    const video = videoRef.current as (HTMLVideoElement & {
+      webkitEnterFullscreen?: () => void;
+    }) | null;
 
-const OFFER_EVENT = "ecm:open-offer";
-
-
-function openOfferModal() {
-  if (typeof window !== "undefined") {
-    window.dispatchEvent(new Event(OFFER_EVENT));
-  }
-}
-
-const OFFER_PAINS = [
-  "Llegar al campo sin saber qué entrenar y improvisar delante del equipo",
-  "Repetir siempre los mismos ejercicios y ver el estancamiento",
-  "Perder horas buscando sesiones sueltas en YouTube que no sirven",
-  "Entrenar sin objetivo claro por posición, edad o nivel",
-];
-
-function OfferModal() {
-  const [step, setStep] = useState<null | "main" | "down">(null);
-  const [downUsed, setDownUsed] = useState(false);
-  const [left, setLeft] = useState(15 * 60);
-
-  useEffect(() => {
-    const onOpen = () => setStep("main");
-    window.addEventListener(OFFER_EVENT, onOpen);
-    return () => window.removeEventListener(OFFER_EVENT, onOpen);
-  }, []);
-
-  const close = () => {
-    if (step === "main" && !downUsed) {
-      setDownUsed(true);
-      setStep("down");
+    if (!video) {
+      setLoad(true);
+      window.setTimeout(() => {
+        const loadedVideo = videoRef.current as (HTMLVideoElement & {
+          webkitEnterFullscreen?: () => void;
+        }) | null;
+        if (loadedVideo?.requestFullscreen) {
+          void loadedVideo.requestFullscreen();
+        } else {
+          loadedVideo?.webkitEnterFullscreen?.();
+        }
+      }, 80);
       return;
     }
-    setStep(null);
+
+    if (video.requestFullscreen) {
+      void video.requestFullscreen();
+    } else {
+      video.webkitEnterFullscreen?.();
+    }
   };
 
-  useEffect(() => {
-    if (!step) return;
-    document.body.style.overflow = "hidden";
-    const id = setInterval(() => setLeft((v) => (v > 0 ? v - 1 : 0)), 1000);
-    return () => {
-      document.body.style.overflow = "";
-      clearInterval(id);
-    };
-  }, [step]);
-
-  if (!step) return null;
-
-  const mm = String(Math.floor(left / 60)).padStart(2, "0");
-  const ss = String(left % 60).padStart(2, "0");
-
-  const shell = (label: string, children: ReactNode) => (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={label}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/60 p-6 backdrop-blur-sm sm:p-8"
-      onClick={close}
-    >
-      <div
-        className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-primary/30 bg-card p-5 shadow-2xl sm:p-7 transition-all duration-300"
-        onClick={(e) => e.stopPropagation()}
-      >
+  return (
+    <div ref={ref} className="w-full">
+      <div className="flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-xl bg-ink sm:min-h-[320px]">
+        {load ? (
+          <video
+            ref={videoRef}
+            src={src}
+            poster={poster}
+            playsInline
+            controls
+            preload="metadata"
+            className="block max-h-[78vh] max-w-full object-contain"
+          />
+        ) : (
+          <img
+            src={poster}
+            alt="Vista previa del video de entrenamiento"
+            loading="lazy"
+            decoding="async"
+            className="block max-h-[78vh] max-w-full object-contain"
+          />
+        )}
+      </div>
+      {buttonLabel ? (
         <button
           type="button"
-          onClick={close}
-          aria-label="Cerrar"
-          className="absolute right-3 top-3 rounded-full p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          onClick={openFullscreen}
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-primary-foreground shadow-lg transition hover:brightness-110"
         >
-          <X className="h-5 w-5" />
+          <ArrowRight className="h-4 w-4" />
+          {buttonLabel}
         </button>
-        {children}
-      </div>
+      ) : null}
     </div>
-  );
-
-  if (step === "down") {
-    return shell(
-      "Oferta alternativa",
-      <>
-        <span className="inline-flex items-center gap-2 rounded-full bg-gold/15 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-foreground">
-          <Gift className="h-3.5 w-3.5 text-primary" /> Espera · última oportunidad
-        </span>
-
-        <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
-          ¿El precio te frenó? Empieza hoy con el{" "}
-          <span className="ecm-highlight">Paquete Básico</span>
-        </h2>
-
-        <p className="mt-3 text-sm text-muted-foreground">
-          No te vayas con las manos vacías: sigue improvisando entrenamientos sin objetivo
-          o empieza hoy mismo con las sesiones esenciales por menos de lo que cuesta un
-          café doble.
-        </p>
-
-        <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
-          <ul className="space-y-2">
-            {[
-              "Sesiones esenciales listas para imprimir",
-              "Ejercicios ilustrados paso a paso",
-              "Acceso inmediato y de por vida",
-              "Garantía de 7 días o te devolvemos el dinero",
-            ].map((b) => (
-              <li
-                key={b}
-                className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
-              >
-                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-5 text-center">
-          <p className="text-4xl font-black text-foreground">$9,99 USD</p>
-          <p className="mt-1 text-sm font-bold text-primary">Pago único · acceso de por vida</p>
-          <p className="mt-1 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
-            <Clock className="h-3.5 w-3.5" /> Esta condición expira en {mm}:{ss}
-          </p>
-        </div>
-
-        <div className="mt-5 flex flex-col items-center">
-          <button
-            type="button"
-            onClick={() => {
-              trackCheckout();
-              openCheckoutModal(CHECKOUT_BASICO_URL);
-            }}
-            className="ecm-cta ecm-cta-breathe w-full justify-center"
-          >
-            Quiero empezar por $9,99
-            <ArrowRight className="h-5 w-5 flex-shrink-0" />
-          </button>
-          <Badges />
-          <button
-            type="button"
-            onClick={() => setStep("main")}
-            className="mt-4 text-sm font-semibold text-muted-foreground underline"
-          >
-            Prefiero el Paquete Completo ($17,99)
-          </button>
-        </div>
-      </>,
-    );
-  }
-
-  return shell(
-    "Oferta principal",
-    <>
-      <span className="inline-flex items-center gap-2 rounded-full bg-destructive/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-destructive">
-        <Clock className="h-3.5 w-3.5" /> Oferta reservada por {mm}:{ss} · solo hoy
-      </span>
-
-      <h2 className="mt-4 text-[1.6rem] leading-tight sm:text-3xl">
-        Paquete Completo: tu{" "}
-        <span className="ecm-highlight">Plataforma de Entrenamiento</span> lista para usar
-      </h2>
-      <p className="mt-2 text-xs font-extrabold uppercase tracking-wider text-destructive">
-        ⚠️ Si cierras esta ventana pierdes el precio especial de lanzamiento
-      </p>
-
-      <p className="mt-3 text-sm font-semibold text-muted-foreground">
-        Deja de improvisar. Hoy mismo accedes a toda la biblioteca + videos didácticos + herramienta de planificación:
-      </p>
-      <ul className="mt-3 space-y-2">
-        {OFFER_PAINS.map((p) => (
-          <li key={p} className="flex items-start gap-2 text-sm text-foreground">
-            <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
-            <span>{p}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-5 rounded-xl border border-primary/25 bg-accent p-4">
-        <ul className="space-y-2">
-          {[
-            "+250 sesiones y +2.000 ejercicios en tu plataforma personal",
-            "Materiales en video integrados en cada ejercicio",
-            "Todo organizado por posición, categoría, edad y objetivo",
-            "Acceso inmediato y de por vida, un solo pago",
-          ].map((b) => (
-            <li
-              key={b}
-              className="flex items-start gap-2 text-sm font-semibold text-accent-foreground"
-            >
-              <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-              <span>{b}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-5 text-center">
-        <p className="text-sm font-semibold text-muted-foreground line-through">
-          Valor real $97 USD
-        </p>
-        <p className="mt-1 text-4xl font-black text-foreground">$17,99 USD</p>
-        <p className="mt-1 text-sm font-bold text-primary">Pago único · sin mensualidades</p>
-        <p className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider text-destructive">
-          <Clock className="h-3.5 w-3.5" /> Precio especial · solo por hoy
-        </p>
-      </div>
-
-      <div className="mt-5 flex flex-col items-center">
-        <button
-          type="button"
-          onClick={() => {
-            trackCheckout();
-            openCheckoutModal(CHECKOUT_URL);
-          }}
-          className="ecm-cta ecm-cta-breathe w-full justify-center"
-        >
-          Sí, quiero el Paquete Completo
-          <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </button>
-        <Badges />
-        <PaySafety />
-      </div>
-    </>,
   );
 }
 
-function Cta({
-  children,
-  checkout = false,
-}: {
-  children: string;
-  checkout?: boolean;
-}) {
+function Cta({ children }: { children: string }) {
   return (
     <div className="flex flex-col items-center">
-      {checkout ? (
-        <button
-          type="button"
-          onClick={() => {
-            trackCheckout();
-            openCheckoutModal(CHECKOUT_URL);
-          }}
-          className="ecm-cta"
-        >
-          {children}
-          <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </button>
-      ) : (
-        <button type="button" onClick={openOfferModal} className="ecm-cta">
-          {children}
-          <ArrowRight className="h-5 w-5 flex-shrink-0" />
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={() => openCheckoutModal(CHECKOUT_URL)}
+        className="ecm-cta"
+      >
+        {children}
+        <ArrowRight className="h-5 w-5 flex-shrink-0" />
+      </button>
       <Badges />
     </div>
   );
 }
-
-
 
 function Badges() {
   return (
@@ -927,51 +715,59 @@ function LandingPage() {
 
     <div className="bg-background">
       <ComprasRecientes />
-      <OfferModal />
       <CheckoutModal />
 
 
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-primary py-2.5 text-center text-xs font-extrabold uppercase tracking-[0.12em] text-primary-foreground sm:text-sm">
-        🔥 Promoción solo hoy · Si cierras esta página pierdes el precio especial · Cierra pronto
+        🔥 Precio especial por tiempo limitado · Acceso de por vida
       </div>
 
       {/* HERO */}
-      <section data-reveal className="px-4 pb-14 pt-10 sm:px-6 sm:pt-14">
+      <section data-reveal className="px-4 pb-8 pt-7 sm:px-6 sm:pt-10">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-4 py-1.5 text-sm font-bold text-accent-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
             <span className="ecm-pulse-dot" />
-            +2146 jugadores y entrenadores ya evolucionando
+            +2.000 ejercicios organizados
           </span>
 
-          <h1 className="mt-6 text-[2.1rem] leading-[1.18] sm:text-[3.4rem]">
-            Descubre el <span className="ecm-highlight">Método Profesional</span>{" "}
-            para Dejar de Improvisar Tus Entrenamientos y Evolucionar Más Rápido
+          <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[3.2rem]">
+            <span className="ecm-highlight">+2.000 entrenamientos de fútbol</span>{" "}
+            con materiales y videos en tu celular o computadora.{" "}
+            <span className="ecm-highlight">+4 bonos por menos que un café.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Accede a una <strong className="text-foreground">Plataforma Completa</strong>{" "}
-            de entrenamiento profesional: biblioteca organizada con{" "}
-            <span className="ecm-highlight font-bold">+250 sesiones y +2.000 ejercicios</span>,
-            más <strong className="text-foreground">materiales en video</strong> integrados
-            que te muestran exactamente cómo ejecutar cada ejercicio. Todo por{" "}
-            <strong className="text-foreground">posición, categoría y objetivo</strong>: en
-            menos de 5 minutos tienes la sesión de hoy lista para aplicar en el campo.{" "}
-            <strong className="text-foreground">Un solo pago, acceso de por vida.</strong>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            Una plataforma con sesiones, videos y ejercicios organizados por posición y objetivo.
+            Elige tu entrenamiento y empieza en menos de 5 minutos.
           </p>
 
-          <img
-            src={heroImg}
-            fetchPriority="high"
-            decoding="async"
-            alt="Biblioteca de entrenamientos por posición: Laterales, Porteros, Defensas y Delanteros"
-            width={1200}
-            height={1200}
-            className="mx-auto mt-8 w-full max-w-xl rounded-2xl"
-          />
+          <div className="ecm-card mx-auto mt-5 max-w-4xl overflow-hidden border-primary/25 bg-card p-3 text-left shadow-xl sm:p-6">
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary">
+                🎬 Mira la plataforma por dentro
+              </span>
+              <h2 className="mt-3 text-2xl font-black leading-tight sm:text-3xl">
+                Descubre cómo funciona
+              </h2>
+              <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+                Mira cómo acceder a tus entrenamientos y encontrar una sesión en pocos segundos.
+              </p>
+            </div>
 
-          <div className="mt-8">
-            {/* Botón eliminado según instrucción */}
+            <div className="mt-4">
+              <div className="overflow-hidden rounded-2xl border border-primary/30 bg-background p-2 shadow-lg sm:p-3">
+                <div className="p-3 text-center sm:p-4">
+                  <p className="text-sm font-extrabold uppercase tracking-wider text-primary">Video en español</p>
+                  <h3 className="mt-1 text-xl font-black sm:text-2xl">Descubre cómo usarla</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Accede, elige tu módulo y empieza a entrenar.
+                  </p>
+                </div>
+                <LazyVideo src={uploadedVslEspanol} poster={video1} buttonLabel="Ver vídeo en español" />
+              </div>
+            </div>
+
           </div>
 
           <div className="mt-5 flex items-center justify-center gap-2 text-sm font-semibold">
@@ -979,13 +775,13 @@ function LandingPage() {
             <span className="text-muted-foreground">4.9/5 · +2146 evaluaciones</span>
           </div>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          <div className="mt-5 grid gap-2 sm:grid-cols-3">
             {[
               ["+250", "sesiones listas"],
               ["+2.000", "ejercicios ilustrados"],
               ["5 min", "para armar tu sesión"],
             ].map(([n, d]) => (
-              <div key={d} className="ecm-card px-4 py-4 text-center">
+              <div key={d} className="ecm-card px-3 py-3 text-center">
                 <p className="font-display text-2xl text-primary sm:text-3xl">{n}</p>
                 <p className="mt-1 text-sm font-semibold text-muted-foreground">{d}</p>
               </div>
@@ -1056,16 +852,10 @@ function LandingPage() {
             seguridad desde el primer minuto.
           </p>
 
-          <div className="ecm-card mx-auto mt-10 max-w-3xl overflow-hidden">
-            <LazyVideo src={demoVideo.url} poster={video1} />
-            <div className="p-5 text-center">
-              <p className="text-base font-bold text-foreground">
-                Experiencia fluida en cualquier dispositivo
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Ejemplo del reproductor integrado que encontrarás en cada sesión.
-              </p>
-            </div>
+          <div className="mx-auto mt-8 max-w-2xl rounded-xl border border-border bg-secondary/50 p-5 text-center">
+            <p className="text-sm font-bold text-foreground">
+              Cada sesión cuenta con videos y explicaciones claras para que entiendas la técnica y la apliques correctamente.
+            </p>
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -1103,87 +893,60 @@ function LandingPage() {
       </section>
 
 
-      {/* DOLOR */}
+      {/* QUIÉN SOY */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Seamos honestos</Kicker>
-          <H2>¿Te Identificas con Alguna de Estas Situaciones?</H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Si respondes "sí" a dos o más de estas situaciones, probablemente el problema
-            no sea tu esfuerzo... sino la falta de un método claro para entrenar.
-          </p>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {dolores.map((d) => (
-              <div key={d} className="ecm-card flex gap-3 p-5">
-                <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-destructive" />
-                <p className="text-sm font-semibold leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-secondary p-6 text-center text-sm leading-relaxed text-muted-foreground">
-            El talento sin dirección se pierde. Cada semana entrenando a ciegas es una
-            semana que no vuelve, para ti o para los chicos que dependen de ti. Y nadie
-            se estanca por falta de ganas: se estanca por no saber qué entrenar hoy. Eso
-            se resuelve en 5 minutos, a partir de hoy.
-          </p>
-
-          <div className="mt-8">
-            <Cta>Quiero Salir de Esto Hoy Mismo</Cta>
-          </div>
-
-        </div>
-      </section>
-
-      {/* CÓMO FUNCIONA */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Mira la biblioteca por dentro</Kicker>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-              Accede a tu <strong>Área de Miembros</strong> profesional. Navega por categorías,
-              mira los videos y ten todo tu arsenal de entrenamiento organizado en un solo
-              lugar. Sin PDFs sueltos, todo en tu plataforma personal.
+        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
+          <img
+            src={coachImg}
+            alt="Coach Martínez, Entrenador Profesional"
+            loading="lazy"
+            width={912}
+            height={1104}
+            className="w-full rounded-2xl object-cover"
+          />
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
+              Quién soy · +15 años en el campo
             </p>
-
-
-          <div className="mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
-            {[
-              { src: paginasImg, alt: "Páginas reales de la biblioteca con diagramas de campo" },
-              { src: heroImg, alt: "Módulos de la biblioteca organizados por posición" },
-              { src: paginasImg, alt: "Ejercicios con pasos numerados y flechas de movimiento" },
-            ].map((img, i) => (
-              <img
-                key={i}
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="w-[85%] flex-shrink-0 snap-center rounded-2xl border border-border object-cover sm:w-[48%]"
-              />
-            ))}
-          </div>
-
-          <h3 className="mt-10 text-center text-2xl sm:text-3xl">
-            De la duda al campo en 3 pasos
-          </h3>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {pasos.map((p) => (
-              <div key={p.n} className="ecm-card p-6 text-center">
-                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-primary font-display text-xl text-primary-foreground">
-                  {p.n}
-                </div>
-                <h4 className="mt-4 font-extrabold">{p.t}</h4>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl">
+              Coach Martínez: Metodología que Forma Jugadores de Verdad
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Llevo más de <strong className="text-foreground">15 años</strong> como
+              entrenador profesional trabajando con academias, canteras y jugadores
+              amateur en toda Latinoamérica y España. He formado a más de{" "}
+              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
+              de 6 años hasta adultos en clubes semiprofesionales.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Esta biblioteca reúne{" "}
+              <strong className="text-foreground">toda mi metodología</strong> en un solo
+              lugar: los mismos ejercicios, la misma progresión y las mismas guías
+              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
+              Solo lo que funciona.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">+2.000</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Jugadores formados
+                </p>
               </div>
-            ))}
-          </div>
+              <div className="rounded-xl bg-secondary p-4 text-center">
+                <p className="font-display text-3xl text-primary">15</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  Años en el campo
+                </p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Cta>Quiero Entrenar con el Método del Coach</Cta>
+            </div>
 
-          <div className="mt-10">
-            <Cta>Quiero Acceso Inmediato</Cta>
           </div>
         </div>
       </section>
+
 
       {/* GALERÍA CONTENIDO */}
       <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
@@ -1269,118 +1032,6 @@ function LandingPage() {
           </div>
           <div className="mt-10">
             <Cta>Quiero mi Plataforma Completa</Cta>
-          </div>
-        </div>
-      </section>
-
-      {/* PERFILES */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Antes y después de la biblioteca</Kicker>
-          <H2>Elige tu Perfil y Mira lo que Cambia en Ti</H2>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-semibold text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-primary" /> Sesión lista en 5 minutos
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Smartphone className="h-4 w-4 text-primary" /> Todo desde el móvil, en el campo
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Target className="h-4 w-4 text-primary" /> Progresión clara, semana a semana
-            </span>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {[
-              { emoji: "⚽", tag: "Si eres jugador", title: "Dejas de Entrenar Sin Rumbo", items: jugador },
-              { emoji: "👨‍🏫", tag: "Si eres entrenador", title: "Recuperas tu Tiempo y tu Autoridad", items: entrenador },
-            ].map((col) => (
-              <div key={col.tag} className="ecm-card p-6">
-                <p className="text-sm font-bold text-primary">
-                  {col.emoji} {col.tag}
-                </p>
-                <h3 className="mt-2 text-2xl">{col.title}</h3>
-                <ul className="mt-5 space-y-4">
-                  {col.items.map(([t, d]) => (
-                    <li key={t} className="flex gap-3">
-                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-                      <div>
-                        <p className="text-sm font-bold">{t}</p>
-                        <p className="mt-0.5 text-sm text-muted-foreground">{d}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-          </div>
-        </div>
-      </section>
-
-      {/* ANTES VS DESPUÉS */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <Kicker>Antes vs Después</Kicker>
-          <H2>Dentro de 30 Días Vas a Estar en Uno de los Dos</H2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            El tiempo va a pasar igual. Lo único que cambia es si lo aprovechas con
-            método o lo sigues perdiendo.
-          </p>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-destructive/25 bg-destructive/5 p-6">
-              <h3 className="text-xl text-destructive">Si Sigues Como Hasta Hoy</h3>
-              <ul className="mt-4 space-y-3">
-                {antes.map((a) => (
-                  <li key={a} className="flex gap-3 text-sm">
-                    <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
-                    <span>{a}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-primary/30 bg-accent p-6">
-              <h3 className="text-xl text-primary">Si Empiezas Hoy con la Biblioteca</h3>
-              <ul className="mt-4 space-y-3">
-                {despues.map((a) => (
-                  <li key={a} className="flex gap-3 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                    <span>{a}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-10">
-          </div>
-        </div>
-      </section>
-
-      {/* PARA QUIÉN */}
-      <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-6xl">
-          <Kicker>Para quién es</Kicker>
-          <H2>Hecho para Alguien Como Tú</H2>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {perfiles.map(([t, d]) => (
-              <div key={t} className="ecm-card p-5">
-                <div className="flex items-center gap-2">
-                  <BadgeCheck className="h-5 w-5 flex-shrink-0 text-primary" />
-                  <p className="text-sm font-extrabold">{t}</p>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Cta>Sí, Ese Soy Yo, Quiero Mi Acceso</Cta>
           </div>
         </div>
       </section>
@@ -1476,8 +1127,8 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $9,99 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $17,99 USD</strong> con la
+            <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
+            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $6,50 USD</strong> con la
             plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
@@ -1516,10 +1167,10 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $17,99 <span className="text-2xl text-foreground">USD</span>
+                    $6,50 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    64% DESCUENTO · Ahorras $31,91
+                    80% DESCUENTO · Ahorras $39,91
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1581,10 +1232,10 @@ function LandingPage() {
                     De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $9,99 <span className="text-2xl text-muted-foreground">USD</span>
+                    $4,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    73% DESCUENTO · Ahorras $27,51
+                    83% DESCUENTO · Ahorras $31,00
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1617,60 +1268,6 @@ function LandingPage() {
       </section>
 
 
-      {/* QUIÉN SOY */}
-      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2">
-          <img
-            src={coachImg}
-            alt="Coach Martínez, Entrenador Profesional"
-            loading="lazy"
-            width={912}
-            height={1104}
-            className="w-full rounded-2xl object-cover"
-          />
-          <div>
-            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-primary">
-              Quién soy · +15 años en el campo
-            </p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">
-              Coach Martínez: Metodología que Forma Jugadores de Verdad
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Llevo más de <strong className="text-foreground">15 años</strong> como
-              entrenador profesional trabajando con academias, canteras y jugadores
-              amateur en toda Latinoamérica y España. He formado a más de{" "}
-              <strong className="text-foreground">2.000 futbolistas</strong>, desde niños
-              de 6 años hasta adultos en clubes semiprofesionales.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Esta biblioteca reúne{" "}
-              <strong className="text-foreground">toda mi metodología</strong> en un solo
-              lugar: los mismos ejercicios, la misma progresión y las mismas guías
-              ilustradas que uso día tras día en el campo. Sin relleno. Sin teoría vacía.
-              Solo lo que funciona.
-            </p>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">+2.000</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Jugadores formados
-                </p>
-              </div>
-              <div className="rounded-xl bg-secondary p-4 text-center">
-                <p className="font-display text-3xl text-primary">15</p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Años en el campo
-                </p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <Cta>Quiero Entrenar con el Método del Coach</Cta>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* GARANTÍA */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
@@ -1685,7 +1282,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $9,99 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>

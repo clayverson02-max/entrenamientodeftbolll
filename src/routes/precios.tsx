@@ -9,12 +9,12 @@ export const Route = createFileRoute("/precios")({
       {
         name: "description",
         content:
-          "Planes simples: Gratis, Lifetime $9.99 y Mensual $5. Accede a la biblioteca completa y al Coach IA.",
+          "Elige el Paquete Completo por $9.99 o el Paquete Básico por $6.50. Accede a tus entrenamientos con método.",
       },
       { property: "og:title", content: "Precios — Elite Football Training" },
       {
         property: "og:description",
-        content: "Planes desde $0. Oferta Lifetime de lanzamiento a $9.99.",
+        content: "Paquetes de entrenamiento desde $6.50 con acceso inmediato y contenido organizado.",
       },
     ],
   }),
@@ -37,10 +37,10 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Lifetime",
+    name: "Paquete Completo",
     price: "$9.99",
     period: "pago único",
-    desc: "Oferta de lanzamiento. Acceso de por vida.",
+    desc: "La plataforma completa con todo el contenido y acceso de por vida.",
     features: [
       "Biblioteca completa",
       "Coach IA ilimitado",
@@ -54,17 +54,17 @@ const plans = [
     badge: "Recomendado",
   },
   {
-    name: "Mensual",
-    price: "$5",
-    period: "por mes",
-    desc: "Flexibilidad total, cancela cuando quieras.",
+    name: "Paquete Básico",
+    price: "$6.50",
+    period: "pago único",
+    desc: "Una selección completa para empezar a entrenar con método.",
     features: [
       "Biblioteca completa",
       "Coach IA ilimitado",
       "Nuevos ejercicios cada semana",
       "Cancela cuando quieras",
     ],
-    cta: "Suscribirme",
+    cta: "Elegir Paquete Básico",
     highlight: false,
   },
 ];
