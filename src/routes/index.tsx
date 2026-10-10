@@ -342,18 +342,23 @@ const faqs = [
 export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
 export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
-function trackCheckout() {
+function trackCheckout(plan: "completo" | "basico") {
   if (typeof window !== "undefined") {
     (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.(
       "track",
       "InitiateCheckout",
+      {
+        currency: "USD",
+        value: plan === "completo" ? 4.5 : 4,
+        content_name: plan === "completo" ? "Paquete Completo" : "Pack Delanteros",
+      },
     );
   }
 }
 
 function openCheckoutModal(url: string) {
   if (typeof window !== "undefined") {
-    trackCheckout();
+    trackCheckout(url === CHECKOUT_BASICO_URL ? "basico" : "completo");
     
     let finalUrl = url;
     try {
