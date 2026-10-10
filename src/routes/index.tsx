@@ -634,13 +634,13 @@ function TestimonialCard({
 
 const compras = [
   { nombre: "Lucas M.", ciudad: "Buenos Aires", plan: "Paquete Completo" },
-  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Básico" },
+  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Pack Delanteros" },
   { nombre: "Diego R.", ciudad: "Ciudad de México", plan: "Paquete Completo" },
   { nombre: "Javier S.", ciudad: "Madrid", plan: "Paquete Completo" },
-  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Básico" },
+  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Pack Delanteros" },
   { nombre: "Bruno F.", ciudad: "Lima", plan: "Paquete Completo" },
   { nombre: "Carlos V.", ciudad: "Montevideo", plan: "Paquete Completo" },
-  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Básico" },
+  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Pack Delanteros" },
 ];
 
 function ComprasRecientes() {
