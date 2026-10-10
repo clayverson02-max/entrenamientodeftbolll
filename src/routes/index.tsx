@@ -309,10 +309,10 @@ const incluye = [
 ];
 
 const incluyeBasico = [
-  "Plataforma Web: Módulo de Fútbol Femenino",
-  "Plataforma Web: Módulo de Fútbol Infantil",
-  "Plataforma Web: Acondicionamiento Físico",
-  "Diagramas de campo con pasos numerados",
+  "200 entrenamientos 100% enfocados en delanteros",
+  "Definición, remate, desmarques y movimientos dentro del área",
+  "Organizado por nivel y situación de juego",
+  "Video de cada ejercicio incluido",
   "Acceso inmediato y vitalicio",
   "Garantía incondicional de 7 días",
 ];
@@ -340,7 +340,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 export const CHECKOUT_URL = "https://pay.hotmart.com/P107284207G?checkoutMode=10";
-export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
+export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
 function trackCheckout() {
   if (typeof window !== "undefined") {
@@ -634,13 +634,13 @@ function TestimonialCard({
 
 const compras = [
   { nombre: "Lucas M.", ciudad: "Buenos Aires", plan: "Paquete Completo" },
-  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Paquete Básico" },
+  { nombre: "Andrés P.", ciudad: "Bogotá", plan: "Pack Delanteros" },
   { nombre: "Diego R.", ciudad: "Ciudad de México", plan: "Paquete Completo" },
   { nombre: "Javier S.", ciudad: "Madrid", plan: "Paquete Completo" },
-  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Paquete Básico" },
+  { nombre: "Mateo G.", ciudad: "Santiago", plan: "Pack Delanteros" },
   { nombre: "Bruno F.", ciudad: "Lima", plan: "Paquete Completo" },
   { nombre: "Carlos V.", ciudad: "Montevideo", plan: "Paquete Completo" },
-  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Paquete Básico" },
+  { nombre: "Pablo H.", ciudad: "Sevilla", plan: "Pack Delanteros" },
 ];
 
 function ComprasRecientes() {
@@ -1127,9 +1127,9 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Básico $4,50 USD</strong> para empezar hoy con
-            fútbol femenino, infantil y físico, o <strong className="text-foreground">Completo $6,50 USD</strong> con la
-            plataforma completa: biblioteca entera, videos didácticos y todos los bonos.
+            <strong className="text-foreground">Completo $5,00 USD</strong> con la plataforma completa:
+            biblioteca entera, videos didácticos y todos los bonos, o{" "}
+            <strong className="text-foreground">agrega el Pack de 200 Entrenamientos para Delanteros por $4,50 USD</strong>.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1167,10 +1167,10 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $6,50 <span className="text-2xl text-foreground">USD</span>
+                    $5,00 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    80% DESCUENTO · Ahorras $39,91
+                    90% DESCUENTO · Ahorras $44,90
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1225,7 +1225,10 @@ function LandingPage() {
                 Para empezar hoy
               </div>
               <div className="p-6 sm:p-8">
-                <h3 className="text-center text-2xl">Paquete Básico</h3>
+                <h3 className="text-center text-2xl">Pack Delanteros</h3>
+                <p className="mt-2 text-center text-sm font-bold text-primary">
+                  🔥 Agrega: 200 Entrenamientos Exclusivos para Delanteros
+                </p>
 
                 <div className="mt-6 text-center">
                   <p className="text-sm text-muted-foreground">
@@ -1235,7 +1238,7 @@ function LandingPage() {
                     $4,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    83% DESCUENTO · Ahorras $31,00
+                    88% DESCUENTO · Ahorras $33,00
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1257,7 +1260,7 @@ function LandingPage() {
 
                 <div className="mt-8 flex flex-col items-center">
                   <CheckoutButton href={CHECKOUT_BASICO_URL} variant="outline">
-                    Elegir Paquete Básico
+                    Sí, quiero agregar los 200 entrenamientos para delanteros
                   </CheckoutButton>
                   <PaySafety />
                 </div>
@@ -1282,7 +1285,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $5,00 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
