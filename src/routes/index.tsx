@@ -339,7 +339,7 @@ const faqs = [
 
 /* -------------------------------- helpers -------------------------------- */
 
-export const CHECKOUT_URL = "https://pay.hotmart.com/P107284207G?checkoutMode=10";
+export const CHECKOUT_URL = "https://pay.hotmart.com/G107438250J?checkoutMode=10";
 export const CHECKOUT_BASICO_URL = "https://pay.hotmart.com/A107783439V?checkoutMode=10";
 
 function trackCheckout() {
@@ -790,6 +790,77 @@ function LandingPage() {
         </div>
       </section>
 
+
+      {/* DIAGNÓSTICO DEL QUIZ */}
+      <section data-reveal className="border-t border-border bg-card px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <Kicker>Tu diagnóstico, sin filtros</Kicker>
+            <H2>
+              El problema no es tu falta de ganas.
+              <span className="ecm-highlight"> Es entrenar sin un sistema.</span>
+            </H2>
+            <p className="mt-4 text-muted-foreground">
+              Elige el perfil que más se parece a ti y reconoce lo que está frenando tu evolución.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <article className="ecm-card p-6 sm:p-8">
+              <div className="flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
+                  <span className="text-xl">🧢</span>
+                </div>
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-primary">Si eres entrenador</p>
+                  <h3 className="text-xl font-black">Entrenador con potencial, pero sin sistema.</h3>
+                </div>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "Llegas al campo sin un plan y dejas que la sesión se arme sola.",
+                  "Sin variedad, tus jugadores se estancan y pierden motivación.",
+                  "Entrenas sin conectar objetivo, posición y progresión.",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 border-l-2 border-gold pl-4 text-sm font-semibold">
+                Lo que te falta no es conocimiento: es tener la estructura lista para aplicar.
+              </p>
+            </article>
+            <article className="ecm-card p-6 sm:p-8">
+              <div className="flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-primary/10 text-primary">
+                  <span className="text-xl">⚽</span>
+                </div>
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-primary">Si eres jugador</p>
+                  <h3 className="text-xl font-black">Jugador con talento, pero sin plan.</h3>
+                </div>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm">
+                {[
+                  "Buscas ejercicios sueltos y sigues sin saber qué entrenar hoy.",
+                  "Repites los mismos errores cuando llega el partido.",
+                  "Sabes que puedes dar más, pero no tienes una progresión clara.",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0 text-destructive" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 border-l-2 border-gold pl-4 text-sm font-semibold">
+                El talento necesita dirección: una sesión clara, una técnica correcta y una progresión real.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* TU PLATAFORMA PERSONAL */}
       <section data-reveal className="border-t border-border px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-5xl">
@@ -1127,7 +1198,7 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Completo $5,00 USD</strong> con la plataforma completa:
+            <strong className="text-foreground">Completo $4,00 USD</strong> con la plataforma completa:
             biblioteca entera, videos didácticos y todos los bonos, o{" "}
             <strong className="text-foreground">agrega el Pack de 200 Entrenamientos para Delanteros por $4,50 USD</strong>.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
@@ -1167,10 +1238,10 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $5,00 <span className="text-2xl text-foreground">USD</span>
+                    $4,50 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    90% DESCUENTO · Ahorras $44,90
+                    91% DESCUENTO · Ahorras $45,40
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1238,7 +1309,7 @@ function LandingPage() {
                     $4,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    88% DESCUENTO · Ahorras $33,00
+                    89% DESCUENTO · Ahorras $33,50
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
