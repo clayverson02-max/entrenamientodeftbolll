@@ -350,7 +350,7 @@ function trackCheckout(plan: "completo" | "basico") {
       "InitiateCheckout",
       {
         currency: "USD",
-        value: plan === "completo" ? 4.5 : 4,
+        value: plan === "completo" ? 6.5 : 4.5,
         content_name: plan === "completo" ? "Paquete Completo" : "Pack Delanteros",
       },
       { eventID: eventId },
@@ -1205,9 +1205,9 @@ function LandingPage() {
           <Kicker>🔥 Precio Especial Solo Hoy</Kicker>
           <H2>Menos de lo que Gastas en una Cena. Para Siempre.</H2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            <strong className="text-foreground">Completo $4,50 USD</strong> con la plataforma completa:
+            <strong className="text-foreground">Completo $6,50 USD</strong> con la plataforma completa:
             biblioteca entera, videos didácticos y todos los bonos, o{" "}
-            <strong className="text-foreground">agrega el Pack de 200 Entrenamientos para Delanteros por $4,00 USD</strong>.
+            <strong className="text-foreground">agrega el Pack de 200 Entrenamientos para Delanteros por $4,50 USD</strong>.
             Un solo pago, sin mensualidades: el acceso llega a tu e-mail en minutos y es
             tuyo de por vida, con{" "}
             <strong className="text-foreground">7 días de garantía total</strong>.
@@ -1245,10 +1245,10 @@ function LandingPage() {
                     De <s>$49,90</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-primary">
-                    $4,50 <span className="text-2xl text-foreground">USD</span>
+                    $6,50 <span className="text-2xl text-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-highlight px-3 py-1 text-xs font-extrabold text-highlight-foreground">
-                    91% DESCUENTO · Ahorras $45,40
+                    87% DESCUENTO · Ahorras $43,40
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1313,10 +1313,10 @@ function LandingPage() {
                     De <s>$37,50</s> sólo por hoy
                   </p>
                   <p className="mt-1 font-display text-6xl text-foreground">
-                    $4,00 <span className="text-2xl text-muted-foreground">USD</span>
+                    $4,50 <span className="text-2xl text-muted-foreground">USD</span>
                   </p>
                   <p className="mt-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-extrabold text-foreground">
-                    89% DESCUENTO · Ahorras $33,50
+                    88% DESCUENTO · Ahorras $33,00
                   </p>
                   <p className="mt-3 text-sm font-bold text-primary">
                     ✅ Pago único · Acceso vitalicio
@@ -1363,7 +1363,7 @@ function LandingPage() {
             con tus propios ojos. Si sientes que no es para ti, por cualquier motivo y
             sin dar explicaciones, nos escribes un email y te devolvemos{" "}
             <strong className="text-foreground">hasta el último céntimo</strong>. Peor que
-            invertir $4,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
+            invertir $6,50 es seguir otros 6 meses entrenando a ciegas mientras otros avanzan.
           </p>
           <div className="mt-8">
           </div>
