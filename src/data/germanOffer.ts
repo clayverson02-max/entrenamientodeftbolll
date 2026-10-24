@@ -3,7 +3,7 @@ export const germanOffer = {
   name: "Training mit Methode",
   price: 9.9,
   priceLabel: "9,90 € inkl. MwSt.",
-  checkout: null as string | null, // [CHECKOUT-LINK-DE] must charge EUR 9.90 including VAT
+  checkout: "https://pay.hotmart.com/E108172204S?checkoutMode=10" as string | null,
   guaranteeDays: null as number | null, // [PLACEHOLDER] confirm 14 days in checkout and terms
   childrenAvailable: false, // [PLACEHOLDER] confirm the additional 250 sessions are live
   childrenReleaseDate: null as string | null,
