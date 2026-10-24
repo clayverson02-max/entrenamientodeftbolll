@@ -32,6 +32,7 @@ import {
   checkoutUrl,
 } from "@/lib/germanTracking";
 import { FootballArt } from "./FootballArt";
+import { GermanMiniVsl } from "./GermanMiniVsl";
 import preview from "@/assets/paginas-ejercicios.webp";
 import coach from "@/assets/coach-martinez.webp";
 import "@/german.css";
@@ -276,7 +277,7 @@ export function GermanLanding() {
             aria-labelledby={`tab-${persona}`}
             className="de-hero-grid"
           >
-            <div>
+            <div className="de-hero-copy">
               <p className="de-kicker">DEIN TRAINING. KLAR GEORDNET.</p>
               <h1>{copy.h1}</h1>
               <p className="de-lead">
@@ -285,6 +286,9 @@ export function GermanLanding() {
                   ? " Zusätzlich 250 Kindertrainings."
                   : ""}
               </p>
+            </div>
+            <GermanMiniVsl />
+            <div className="de-hero-details">
               <ul className="de-checks">
                 {copy.benefits.map((b) => (
                   <li key={b}>
@@ -306,7 +310,6 @@ export function GermanLanding() {
                 {guarantee ? " · 14 Tage Geld-zurück-Garantie" : ""}
               </p>
             </div>
-            <FootballArt persona={persona} />
           </div>
         </Section>
         <Section dark>

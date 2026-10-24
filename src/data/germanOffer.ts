@@ -21,8 +21,8 @@ export const germanOffer = {
   },
 } as const;
 export const media = {
-  vsl: "/videos/presentacion-plataforma.mp4",
-  vslPoster: "/images/presentacion-plataforma.webp",
+  vsl: "/videos/mini-vsl-de.mp4",
+  vslPoster: "/images/mini-vsl-de.jpg",
   samples: [1, 2, 3, 4].map((i) => ({
     src: `/videos/training-${i}.mp4`,
     poster: `/images/training-${i}.webp`,
