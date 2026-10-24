@@ -48,7 +48,7 @@ export function GermanMiniVsl() {
               alt="Coach Martínez zeigt die Trainingsplattform"
               width={720}
               height={1280}
-              fetchPriority="high"
+              loading="lazy"
               decoding="async"
             />
             <span className="de-mini-play">
@@ -62,7 +62,6 @@ export function GermanMiniVsl() {
           <Dialog.Overlay className="de-vsl-backdrop" />
           <Dialog.Content
             className="de-vsl-modal"
-            aria-describedby="de-vsl-description"
             onOpenAutoFocus={() => {
               const v = video.current;
               if (!v) return;
@@ -75,7 +74,7 @@ export function GermanMiniVsl() {
             <Dialog.Title className="sr-only">
               Training mit Methode · Mini-Präsentation
             </Dialog.Title>
-            <Dialog.Description id="de-vsl-description" className="sr-only">
+            <Dialog.Description className="sr-only">
               Coach Martínez stellt die Plattform auf Deutsch vor. Du kannst das Video jederzeit
               schließen.
             </Dialog.Description>
@@ -157,13 +156,11 @@ export function GermanMiniVsl() {
                     trackGerman("ClickZumAngebot", { source: "vsl" });
                     setTimeout(
                       () =>
-                        document
-                          .getElementById("angebot")
-                          ?.scrollIntoView({
-                            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-                              ? "instant"
-                              : "smooth",
-                          }),
+                        document.getElementById("angebot")?.scrollIntoView({
+                          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+                            ? "instant"
+                            : "smooth",
+                        }),
                       50,
                     );
                   }}

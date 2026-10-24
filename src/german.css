@@ -650,6 +650,36 @@
 }
 
 /* German mini VSL: no media download until the viewer presses play. */
+.de-hero-intro {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.de-hero-intro .de-checks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 28px;
+  gap: 18px;
+}
+.de-vsl-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  align-items: center;
+  gap: 48px;
+}
+.de-vsl-story .de-mini-vsl {
+  grid-column: auto;
+  grid-row: auto;
+}
+@media (max-width: 900px) {
+  .de-vsl-story {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .de-hero-intro .de-checks {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+}
 .de-hero-copy {
   grid-column: 1;
   grid-row: 1;

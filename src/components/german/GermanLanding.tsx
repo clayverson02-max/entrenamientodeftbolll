@@ -275,7 +275,7 @@ export function GermanLanding() {
             id="persona-content"
             role="tabpanel"
             aria-labelledby={`tab-${persona}`}
-            className="de-hero-grid"
+            className="de-hero-intro"
           >
             <div className="de-hero-copy">
               <p className="de-kicker">DEIN TRAINING. KLAR GEORDNET.</p>
@@ -287,7 +287,6 @@ export function GermanLanding() {
                   : ""}
               </p>
             </div>
-            <GermanMiniVsl />
             <div className="de-hero-details">
               <ul className="de-checks">
                 {copy.benefits.map((b) => (
@@ -312,7 +311,7 @@ export function GermanLanding() {
             </div>
           </div>
         </Section>
-        <Section dark>
+        <Section id="problem" dark>
           <div className="de-split">
             <div>
               <p className="de-kicker">KOMMT DIR DAS BEKANNT VOR?</p>
@@ -330,7 +329,33 @@ export function GermanLanding() {
           </div>
           <p className="de-statement">Talent allein reicht nicht. Es braucht Struktur.</p>
         </Section>
-        <Section>
+        <Section id="methode-video">
+          <div className="de-vsl-story">
+            <div>
+              <p className="de-kicker">WENIGER SUCHEN. GEZIELTER TRAINIEREN.</p>
+              <h2>
+                Das Problem kennst du. Jetzt sieh dir den Weg zu einem klaren Trainingsplan an.
+              </h2>
+              <p className="de-lead">
+                Noch eine einzelne Übung löst das Planungsproblem nicht. Du brauchst eine Plattform,
+                in der Technik, Übungen und fertige Einheiten zusammenpassen.
+              </p>
+              <p>
+                Coach Martínez zeigt dir in 51 Sekunden, wie du aus über 2.000 Übungen und 250+
+                Trainingseinheiten nach Alter, Position und Ziel auswählst. Damit du auf dem Platz
+                weißt, was du trainierst und warum.
+              </p>
+              <p>
+                <strong>
+                  Sieh dir das Video an. Danach zeigen wir dir die Plattform und alles, was du
+                  bekommst.
+                </strong>
+              </p>
+            </div>
+            <GermanMiniVsl />
+          </div>
+        </Section>
+        <Section id="plattform">
           <div className="de-split">
             <div>
               <p className="de-kicker">ÖFFNEN. AUSWÄHLEN. TRAINIEREN.</p>
