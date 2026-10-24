@@ -7,7 +7,7 @@ Source of truth: `src/data/germanOffer.ts`.
 - `checkout`: supply the German checkout URL. Verify the final total is EUR 9.90 including VAT. The old USD checkout is intentionally not reused. The offer button stays disabled until configured.
 - `guaranteeDays`: confirm 14 days and the exact refund procedure in checkout/terms. No 14-day promise is displayed until this is confirmed.
 - `legal`: replace explicit placeholders for Impressum, Datenschutz, AGB, Widerrufsbelehrung and Kontakt with approved provider-specific text. No invented identity or email.
-- `subtitles`: provide reviewed German WebVTT subtitles. The original Spanish video is preserved with an honest German language notice.
+- Spanish mini VSL removed from the landing. Only the four training demonstration clips remain; source media files are preserved.
 - `childrenAvailable`: confirm that the additional 250 sessions are accessible. Until then they are marked planned, not included. Supply `childrenReleaseDate` and verified age range before advertising them as available.
 - `paymentMethods`: list only methods verified in the German checkout.
 - Existing source testimonials are translated with original names and locations, including Vancouver. Retain underlying evidence/permission. No unverified star rating or review count.
@@ -27,3 +27,7 @@ Source of truth: `src/data/germanOffer.ts`.
 
 Run `npm run build` and `npx tsc --noEmit`.
 Browser: test each `?p=` value, keyboard tabs, cookie reject/accept/revoke and pre-consent network requests, 50% scroll event, mobile 360/390/430px, media one at a time, no horizontal overflow, checkout query and EUR value after providing the URL. Test on physical iPhone Safari / Android Chrome before paid traffic. No measured 4G speed claim.
+
+## CTA revision
+
+No CTA in the hero, problem or children sections. Two scrolling CTAs remain: after the modules and bonus presentation, and in the final section. The only checkout button is inside the offer.

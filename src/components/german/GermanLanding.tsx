@@ -69,18 +69,17 @@ function OfferButton({ up = false }: { up?: boolean }) {
     </a>
   );
 }
-function Video({ index }: { index?: number }) {
+function Video({ index }: { index: number }) {
   const v = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [failed, setFailed] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const isMain = index === undefined;
-  const asset = isMain ? { src: media.vsl, poster: media.vslPoster } : media.samples[index];
+  const asset = media.samples[index];
   useEffect(() => {
     if (started) void v.current?.play().catch(() => setFailed(true));
   }, [started]);
   return (
-    <div className={isMain ? "de-vsl" : "de-video"}>
+    <div className="de-video">
       <video
         ref={v}
         src={started ? asset.src : undefined}
@@ -89,7 +88,7 @@ function Video({ index }: { index?: number }) {
         playsInline
         controls={started}
         width={480}
-        height={isMain ? 854 : 270}
+        height={270}
         onPlay={(e) => {
           setPlaying(true);
           document.querySelectorAll("video").forEach((other) => {
@@ -99,21 +98,18 @@ function Video({ index }: { index?: number }) {
         onError={() => setFailed(true)}
         onPause={() => setPlaying(false)}
       >
-        {isMain && offer.subtitles && (
-          <track kind="subtitles" src={offer.subtitles} srcLang="de" label="Deutsch" default />
-        )}
         Dein Browser unterstützt dieses Video nicht.
       </video>
       {!started && (
         <button
           type="button"
-          aria-label={isMain ? "Plattform-Präsentation ansehen" : "Trainingsbeispiel ansehen"}
+          aria-label="Trainingsbeispiel ansehen"
           onClick={() => {
             setStarted(true);
           }}
         >
           <Play fill="currentColor" />
-          <span>{isMain ? "PLATTFORM ANSEHEN" : "BEISPIEL ANSEHEN"}</span>
+          <span>BEISPIEL ANSEHEN</span>
         </button>
       )}
       {started && !failed && !playing && (
@@ -304,7 +300,7 @@ export function GermanLanding() {
                   </strong>
                 </p>
               )}
-              <OfferButton />
+
               <p className="de-note">
                 Einmalzahlung · Kein Abo · Sofortzugang
                 {guarantee ? " · 14 Tage Geld-zurück-Garantie" : ""}
@@ -312,19 +308,6 @@ export function GermanLanding() {
             </div>
             <FootballArt persona={persona} />
           </div>
-        </Section>
-        <Section id="video">
-          <div className="de-heading">
-            <p className="de-kicker">EIN BLICK IN DIE PLATTFORM</p>
-            <h2>Sieh selbst, was dich erwartet</h2>
-            <p>Keine losen Dateien. Deine Übungen, Videos und Einheiten an einem Ort.</p>
-          </div>
-          <Video />
-          {!offer.subtitles && (
-            <p className="de-note de-center">
-              Das bestehende Video ist auf Spanisch. Deutsche Untertitel sind noch nicht verfügbar.
-            </p>
-          )}
         </Section>
         <Section dark>
           <div className="de-split">
@@ -343,7 +326,6 @@ export function GermanLanding() {
             ))}
           </div>
           <p className="de-statement">Talent allein reicht nicht. Es braucht Struktur.</p>
-          <OfferButton />
         </Section>
         <Section>
           <div className="de-split">
@@ -412,7 +394,6 @@ export function GermanLanding() {
                 <strong>Für Eltern:</strong> Training zu Hause, das Spaß macht und Fortschritt
                 bringt.
               </p>
-              <OfferButton />
             </div>
             <FootballArt kind="kids" />
           </div>
@@ -500,6 +481,9 @@ export function GermanLanding() {
             ))}
           </div>
         </Section>
+        <div className="de-wrap de-content-cta">
+          <OfferButton />
+        </div>
         <Section>
           <div className="de-heading">
             <h2>Was Trainer, Spieler und Eltern sagen</h2>

@@ -643,3 +643,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+.de-content-cta {
+  padding: 12px 24px 44px;
+  text-align: center;
+}
